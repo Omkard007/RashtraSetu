@@ -102,7 +102,13 @@
   <a href="pages/politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician Properties</a>
   <a href="pages/updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
   <a href="pages/profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
-  <a href="#" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+  <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+<script>
+function logout(){
+localstorage.clear()
+window.location.href="../index.html"
+}
+</script>
 </div>
 
 
