@@ -473,7 +473,7 @@ async function login(){
         return;
     }
     const data=await res.json();
-    localStorage.setItem("user", JSON.stringify(data.user));
+    localStorage.setItem("user", JSON.stringify({...data.user,type:type}));
     enterApp(mobile, data.pincode,data.user.name);
 }
 
@@ -511,7 +511,7 @@ async function signup(){
         return;
     }
     const data=await res.json();
-    localStorage.setItem("user", JSON.stringify(data.user));
+    localStorage.setItem("user", JSON.stringify({...data.user,type:type}));
     enterApp(mobile, pin,name);
    console.log(data);
 }
