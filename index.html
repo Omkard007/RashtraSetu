@@ -118,7 +118,24 @@ window.onload = async()=>{
   renderIssue(issues)
   renderBills(bills)
 }
-
+const comment = (id,type)=>{
+const text = prompt("Enter your comment")
+if(text){
+  fetch("http://localhost:3000/api/comment",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+      id,
+      type,
+      comment:text
+    })
+  }).then(()=>{
+    window.location.reload()
+  })
+}
+}
 const renderIssue = (issues)=>{
  const issuesDivs =  issues.map(issue=>{
     return `
@@ -135,14 +152,24 @@ const renderIssue = (issues)=>{
             </div>
             <div class="post-actions">
               <button class="action-btn like-btn"><i class="fa-regular fa-heart"></i> <span>Like</span></button>
-              <button class="action-btn comment-btn"><i class="fa-regular fa-comment"></i> <span>Comment</span></button>
+              <button onclick={comment("${issue.id}","issue")} class="action-btn comment-btn"><i class="fa-regular fa-comment"></i> <span>Comment</span></button>
               <button class="action-btn share-btn"><i class="fa-solid fa-share"></i> <span>Share</span></button>
             </div>
-            <div class="post-comments"></div>
+            <div class="post-comments">
+              ${issue.comments.length>0?issue.comments.map(comment=>{
+                console.log(comment)
+                return `  
+                <div class="comment-item">
+                  <div>${comment.text}</div>
+                </div>
+                `
+              }).join(""):"<div class='empty-hint'>No comments yet</div>"}
+              </div>
           </div>
           `
           })
           document.getElementById("voiceSection").innerHTML = issuesDivs.join(" ")
+
   }
   const renderBills = (bills)=>{
     const billsDivs = bills.map(bill=>{
@@ -160,10 +187,19 @@ const renderIssue = (issues)=>{
             </div>
             <div class="post-actions">
               <button class="action-btn like-btn"><i class="fa-regular fa-heart"></i> <span>Like</span></button>
-              <button class="action-btn comment-btn"><i class="fa-regular fa-comment"></i> <span>Comment</span></button>
+              <button onclick={comment("${bill.id}","bill")} class="action-btn comment-btn"><i class="fa-regular fa-comment"></i> <span>Comment</span></button>
               <button class="action-btn share-btn"><i class="fa-solid fa-share"></i> <span>Share</span></button>
             </div>
-            <div class="post-comments"></div>
+            <div class="post-comments">
+               ${bill.comments.length>0?bill.comments.map(comment=>{
+                console.log(comment)
+                return `  
+                <div class="comment-item">
+                  <div>${comment.text}</div>
+                </div>
+                `
+              }).join(""):"<div class='empty-hint'>No comments yet</div>"}
+              </div>
           </div>
             `
             })
