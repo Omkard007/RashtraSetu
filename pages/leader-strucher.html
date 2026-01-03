@@ -278,7 +278,7 @@
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
     <h3>RashtraSetu</h3>
-    <a href="home.html" class="menu-item active"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="../index.html" class="menu-item active"><i class="fa-solid fa-house"></i>Home</a>
     <a href="#" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
     <a href="explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
     <a href="#" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
@@ -287,7 +287,13 @@
     <a href="#" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician Properties</a>
     <a href="update.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
     <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
-    <a href="#" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+<script>
+function logout(){
+localstorage.clear()
+window.location.href="../index.html"
+}
+</script>
   </div>
 
   <!-- Main Content -->

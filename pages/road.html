@@ -240,7 +240,13 @@
     <a href="#" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politicians</a>
     <a href="notification.html" class="menu-item"><i class="fa-solid fa-bell"></i>Notification</a>
     <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
-    <a href="#" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+<script>
+function logout(){
+localstorage.clear()
+window.location.href="../index.html"
+}
+</script>
   </div>
 
   <!-- SEARCH -->
