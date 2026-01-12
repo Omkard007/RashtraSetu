@@ -220,6 +220,18 @@
   </head>
 
   <body>
+    <script>
+      window.addEventListener("load",()=>{
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user){
+          alert("Please login first");
+          window.location.href = "/pages/profile.html";
+        }
+        if (user && user.type !== "leader") {
+          document.getElementById("openIssueBtn").disabled = true;
+        }
+      })
+    </script>
     <!-- SIDEBAR -->
     <div class="sidebar">
       <h3>RashtraSetu</h3>
