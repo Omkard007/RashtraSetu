@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,95 +15,210 @@
 
   <style>
     :root {
-      --navy:#06314a; --muted:#6c757d; --saffron:#FF9933; --green:#138808; --accent:#07b02b; --glass: rgba(255,255,255,0.88);
+      --navy: #06314a;
+      --muted: #6c757d;
+      --saffron: #FF9933;
+      --green: #138808;
+      --accent: #07b02b;
+      --glass: rgba(255, 255, 255, 0.88);
     }
 
-    html, body {
-      height:100%; margin:0; font-family:Inter,sans-serif; background:linear-gradient(180deg,#f6fbff,#eef6ff); color:#072033;
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: linear-gradient(180deg, #f6fbff, #eef6ff);
+      color: #072033;
     }
 
     /* Sidebar */
     .sidebar {
-      width:240px; height:100vh; background:#0A2647; color:#fff;
-      position:fixed; top:0; left:0; padding-top:25px; overflow-y:auto; transition:all 0.3s;
+      width: 240px;
+      height: 100vh;
+      background: #0A2647;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 25px;
+      overflow-y: auto;
+      transition: all 0.3s;
     }
+
     .sidebar h3 {
-      text-align:center; color:#FFDE59; margin-bottom:25px; font-size:22px; font-weight:bold;
+      text-align: center;
+      color: #FFDE59;
+      margin-bottom: 25px;
+      font-size: 22px;
+      font-weight: bold;
     }
+
     .menu-item {
-      color:#fff; padding:12px 20px; display:flex; align-items:center;
-      text-decoration:none; border-radius:5px; margin:2px 10px; transition:0.3s;
+      color: #fff;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 2px 10px;
+      transition: 0.3s;
     }
-    .menu-item i { margin-right:10px; }
-    .menu-item:hover, .menu-item.active { background:#144272; }
+
+    .menu-item i {
+      margin-right: 10px;
+    }
+
+    .menu-item:hover,
+    .menu-item.active {
+      background: #144272;
+    }
 
     /* Navbar */
     .rs-navbar {
-      background:var(--glass); backdrop-filter:blur(6px);
-      border-bottom:1px solid rgba(7,32,50,0.06);
-      position:fixed; top:0; left:240px; right:0; z-index:1050;
-      transition:left 0.3s;
+      background: var(--glass);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(7, 32, 50, 0.06);
+      position: fixed;
+      top: 0;
+      left: 240px;
+      right: 0;
+      z-index: 1050;
+      transition: left 0.3s;
     }
-    @media(max-width:768px) { .rs-navbar { left:0; } }
 
-    .brand { display:flex; gap:.6rem; align-items:center; font-weight:700; color:var(--navy); }
-    .brand img { height:44px; }
+    @media(max-width:768px) {
+      .rs-navbar {
+        left: 0;
+      }
+    }
+
+    .brand {
+      display: flex;
+      gap: .6rem;
+      align-items: center;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .brand img {
+      height: 44px;
+    }
 
     /* App content */
     .app-wrap {
-      margin-left:260px; padding:100px 20px 20px 20px; /* top padding for fixed navbar */
-      transition:margin-left 0.3s;
+      margin-left: 260px;
+      padding: 100px 20px 20px 20px;
+      /* top padding for fixed navbar */
+      transition: margin-left 0.3s;
     }
-    @media(max-width:1024px){ .app-wrap{ margin-left:250px; padding-top:100px; } }
-    @media(max-width:768px){ .app-wrap{ margin-left:0; padding-top:100px; } }
+
+    @media(max-width:1024px) {
+      .app-wrap {
+        margin-left: 250px;
+        padding-top: 100px;
+      }
+    }
+
+    @media(max-width:768px) {
+      .app-wrap {
+        margin-left: 0;
+        padding-top: 100px;
+      }
+    }
 
     /* Hero / header */
-    .hero { background: linear-gradient(180deg,#07324b,#0b4d6b); color:#fff; padding:26px 18px; border-radius:0 0 10px 10px; box-shadow:0 10px 30px rgba(6,49,74,0.12); }
-    .hero .title { font-size:1.6rem; font-weight:700; margin:0; }
-    .hero .subtitle { opacity:0.9; margin-top:6px; }
+    .hero {
+      background: linear-gradient(180deg, #07324b, #0b4d6b);
+      color: #fff;
+      padding: 26px 18px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 10px 30px rgba(6, 49, 74, 0.12);
+    }
+
+    .hero .title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .hero .subtitle {
+      opacity: 0.9;
+      margin-top: 6px;
+    }
 
     /* Card shells */
-    .card-shell { background:var(--glass); border-radius:12px; padding:16px; box-shadow:0 8px 22px rgba(9,33,56,0.06); border:1px solid rgba(11,37,64,0.04); margin-bottom:20px; }
+    .card-shell {
+      background: var(--glass);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 8px 22px rgba(9, 33, 56, 0.06);
+      border: 1px solid rgba(11, 37, 64, 0.04);
+      margin-bottom: 20px;
+    }
 
     /* Map height */
-    #map { height:400px; border-radius:10px; }
+    #map {
+      height: 400px;
+      border-radius: 10px;
+    }
 
     /* Update card styles */
-    .update-card { margin-bottom:16px; padding:12px; border-radius:10px; background:#fff; box-shadow:0 3px 12px rgba(0,0,0,0.05); }
-    .tag-trend { background:#ff5733; color:#fff; padding:2px 6px; font-size:10px; border-radius:4px; font-weight:700; }
-    .small-muted { color:#6c757d; font-size:0.85rem; }
+    .update-card {
+      margin-bottom: 16px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .tag-trend {
+      background: #ff5733;
+      color: #fff;
+      padding: 2px 6px;
+      font-size: 10px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .small-muted {
+      color: #6c757d;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
+
 <body>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-  <h3>RashtraSetu</h3>
-  <a href="../index.html" class="menu-item"><i class="fa-solid fa-house"></i>Home</a>
-  <a href="search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
-  <a href="explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
-  <a href="add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
-  <a href="add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
-  <a href="janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
-  <a href="about_our_leaders.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
-  <a href="politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician Properties</a>
-  <a href="Updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
-  <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
-  <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
-<script>
-function logout(){
-localstorage.clear()
-window.location.href="../index.html"
-}
-</script>
-</div>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3>RashtraSetu</h3>
+    <a href="../index.html" class="menu-item"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
+    <a href="explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
+    <a href="add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
+    <a href="add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
+    <a href="janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
+    <a href="about_our_leaders.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
+    <a href="politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician Properties</a>
+    <a href="Updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
+    <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
+    <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    <script>
+      function logout() {
+        localstorage.clear()
+        window.location.href = "../index.html"
+      }
+    </script>
+  </div>
 
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg rs-navbar">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-        <div style="width:50px; height:60px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:4px; background:#fff;">
+        <div
+          style="width:50px; height:60px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:4px; background:#fff;">
           <img src="national.png" alt="National Emblem" style="width:auto; height:100%;">
         </div>
         <div class="d-flex flex-column">
@@ -128,7 +244,8 @@ window.location.href="../index.html"
           <div class="dropdown">
             <button class="btn btn-light btn-sm position-relative" id="notifBtn" data-bs-toggle="dropdown">
               <i class="fa fa-bell"></i>
-              <span id="notifCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+              <span id="notifCount"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end p-2" aria-labelledby="notifBtn" style="min-width:260px;">
               <li class="mb-2"><strong>Notifications</strong></li>
@@ -159,21 +276,32 @@ window.location.href="../index.html"
           <div class="d-flex gap-3 flex-wrap">
             <div class="stat" aria-hidden="true">
               <div class="icon"><i class="fa fa-building"></i></div>
-              <div><div class="small-muted">Active Projects</div><div style="font-weight:700;font-size:18px;" id="statProjects">24</div></div>
+              <div>
+                <div class="small-muted">Active Projects</div>
+                <div style="font-weight:700;font-size:18px;" id="statProjects">24</div>
+              </div>
             </div>
             <div class="stat" aria-hidden="true">
               <div class="icon"><i class="fa fa-file-alt"></i></div>
-              <div><div class="small-muted">Policy Updates (30d)</div><div style="font-weight:700;font-size:18px;" id="statPolicies">6</div></div>
+              <div>
+                <div class="small-muted">Policy Updates (30d)</div>
+                <div style="font-weight:700;font-size:18px;" id="statPolicies">6</div>
+              </div>
             </div>
             <div class="stat" aria-hidden="true">
               <div class="icon"><i class="fa fa-bell"></i></div>
-              <div><div class="small-muted">Public Notices</div><div style="font-weight:700;font-size:18px;" id="statNotices">12</div></div>
+              <div>
+                <div class="small-muted">Public Notices</div>
+                <div style="font-weight:700;font-size:18px;" id="statNotices">12</div>
+              </div>
             </div>
           </div>
 
           <div class="d-flex gap-2 align-items-center">
-            <button class="btn btn-outline-secondary btn-sm" onclick="exportPDF()" title="Export visible updates">Export</button>
-            <button class="btn btn-outline-info btn-sm" onclick="subscribe()" title="Subscribe for updates">Subscribe</button>
+            <button class="btn btn-outline-secondary btn-sm" onclick="exportPDF()"
+              title="Export visible updates">Export</button>
+            <button class="btn btn-outline-info btn-sm" onclick="subscribe()"
+              title="Subscribe for updates">Subscribe</button>
             <button class="btn btn-primary btn-sm" onclick="openReport()" title="Report an issue">Report Issue</button>
           </div>
         </div>
@@ -181,34 +309,43 @@ window.location.href="../index.html"
     </section>
 
     <!-- Filters -->
+    <!-- Filters -->
     <section class="row gy-3 mt-3">
       <div class="col-12">
-        <div class="card-shell d-flex flex-wrap justify-content-between align-items-center gap-3">
-          <div class="filters d-flex flex-wrap gap-2">
-            <div class="input-group" style="min-width:320px;">
-              <input id="searchBox" class="form-control form-control-sm" placeholder="Search by title / district / description" aria-label="Search updates" oninput="applyFilters()">
-              <button class="btn btn-sm btn-primary" type="button" onclick="applyFilters()"><i class="fa fa-search"></i></button>
-            </div>
+        <div class="card-shell d-flex flex-wrap gap-3 align-items-center">
 
-            <div class="btn-group" role="group" aria-label="Category">
-              <button class="btn btn-chip btn-sm active" data-cat="all" onclick="setCategory(this)">All</button>
-              <button class="btn btn-chip btn-sm" data-cat="project" onclick="setCategory(this)">Projects</button>
-              <button class="btn btn-chip btn-sm" data-cat="law" onclick="setCategory(this)">Laws</button>
-              <button class="btn btn-chip btn-sm" data-cat="notice" onclick="setCategory(this)">Notices</button>
-            </div>
+          <!-- SEARCH BY TITLE -->
+          <div class="input-group" style="max-width:320px;">
+            <input id="titleSearch" class="form-control form-control-sm" placeholder="Search by title"
+              oninput="applyFilters()" />
+            <button class="btn btn-sm btn-primary" onclick="applyFilters()">
+              <i class="fa fa-search"></i>
+            </button>
           </div>
 
-          <div class="d-flex gap-2 align-items-center">
-            <label class="small-muted mb-0 me-1">Sort</label>
-            <select id="sortSelect" class="form-select form-select-sm" style="width:170px;" onchange="applyFilters()">
-              <option value="recent">Most recent</option>
-              <option value="progress">Progress</option>
-              <option value="district">District</option>
-            </select>
-          </div>
+          <!-- STATUS FILTER -->
+          <select id="statusFilter" class="form-select form-select-sm" style="max-width:160px;"
+            onchange="applyFilters()">
+            <option value="">ALL STATUS</option>
+            <option value="OPEN">OPEN</option>
+            <option value="INPROGRESS">IN_PROGRESS</option>
+            <option value="RESOLVED">RESOLVED</option>
+          </select>
+
+          <!-- PINCODE FILTER -->
+          <input id="pincodeFilter" class="form-control form-control-sm" placeholder="Filter by pincode"
+            style="max-width:160px;" oninput="applyFilters()" />
+
+          <!-- DATE SORT -->
+          <select id="dateSort" class="form-select form-select-sm" style="max-width:170px;" onchange="applyFilters()">
+            <option value="recent">Most Recent</option>
+            <option value="oldest">Oldest</option>
+          </select>
+
         </div>
       </div>
     </section>
+
 
     <!-- Updates + Right sidebar -->
     <section class="row gy-3 mt-3">
@@ -226,9 +363,7 @@ window.location.href="../index.html"
           <div id="updatesGrid" aria-live="polite" role="list"></div>
 
           <!-- pagination / load more -->
-          <div class="text-center mt-3">
-            <button class="btn btn-outline-primary btn-sm" onclick="loadMore()">Load more</button>
-          </div>
+          
         </div>
       </div>
 
@@ -296,366 +431,192 @@ window.location.href="../index.html"
 
   <!-- Your script goes here (unchanged, just paste your JS) -->
   <script>
+
+    let issues = [];
     /* ---------------------------
    Data (sample client-side dataset)
    Replace with real API calls in production
 --------------------------- */
 window.onload = async () => {
-const res = await fetch("https://viraj-backend.onrender.com/api/all-issues");
-const issues = (await res.json()).issues;
-/* App state */
-let visible = [...issues];
-let category = 'all';
-let map, markers = [];
-
-/* Utilities */
-const el = id => document.getElementById(id);
-const formatDate = d => new Date(d).toLocaleDateString('en-GB');
-
-/* Initialize */
-document.addEventListener('DOMContentLoaded', ()=> {
-  initMap();
-  renderAll();
-  populateStats();
-  populateTimeline();
-  populateNotifications();
-});
-
-/* Renders */
-function renderAll(){
+  const res = await fetch("https://viraj-backend.onrender.com/api/all-issues");
+  issues = (await res.json()).issues;
   applyFilters();
-  renderMapMarkers(visible);
-}
+};  
+  // ---- REQUIRED HELPERS (DO NOT REMOVE) ----
+  const el = (id) => document.getElementById(id);
 
-/* Filters & sorting logic */
-function setCategory(btn){
-  document.querySelectorAll('.btn-chip').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  category = btn.dataset.cat;
-  applyFilters();
-}
-
-function applyFilters(){
-  const q = el('searchBox').value.trim().toLowerCase();
-  const district = el('districtSelect').value;
-  const sortBy = el('sortSelect').value;
-
-  visible = updates.filter(u => {
-    if(category !== 'all' && u.category !== category) return false;
-    if(district !== 'All' && district !== 'all' && district !== u.district && district !== 'All') return false;
-    if(q){
-      const hay = (u.title+' '+u.desc+' '+u.district).toLowerCase();
-      if(!hay.includes(q)) return false;
-    }
-    return true;
-  });
-
-  if(sortBy === 'recent') visible.sort((a,b)=> new Date(b.date) - new Date(a.date));
-  if(sortBy === 'progress') visible.sort((a,b)=> (b.progress||0) - (a.progress||0));
-  if(sortBy === 'district') visible.sort((a,b)=> (a.district||'').localeCompare(b.district||''));
-
-  renderUpdatesGrid(visible.slice(0,20));
-  renderMapMarkers(visible);
-}
-
-/* Render updates grid */
-function renderUpdatesGrid(list){
-  const container = el('updatesGrid');
-  container.innerHTML = '';
-  if(list.length === 0){
-    container.innerHTML = '<div class="small-muted p-3">No updates match your filters.</div>';
-    return;
+  function escapeHtml(str = "") {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
   }
 
-  list.forEach(u => {
-    console.log(u);
-    const card = document.createElement('article');
-    card.className = 'update-card';
-    // border color
-    let border = u.category === 'project' ? '6px solid '+varToRgb('--accent','#07b02b') : u.category === 'law' ? '6px solid #ffcc00' : '6px solid #34b3ff';
-    card.style.borderLeft = border;
+  function shorten(text = "", len = 200) {
+    return text.length > len ? text.slice(0, len) + "..." : text;
+  }
 
-    card.innerHTML = `
+  function formatDate(date) {
+    return new Date(date).toLocaleDateString("en-GB");
+  }
+
+  function varToRgb(varName, fallback) {
+    const v = getComputedStyle(document.documentElement)
+      .getPropertyValue(varName);
+    return v ? v.trim() : fallback;
+  }
+    function renderUpdatesGrid(list) {
+        const container = el('updatesGrid');
+        container.innerHTML = '';
+        if (list.length === 0) {
+          container.innerHTML = '<div class="small-muted p-3">No updates match your filters.</div>';
+          return;
+        }
+
+        list.forEach(u => {
+          console.log(u);
+          const card = document.createElement('article');
+          card.className = 'update-card';
+          // border color
+          let border = u.category === 'project' ? '6px solid ' + varToRgb('--accent', '#07b02b') : u.category === 'law' ? '6px solid #ffcc00' : '6px solid #34b3ff';
+          card.style.borderLeft = border;
+
+          card.innerHTML = `
       <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
         <div style="flex:1;">
           <div style="font-weight:700; font-size:16px;">${escapeHtml(u.title)}</div>
           <div class="small-muted" style="margin-top:6px;">${formatDate(u.createdAt)}</div>
-          <p class="small-muted" style="margin-top:8px;">${escapeHtml(shorten(u.desc,190))}</p>
+          <p class="small-muted" style="margin-top:8px;">${escapeHtml(shorten(u.desc, 190))}</p>
         </div>
       </div>
     `;
-    container.appendChild(card);
+          container.appendChild(card);
+        });
+      }
+
+
+function applyFilters() {
+  const titleQuery = document.getElementById("titleSearch").value.toLowerCase();
+  const statusFilter = document.getElementById("statusFilter").value.toUpperCase();
+  const pincodeFilter = document.getElementById("pincodeFilter").value.trim();
+  const dateSort = document.getElementById("dateSort").value;
+
+  let filtered = issues.filter(issue => {
+    if (titleQuery && !issue.title?.toLowerCase().includes(titleQuery)) return false;
+    if (statusFilter && issue.status?.toUpperCase() !== statusFilter) return false;
+    if (pincodeFilter && !issue.pincode?.includes(pincodeFilter)) return false;
+    return true;
   });
-}
-renderUpdatesGrid(issues);
 
+  filtered.sort((a, b) =>
+    dateSort === "recent"
+      ? new Date(b.createdAt) - new Date(a.createdAt)
+      : new Date(a.createdAt) - new Date(b.createdAt)
+  );
 
-/* Shorten text safely */
-function shorten(text, len=200){
-  if(!text) return '';
-  return text.length > len ? text.slice(0,len).trim() + '...' : text;
-}
-
-/* Escape HTML (basic) */
-function escapeHtml(str){
-  if(!str) return '';
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  renderUpdatesGrid(filtered);
 }
 
-/* Details modal */
-function openDetails(id){
-  const u = updates.find(x=>x.id===id);
-  if(!u) return;
-  el('detailsTitle').innerText = u.title;
-  el('detailsBody').innerHTML = `
-    <div class="small-muted mb-2">${u.category.toUpperCase()} • ${u.district} • ${formatDate(u.date)}</div>
-    <div style="margin-bottom:12px;">${escapeHtml(u.desc)}</div>
-    ${u.progress !== null ? `<div class="small-muted">Progress: ${u.progress}%</div>
-      <div style="height:9px;background:#eef9f3;border-radius:6px;overflow:hidden;margin-top:8px;">
-        <div style="width:${u.progress}%;height:100%;background:linear-gradient(90deg,#07b02b,#05a08b);"></div>
-      </div>` : ''}
-    <div class="mt-3"><button class="btn btn-sm btn-outline-primary" onclick="openFeedback()">Give feedback</button></div>
-  `;
-  new bootstrap.Modal(el('detailsModal')).show();
-}
-
-/* Share (demo) */
-function shareUpdate(id){
-  const u = updates.find(x=>x.id===id);
-  if(!u) return alert('Share: ' + u.title);
-}
-
-/* Notifications & timeline */
-function populateNotifications(){
-  const trending = updates.filter(u=>u.trending);
-  const notifList = trending.map(t => `${t.title} — ${formatDate(t.date)}`).join('<br>');
-  el('notifList').innerHTML = notifList || 'No new notifications';
-  el('notifCount').textContent = trending.length ? `${trending.length} unread` : '0';
-  el('notifCount').className = trending.length ? '' : 'sr-only';
-}
-
-function populateTimeline(){
-  const box = el('timelineBox'); box.innerHTML = '';
-  const ordered = updates.slice().sort((a,b)=> new Date(b.date) - new Date(a.date));
-  ordered.forEach(u=>{
-    const d = document.createElement('div');
-    d.style.marginBottom = '14px';
-    d.innerHTML = `<div style="font-weight:700;">${escapeHtml(u.title)}</div><div class="small-muted">${formatDate(u.date)} • ${escapeHtml(u.district)}</div>`;
-    box.appendChild(d);
-  });
-  const breaking = updates.filter(u=> u.category==='notice' && daysAgo(u.date) <= 7);
-  el('breakingText').innerHTML = breaking.length ? breaking.map(b=>`${b.title} — ${formatDate(b.date)}`).join('<br>') : 'No active breaking alerts';
-}
-
-/* Helpers */
-function daysAgo(dateStr){ return Math.floor((new Date() - new Date(dateStr))/(1000*60*60*24)); }
-
-/* Stats */
-function populateStats(){
-  el('statProjects').innerText = updates.filter(u=>u.category==='project').length;
-  el('statPolicies').innerText = updates.filter(u=>u.category==='law').length;
-  el('statNotices').innerText = updates.filter(u=>u.category==='notice').length;
-}
-
-/* Load more (demo) */
-function loadMore(){ alert('Load more demo: fetch next page from server in production.'); }
-
-/* Clear alerts */
-function clearAlerts(){ el('breakingText').innerText = 'No active breaking alerts'; }
-
-/* Report / Feedback / Admin functions (front-end demo) */
-function openReport(){ new bootstrap.Modal(el('reportModal')).show(); }
-function openFeedback(){ new bootstrap.Modal(el('feedbackModal')).show(); }
-function openAdmin(){ new bootstrap.Modal(el('adminModal')).show(); }
-
-function submitReport(){
-  const msg = el('rMsg').value.trim();
-  if(!msg) return alert('Please describe the issue.');
-  alert('Thank you — your report has been submitted (demo).');
-  el('rMsg').value=''; new bootstrap.Modal(el('reportModal')).hide();
-}
-
-function submitFeedback(){
-  const msg = el('fMsg').value.trim();
-  if(!msg) return alert('Please write feedback.');
-  alert('Thanks for your feedback (demo).');
-  el('fMsg').value=''; new bootstrap.Modal(el('feedbackModal')).hide();
-}
-
-function addUpdate(){
-  const title = el('aTitle').value.trim();
-  const cat = el('aCategory').value;
-  const dist = el('aDistrict').value || 'All';
-  const desc = el('aDesc').value.trim();
-  const prog = parseInt(el('aProgress').value||'0',10);
-  const date = el('aDate').value || new Date().toISOString().slice(0,10);
-  const trending = el('aTrending').checked;
-  if(!title || !desc) return alert('Title and description are required.');
-  const id = Math.max(...updates.map(u=>u.id))+1;
-  updates.unshift({ id, category:cat, title, district:dist, desc, progress: cat==='project'? prog : null, date, trending, coords:[18.5,73.8] });
-  new bootstrap.Modal(el('adminModal')).hide();
-  populateStats(); populateTimeline(); populateNotifications(); applyFilters();
-  alert('Update added (frontend demo). Hook to backend to persist.');
-}
-
-/* Subscribe / Export (demo) */
-function subscribe(){ alert('Subscription demo: integrate FCM or email in backend.'); }
-function exportPDF(){ alert('Export demo: implement jsPDF or server export.'); }
-
-/* MAP: initialize and add markers */
-function initMap(){
-  map = L.map('map', { center:[19.0760,72.8777], zoom:6, zoomControl:true });
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    maxZoom:19, attribution:'© OpenStreetMap'
-  }).addTo(map);
-  renderMapMarkers(updates);
-}
-
-/* Render markers for provided list */
-function renderMapMarkers(list){
-  markers.forEach(m=> map.removeLayer(m));
-  markers = [];
-  list.forEach(u=>{
-    if(!u.coords) return;
-    const marker = L.circleMarker(u.coords, {
-      radius:8, color:u.category==='project' ? '#07b02b' : u.category==='law' ? '#ffcc00' : '#34b3ff',
-      fillColor:u.category==='project' ? '#07b02b' : u.category==='law' ? '#ffcc00' : '#34b3ff', fillOpacity:0.9
-    }).addTo(map);
-    marker.bindPopup(`<strong>${escapeHtml(u.title)}</strong><br><small class="small-muted">${escapeHtml(u.district)} • ${formatDate(u.date)}</small><br><button class="btn btn-sm btn-link" onclick="openDetails(${u.id})">View Details</button>`);
-    markers.push(marker);
-  });
-  if(markers.length){
-    const group = L.featureGroup(markers);
-    map.fitBounds(group.getBounds().pad(0.4));
-  }
-}
-
-/* small helper to convert CSS var fallback */
-function varToRgb(varName, fallback){
-  try{
-    const style = getComputedStyle(document.documentElement).getPropertyValue(varName);
-    return style ? style.trim() : fallback;
-  }catch(e){ return fallback; }
-}
-
-/* small: update map when district selector changes */
-el('districtSelect').addEventListener('change', function(){
-  const d = this.value;
-  if(d === 'all' || d === 'All'){
-    applyFilters();
-    return;
-  }
-  el('searchBox').value = '';
-  category = 'all';
-  document.querySelectorAll('.btn-chip').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.btn-chip[data-cat="all"]').classList.add('active');
-  visible = updates.filter(u=> u.district.toLowerCase() === d.toLowerCase() || u.district.toLowerCase() === 'all');
-  renderUpdatesGrid(visible);
-  renderMapMarkers(visible);
-});
-
-/* small helper: days since last sync (demo) */
-el('lastSync').innerText = new Date().toLocaleDateString('en-GB');
-}
-  </script> 
+  </script>
 
   <!-- Details Modal -->
-<div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="detailsTitle">Update Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body" id="detailsBody"></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+  <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailsTitle">Update Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="detailsBody"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Report Modal -->
-<div class="modal fade" id="reportModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Report an Issue</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <textarea id="rMsg" class="form-control" rows="5" placeholder="Describe the issue..."></textarea>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary btn-sm" onclick="submitReport()">Submit</button>
-        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+  <!-- Report Modal -->
+  <div class="modal fade" id="reportModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Report an Issue</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <textarea id="rMsg" class="form-control" rows="5" placeholder="Describe the issue..."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-sm" onclick="submitReport()">Submit</button>
+          <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Feedback Modal -->
-<div class="modal fade" id="feedbackModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Feedback</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <textarea id="fMsg" class="form-control" rows="5" placeholder="Write your feedback..."></textarea>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary btn-sm" onclick="submitFeedback()">Submit</button>
-        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+  <!-- Feedback Modal -->
+  <div class="modal fade" id="feedbackModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Feedback</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <textarea id="fMsg" class="form-control" rows="5" placeholder="Write your feedback..."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-sm" onclick="submitFeedback()">Submit</button>
+          <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Admin / Add Update Modal -->
-<div class="modal fade" id="adminModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Add New Update</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-2">
-          <input id="aTitle" class="form-control" placeholder="Title">
+  <!-- Admin / Add Update Modal -->
+  <div class="modal fade" id="adminModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Update</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <div class="mb-2">
-          <select id="aCategory" class="form-select">
-            <option value="project">Project</option>
-            <option value="law">Law</option>
-            <option value="notice">Notice</option>
-          </select>
+        <div class="modal-body">
+          <div class="mb-2">
+            <input id="aTitle" class="form-control" placeholder="Title">
+          </div>
+          <div class="mb-2">
+            <select id="aCategory" class="form-select">
+              <option value="project">Project</option>
+              <option value="law">Law</option>
+              <option value="notice">Notice</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <input id="aDistrict" class="form-control" placeholder="District (All if none)">
+          </div>
+          <div class="mb-2">
+            <textarea id="aDesc" class="form-control" rows="4" placeholder="Description"></textarea>
+          </div>
+          <div class="mb-2">
+            <input id="aProgress" type="number" class="form-control" placeholder="Progress (0-100)">
+          </div>
+          <div class="mb-2">
+            <input id="aDate" type="date" class="form-control">
+          </div>
+          <div class="form-check mb-2">
+            <input type="checkbox" class="form-check-input" id="aTrending">
+            <label class="form-check-label" for="aTrending">Mark as Trending</label>
+          </div>
         </div>
-        <div class="mb-2">
-          <input id="aDistrict" class="form-control" placeholder="District (All if none)">
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-sm" onclick="addUpdate()">Add Update</button>
+          <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
         </div>
-        <div class="mb-2">
-          <textarea id="aDesc" class="form-control" rows="4" placeholder="Description"></textarea>
-        </div>
-        <div class="mb-2">
-          <input id="aProgress" type="number" class="form-control" placeholder="Progress (0-100)">
-        </div>
-        <div class="mb-2">
-          <input id="aDate" type="date" class="form-control">
-        </div>
-        <div class="form-check mb-2">
-          <input type="checkbox" class="form-check-input" id="aTrending">
-          <label class="form-check-label" for="aTrending">Mark as Trending</label>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary btn-sm" onclick="addUpdate()">Add Update</button>
-        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-</div>
 
 </body>
+
 </html>
