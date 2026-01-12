@@ -1,357 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RashtraSetu - Explore</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RashtraSetu - Explore</title>
 
-    <style>
-      body {
-        background: #eef2f7;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-      }
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-      .sidebar {
-        width: 230px;
-        height: 100vh;
-        background: #0a2647;
-        color: #fff;
-        position: fixed;
-        padding-top: 25px;
-      }
+  <style>
+    body {
+      background: #eef2f7;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+    }
 
-      .sidebar h3 {
-        text-align: center;
-        color: #ffde59;
-        margin-bottom: 25px;
-        font-size: 22px;
-        font-weight: bold;
-      }
+    .sidebar {
+      width: 230px;
+      height: 100vh;
+      background: #0a2647;
+      color: #fff;
+      position: fixed;
+      padding-top: 25px;
+    }
 
-      .menu-item {
-        color: white;
-        padding: 12px 20px;
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        transition: 0.3s;
-        border-radius: 5px;
-        margin: 2px 10px;
-      }
+    .sidebar h3 {
+      text-align: center;
+      color: #ffde59;
+      margin-bottom: 25px;
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-      .menu-item i {
-        margin-right: 10px;
-      }
+    .menu-item {
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: 0.3s;
+      border-radius: 5px;
+      margin: 2px 10px;
+    }
 
-      .menu-item:hover,
-      .active {
-        background: #144272;
-      }
+    .menu-item i {
+      margin-right: 10px;
+    }
 
-      .content {
-        margin-left: 240px;
-        padding: 25px;
-      }
+    .menu-item:hover,
+    .active {
+      background: #144272;
+    }
 
-      .post-card {
-        background: #fff;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        border: 1px solid #eef2f7;
-      }
+    .content {
+      margin-left: 240px;
+      padding: 25px;
+    }
 
-      .post-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-      }
+    .post-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #eef2f7;
+    }
 
-      .post-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        transition: 0.4s ease-in-out;
-      }
+    .post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
 
-      .post-content {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-      }
+    .post-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: 0.4s ease-in-out;
+    }
 
-      .post-title {
-        font-size: 18px;
-        font-weight: 700;
-        color: #0a2647;
-        margin-bottom: 8px;
-        line-height: 1.4;
-      }
+    .post-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
 
-      .post-meta {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 12px;
-        font-size: 13px;
-        color: #6c757d;
-      }
+    .post-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0a2647;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
 
-      .post-desc {
-        font-size: 14px;
-        color: #555;
-        line-height: 1.6;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        margin-bottom: 15px;
-      }
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: #6c757d;
+    }
 
-      .status-badge {
-        padding: 5px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-      }
+    .post-desc {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
 
-      .status-Ongoing {
-        background: #fff3cd;
-        color: #856404;
-      }
-      .status-Pending {
-        background: #f8d7da;
-        color: #721c24;
-      }
-      .status-Resolved {
-        background: #d4edda;
-        color: #155724;
-      }
+    .status-badge {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
 
-      /* Modal */
-      .modal-custom {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(4px);
-        z-index: 1000;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        overflow-y: auto;
-        padding: 60px 20px 20px 20px;
-        animation: fadeInModal 0.3s ease-in-out;
-      }
+    .status-Ongoing {
+      background: #fff3cd;
+      color: #856404;
+    }
 
-      @keyframes fadeInModal {
-        from {
-          opacity: 0;
-        }
+    .status-Pending {
+      background: #f8d7da;
+      color: #721c24;
+    }
 
-        to {
-          opacity: 1;
-        }
-      }
+    .status-Resolved {
+      background: #d4edda;
+      color: #155724;
+    }
 
-      .modal-content-custom {
-        background: #fff;
-        border-radius: 15px;
-        width: 95%;
-        max-width: 1100px;
-        padding: 30px;
-        color: #000;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-        transform: translateY(-40px);
+    /* Modal */
+    .modal-custom {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-y: auto;
+      padding: 60px 20px 20px 20px;
+      animation: fadeInModal 0.3s ease-in-out;
+    }
+
+    @keyframes fadeInModal {
+      from {
         opacity: 0;
-        animation: slideDownModal 0.4s forwards;
       }
 
-      @keyframes slideDownModal {
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 10px;
-      }
-
-      .modal-header h3 {
-        margin: 0;
-        font-size: 22px;
-        color: #0a2647;
-      }
-
-      .close-btn {
-        font-size: 28px;
-        cursor: pointer;
-        color: #ff4c4c;
-        transition: 0.3s;
-      }
-
-      .close-btn:hover {
-        color: #ff0000;
-      }
-
-      .modal-body {
-        display: flex;
-        gap: 25px;
-        flex-wrap: wrap;
-      }
-
-      .modal-left {
-        flex: 2;
-        min-width: 300px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .modal-left img {
-        width: 100%;
-        border-radius: 12px;
-        max-height: 400px;
-        object-fit: cover;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .modal-left p {
-        font-size: 15px;
-        line-height: 1.6;
-        color: #333;
-      }
-
-      .modal-right {
-        flex: 1;
-        min-width: 250px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        max-height: 500px;
-        overflow-y: auto;
-      }
-
-      .modal-right::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .modal-right::-webkit-scrollbar-thumb {
-        background-color: #0a2647;
-        border-radius: 5px;
-      }
-
-      .modal-right h5 {
-        margin-top: 0;
-        font-size: 17px;
-        color: #0a2647;
-      }
-
-      .user-report {
-        border: 1px solid #ddd;
-        padding: 12px;
-        border-radius: 10px;
-        margin-bottom: 12px;
-        background: #f7f9fc;
-        font-size: 14px;
-        transition: 0.3s;
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      .user-report.show {
+      to {
         opacity: 1;
+      }
+    }
+
+    .modal-content-custom {
+      background: #fff;
+      border-radius: 15px;
+      width: 95%;
+      max-width: 1100px;
+      padding: 30px;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      transform: translateY(-40px);
+      opacity: 0;
+      animation: slideDownModal 0.4s forwards;
+    }
+
+    @keyframes slideDownModal {
+      to {
         transform: translateY(0);
+        opacity: 1;
       }
+    }
 
-      .user-report:hover {
-        background: #e8f0fe;
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 22px;
+      color: #0a2647;
+    }
+
+    .close-btn {
+      font-size: 28px;
+      cursor: pointer;
+      color: #ff4c4c;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      color: #ff0000;
+    }
+
+    .modal-body {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .modal-left {
+      flex: 2;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .modal-left img {
+      width: 100%;
+      border-radius: 12px;
+      max-height: 400px;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-left p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .modal-right {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .modal-right::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-right::-webkit-scrollbar-thumb {
+      background-color: #0a2647;
+      border-radius: 5px;
+    }
+
+    .modal-right h5 {
+      margin-top: 0;
+      font-size: 17px;
+      color: #0a2647;
+    }
+
+    .user-report {
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      background: #f7f9fc;
+      font-size: 14px;
+      transition: 0.3s;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .user-report.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .user-report:hover {
+      background: #e8f0fe;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3>RashtraSetu</h3>
+    <a href="../index.html" class="menu-item"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
+    <a href="explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
+    <a href="add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
+    <a href="add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
+    <a href="janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
+    <a href="about_our_leaders.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
+    <a href="politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician Properties</a>
+    <a href="Updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
+    <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
+    <a href="#" onclick="logout()" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    <script>
+      function logout() {
+        localStorage.clear();
+        window.location.href = "../index.html";
       }
-    </style>
-  </head>
+    </script>
+  </div>
 
-  <body>
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-      <h3>RashtraSetu</h3>
-      <a href="../index.html" class="menu-item"
-        ><i class="fa-solid fa-house"></i>Home</a
-      >
-      <a href="search.html" class="menu-item"
-        ><i class="fa-solid fa-search"></i>Search</a
-      >
-      <a href="explore.html" class="menu-item"
-        ><i class="fa-solid fa-compass"></i>Explore</a
-      >
-      <a href="add-issue.html" class="menu-item"
-        ><i class="fa-solid fa-plus-circle"></i>Add Issues</a
-      >
-      <a href="add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
-      <a href="janadicar-final.html" class="menu-item"
-        ><i class="fa-solid fa-gavel"></i>Janadhikar</a
-      >
-      <a href="about_our_leaders.html" class="menu-item"
-        ><i class="fa-solid fa-users"></i>About Our Leaders</a
-      >
-      <a href="politician_property.html" class="menu-item"
-        ><i class="fa-solid fa-user-tie"></i>Politician Properties</a
-      >
-      <a href="Updates.html" class="menu-item"
-        ><i class="fa-solid fa-bell"></i>Updates</a
-      >
-      <a href="profile.html" class="menu-item"
-        ><i class="fa-solid fa-user"></i>Profile</a
-      >
-      <a href="#" onclick="logout()" class="menu-item"
-        ><i class="fa-solid fa-right-from-bracket"></i>Logout</a
-      >
-      <script>
-        function logout() {
-          localStorage.clear();
-          window.location.href = "../index.html";
-        }
-      </script>
+  <div class="content">
+    <h4 class="fw-bold mb-3">Explore 🔍</h4>
+    <p class="text-muted mb-4">
+      Trending issues posted by citizens in our community.
+    </p>
+    <div class="row g-3" id="issuesList">
+      <!-- Issues will be rendered here -->
     </div>
+  </div>
 
-    <div class="content">
-      <h4 class="fw-bold mb-3">Explore 🔍</h4>
-      <p class="text-muted mb-4">
-        Trending issues posted by citizens in our community.
-      </p>
-      <div class="row g-3" id="issuesList">
-        <!-- Issues will be rendered here -->
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <!-- <div class="modal-custom" id="issueModal">
+  <!-- Modal -->
+  <!-- <div class="modal-custom" id="issueModal">
       <div class="modal-content-custom">
         <div class="modal-header">
           <h3 id="modalTitle"></h3>
@@ -374,123 +351,215 @@
 </div>
 </div> -->
 
-    <script>
-      let issues = [];
+  <script>
+    let issues = [];
+    function getLoggedInUser() {
+      try {
+        return JSON.parse(localStorage.getItem("user"));
+      } catch {
+        return null;
+      }
+    }
+    async function updateIssueStatus(issueId, status, leaderNumber) {
+      try {
+        const res = await fetch(
+          `https://viraj-backend.onrender.com/api/leader/issue/update-status`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              id: issueId,
+              status: status,
+            })
+          }
+        );
 
-      window.onload = async () => {
-        try {
-          const res = await fetch("https://viraj-backend.onrender.com/api/all-issues");
-          const data = await res.json();
-          issues = data.issues || [];
-          renderIssues();
-        } catch (error) {
-          console.error("Error fetching issues:", error);
-          document.getElementById("issuesList").innerHTML = "<p class='text-center text-danger'>Failed to load issues.</p>";
+        if (!res.ok) {
+          alert("Failed to update status");
+          return;
         }
-      };
 
-      function renderIssues() {
-        const container = document.getElementById("issuesList");
-        container.innerHTML = "";
-        
-        if (issues.length === 0) {
-            container.innerHTML = "<p class='text-center'>No issues found.</p>";
-            return;
-        }
+        alert("Status updated successfully");
 
-        issues.forEach((issue, index) => {
-          const col = document.createElement("div");
-          col.className = "col-md-4 col-sm-6";
-          
-          // Handle missing fields gracefully
-          const title = issue.title || "Untitled Issue";
-          const desc = issue.desc || issue.description || "No description available";
-          const status = issue.status || "Pending";
-          const time = issue.createdAt ? new Date(issue.createdAt).toLocaleDateString() : "Recently";
-          const imageHtml = issue.image ? `<img src="${issue.image}" alt="${title}" />` : '';
+        // 🔄 refresh list
+        location.reload();
 
-          col.innerHTML = `
-            <div class="post-card" onclick="openModalWrapper(${index})">
-              ${imageHtml}
-              <div class="post-content">
-                <div class="post-title">${title}</div>
-                <div class="post-meta">
-                  <span><i class="fa-regular fa-clock"></i> ${time}</span>
-                  <span class="status-badge status-${status}">${status}</span>
-                </div>
-                <div class="post-desc">${desc}</div>
-                <div class="post-comments">
-                  <h6>Comments:</h6>
-                  ${issue.comments?.length > 0 ? issue.comments.map(comment => `<p class="post-desc">${comment.text}</p>`).join('') : '<p>No comments yet.</p>'}
-                </div>
-              </div>
-            </div>
-          `;
-          container.appendChild(col);
+      } catch (err) {
+        console.error(err);
+        alert("Something went wrong");
+      }
+    }
+
+    async function confirmStatusChange(issueId, newStatus) {
+      if (!newStatus) return;
+
+      const user = getLoggedInUser();
+      if (!user || user.type !== "leader") {
+        alert("Unauthorized action");
+        return;
+      }
+
+      const confirmAction = confirm(
+        `Change issue status to "${newStatus}"?\n\nThis action will notify citizens.`
+      );
+
+      if (!confirmAction) {
+        event.target.value = "";
+        return;
+      }
+
+      await updateIssueStatus(issueId, newStatus, user.number);
+    }
+
+    window.onload = async () => {
+      try {
+        const res = await fetch("https://viraj-backend.onrender.com/api/all-issues");
+        const data = await res.json();
+        issues = data.issues || [];
+        renderIssues();
+      } catch (error) {
+        console.error("Error fetching issues:", error);
+        document.getElementById("issuesList").innerHTML = "<p class='text-center text-danger'>Failed to load issues.</p>";
+      }
+    };
+
+    function renderIssues() {
+      const container = document.getElementById("issuesList");
+      container.innerHTML = "";
+
+      if (issues.length === 0) {
+        container.innerHTML = "<p class='text-center'>No issues found.</p>";
+        return;
+      }
+
+      issues.forEach((issue, index) => {
+        const col = document.createElement("div");
+        col.className = "col-md-4 col-sm-6";
+
+        // Handle missing fields gracefully
+        const title = issue.title || "Untitled Issue";
+        const desc = issue.desc || issue.description || "No description available";
+        const status = issue.status || "Pending";
+        const time = issue.createdAt ? new Date(issue.createdAt).toLocaleDateString() : "Recently";
+        const imageHtml = issue.image ? `<img src="${issue.image}" alt="${title}" />` : '';
+
+        const user = getLoggedInUser();
+        const isLeader = user?.type === "leader";
+
+        col.innerHTML = `
+  <div class="post-card">
+    ${imageHtml}
+    <div class="post-content">
+      <div class="post-title">${title}</div>
+
+      <div class="post-meta">
+        <span><i class="fa-regular fa-clock"></i> ${time}</span>
+        <span class="status-badge status-${status}">${status}</span>
+      </div>
+
+      <div class="post-desc">${desc}</div>
+
+      ${isLeader
+            ? `
+        <div class="mt-3">
+          <select 
+            class="form-select form-select-sm"
+            onchange="confirmStatusChange('${issue.id}', this.value)"
+          >
+            <option value="">Change status</option>
+            <option value="open">OPEN</option>
+            <option value="inProgress">IN_PROGRESS</option>
+            <option value="closed">CLOSED</option>
+          </select>
+        </div>
+        `
+            : ""
+          }
+
+      <div class="post-comments mt-3">
+        <h6>Comments:</h6>
+        ${issue.comments?.length > 0
+            ? issue.comments
+              .map(
+                (comment) =>
+                  `<p class="post-desc">${comment.text}</p>`
+              )
+              .join("")
+            : "<p>No comments yet.</p>"
+          }
+      </div>
+    </div>
+  </div>
+`;
+
+        container.appendChild(col);
+      });
+    }
+
+    function openModalWrapper(index) {
+      const issue = issues[index];
+      if (issue) {
+        openModal(
+          issue.title || "Untitled",
+          issue.status || "Pending",
+          issue.pincode || "Unknown Area",
+          issue.createdAt ? new Date(issue.createdAt).toLocaleDateString() : "Recently",
+          issue.desc || issue.description || "No description",
+          issue.userReports || [],
+          issue.image
+        );
+      }
+    }
+
+    function openModal(title, status, area, time, description, userReports, image) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalStatus").innerText = status;
+      document.getElementById("modalArea").innerText = area;
+      document.getElementById("modalTime").innerText = time;
+      document.getElementById("modalDescription").innerText = description;
+
+      const imgEl = document.getElementById("modalImage");
+      if (image) {
+        imgEl.src = image;
+        imgEl.style.display = "block";
+      } else {
+        imgEl.style.display = "none";
+      }
+
+      const userReportsDiv = document.getElementById("modalUserReports");
+      userReportsDiv.innerHTML = "";
+
+      if (userReports && userReports.length > 0) {
+        userReports.forEach((r, index) => {
+          let div = document.createElement("div");
+          div.className = "user-report";
+          div.innerText = r;
+          userReportsDiv.appendChild(div);
+          setTimeout(() => {
+            div.classList.add("show");
+          }, index * 150);
         });
+      } else {
+        userReportsDiv.innerHTML = "<p class='text-muted'>No user reports yet.</p>";
       }
 
-      function openModalWrapper(index) {
-        const issue = issues[index];
-        if (issue) {
-          openModal(
-            issue.title || "Untitled",
-            issue.status || "Pending",
-            issue.pincode || "Unknown Area",
-            issue.createdAt ? new Date(issue.createdAt).toLocaleDateString() : "Recently",
-            issue.desc || issue.description || "No description",
-            issue.userReports || [],
-            issue.image
-          );
-        }
+      document.getElementById("issueModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("issueModal").style.display = "none";
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function (event) {
+      const modal = document.getElementById("issueModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
       }
+    };
+  </script>
+</body>
 
-      function openModal(title, status, area, time, description, userReports, image) {
-        document.getElementById("modalTitle").innerText = title;
-        document.getElementById("modalStatus").innerText = status;
-        document.getElementById("modalArea").innerText = area;
-        document.getElementById("modalTime").innerText = time;
-        document.getElementById("modalDescription").innerText = description;
-        
-        const imgEl = document.getElementById("modalImage");
-        if (image) {
-            imgEl.src = image;
-            imgEl.style.display = "block";
-        } else {
-            imgEl.style.display = "none";
-        }
-
-        const userReportsDiv = document.getElementById("modalUserReports");
-        userReportsDiv.innerHTML = "";
-
-        if (userReports && userReports.length > 0) {
-            userReports.forEach((r, index) => {
-              let div = document.createElement("div");
-              div.className = "user-report";
-              div.innerText = r;
-              userReportsDiv.appendChild(div);
-              setTimeout(() => {
-                div.classList.add("show");
-              }, index * 150);
-            });
-        } else {
-            userReportsDiv.innerHTML = "<p class='text-muted'>No user reports yet.</p>";
-        }
-
-        document.getElementById("issueModal").style.display = "flex";
-      }
-
-      function closeModal() {
-        document.getElementById("issueModal").style.display = "none";
-      }
-
-      // Close modal when clicking outside
-      window.onclick = function (event) {
-        const modal = document.getElementById("issueModal");
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      };
-    </script>
-  </body>
 </html>
