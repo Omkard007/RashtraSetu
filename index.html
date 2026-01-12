@@ -13,6 +13,73 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    /* ===== FOOTER ===== */
+.gov-footer {
+  background: #0A2647;
+  color: #ffffff;
+  margin-left: 240px;
+  padding: 28px 20px 18px;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.footer-title {
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #FFDE59;
+  letter-spacing: 0.5px;
+}
+
+.footer-leaders {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.footer-leader {
+  text-align: center;
+  font-size: 13px;
+}
+
+.footer-leader img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  margin-bottom: 6px;
+}
+
+.footer-name {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-role {
+  font-size: 11px;
+  color: #a8dadc;
+}
+
+.footer-bottom {
+  margin-top: 22px;
+  font-size: 12px;
+  color: #cfd8dc;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 12px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .gov-footer {
+    margin-left: 0;
+  }
+}
+
     /* ===== FLOATING ADD BUTTON ===== */
 .fab-wrapper {
   position: fixed;
@@ -1223,6 +1290,43 @@ const deltaY =
     </button>
   </div>
 </div>
+<!-- FOOTER -->
+<footer class="gov-footer">
+  <div class="footer-container">
+    <h6 class="footer-title">National Leadership</h6>
+
+    <div class="footer-leaders">
+      <div class="footer-leader">
+        <img src="images/fadanvis.jpeg" alt="Devendra Fadnavis">
+        <div class="footer-name">Devendra Fadnavis</div>
+        <div class="footer-role">Chief Minister</div>
+      </div>
+
+      <div class="footer-leader">
+        <img src="images/shinde.jpeg" alt="Eknath Shinde">
+        <div class="footer-name">Eknath Shinde</div>
+        <div class="footer-role">Deputy CM</div>
+      </div>
+
+      <div class="footer-leader">
+        <img src="images/pawar.jpeg" alt="Ajit Pawar">
+        <div class="footer-name">Ajit Pawar</div>
+        <div class="footer-role">Deputy CM</div>
+      </div>
+
+      <div class="footer-leader">
+        <img src="images/shelar.jpeg" alt="Ashish Shelar">
+        <div class="footer-name">Ashish Shelar</div>
+        <div class="footer-role">IT Minister</div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 RashtraSetu • The Bridge Between Nation & Citizens
+    </div>
+  </div>
+</footer>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const fabMain = document.getElementById("fabMain");
