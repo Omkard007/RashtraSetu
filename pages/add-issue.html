@@ -172,6 +172,15 @@
   </head>
 
   <body>
+    <script>
+      window.addEventListener("load",()=>{
+        const user = JSON.parse(localStorage.getItem("user"));
+        if(!user){
+          alert("Please login first");
+          window.location.href = "/pages/profile.html";
+        }
+      })
+    </script>
     <!-- SIDEBAR -->
     <div class="sidebar">
       <h3>RashtraSetu</h3>
