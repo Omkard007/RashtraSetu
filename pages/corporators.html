@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Corporators | Transparency Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+
+/* ================= BASE ================= */
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+/* ================= GLASS CARD ================= */
+.corp-card {
+  perspective: 1200px;
+}
+
+.corp-inner {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.corp-card:hover .corp-inner {
+  transform: rotateY(180deg);
+}
+
+.corp-front, .corp-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+  padding: 20px;
+}
+
+/* FRONT */
+.corp-front img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.party-tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #144272;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.corp-front h5 {
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+.corp-front p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* BACK */
+.corp-back {
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.score-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 10px solid rgba(255,255,255,0.3);
+  border-top-color: #00ffcc;
+  margin: 30px auto 15px;
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* BUTTON */
+.btn-view {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  margin-top: 15px;
+}
+
+/* ================= SLIDE PANEL ================= */
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 420px;
+  height: 100%;
+  background: #ffffff;
+  color: #000;
+  z-index: 2000;
+  transition: 0.5s ease;
+  box-shadow: -15px 0 40px rgba(0,0,0,0.4);
+  padding: 25px;
+  overflow-y: auto;
+}
+
+.side-panel.active {
+  right: 0;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-header h5 {
+  font-weight: 700;
+}
+
+.close-panel {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* ================= AFFIDAVIT BLOCK ================= */
+.affi-box {
+  background: #f4f6fb;
+  border-radius: 14px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.affi-box h6 {
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+/* ================= DISCLAIMER ================= */
+.disclaimer {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container py-5">
+  <h2 class="text-center mb-5">Corporators — Civic Transparency</h2>
+
+  <div class="row g-4">
+
+    <!-- CARD -->
+    <div class="col-md-3">
+      <div class="corp-card">
+        <div class="corp-inner">
+
+          <!-- FRONT -->
+          <div class="corp-front">
+            <span class="party-tag">BJP</span>
+            <img src="../images/nitin_landge.jpeg">
+            <h5>Nitin Landge</h5>
+            <p>Ward 25 · Bhosari</p>
+          </div>
+
+          <!-- BACK -->
+          <div class="corp-back">
+            <div class="score-ring"></div>
+            <p>Performance Score</p>
+            <h4>78%</h4>
+            <button class="btn-view" onclick="openPanel()">View Details</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="text-center mt-5 disclaimer">
+    All data shown is based on self-declared affidavits submitted to the Election Commission of India.
+  </p>
+</div>
+
+<!-- ================= SLIDE-IN PANEL ================= -->
+<div class="side-panel" id="panel">
+  <div class="panel-header">
+    <h5>Nitin Landge — Overview</h5>
+    <span class="close-panel" onclick="closePanel()">✕</span>
+  </div>
+
+  <hr>
+
+  <h6>Personal Profile</h6>
+  <p><b>Education:</b> Graduate</p>
+  <p><b>Position:</b> Former Sabhapati</p>
+  <p><b>Experience:</b> Municipal Corporator</p>
+
+  <hr>
+
+  <h6>Affidavit Summary</h6>
+
+  <div class="affi-box">
+    <h6>Total Assets</h6>
+    <p>₹ 2.8 Crore</p>
+  </div>
+
+  <div class="affi-box">
+    <h6>Movable Assets</h6>
+    <p>₹ 65 Lakh</p>
+  </div>
+
+  <div class="affi-box">
+    <h6>Immovable Assets</h6>
+    <p>₹ 2.15 Crore</p>
+  </div>
+
+  <div class="affi-box">
+    <h6>Liabilities</h6>
+    <p>Nil</p>
+  </div>
+
+  <small class="text-muted">
+    Source: Election Commission of India (Self-declared affidavit)
+  </small>
+</div>
+
+<script>
+function openPanel() {
+  document.getElementById("panel").classList.add("active");
+}
+function closePanel() {
+  document.getElementById("panel").classList.remove("active");
+}
+</script>
+
+</body>
+</html>

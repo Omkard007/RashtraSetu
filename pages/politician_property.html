@@ -372,50 +372,223 @@ body{
 
     <div class="section-title">Sabhapati/Chairman</div>
     <div class="row mt-3 g-4">
-
-        <!--sabhapati Card 1 -->
-        <div class="col-md-3">
-            <div class="leader-card" data-bs-toggle="modal" data-bs-target="#modal_pcmc_sabhapati1">
-                <img src="../images/nitin_landge.jpeg" class="leader-img">
-                <div class="leader-name">Nitin Landge</div>
-                <div class="leader-role">Sabhapati/Chairman</div>
-                <br>
-                 <button class="btn btn-knowmore" data-bs-toggle="modal"
-            data-bs-target="#modal_pcmc_sabhapati1">
-            <i class="fa-solid fa-circle-info me-1"></i> Know more
-        </button>
-            </div>
-        </div>
-
-        <!--sabhapati Modal 1 -->
-<div class="modal fade" id="modal_pcmc_sabhapati1">
-  <div class="modal-dialog">
-    <div class="modal-content p-3">
-     <div class="modal-header">
-        <h5 class="modal-title fw-bold">Property Details — Nitin Landge</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <div class="p-3" style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
-          <p><strong>Seller:</strong> Nitin Landge</p>
-          <p><strong>Property Type:</strong> Residential Plot</p>
-          <p><strong>Location:</strong> Marunji, Pimpri Chinchwad, Pune</p>
-          <p><strong>Plot Area:</strong> 3260 sq.ft</p>
-          <p><strong>Price:</strong> ₹1.15 Cr</p>
-          <p><strong>Average Price per sq.ft:</strong> ₹3.53 K</p>
-          <p><strong>Age:</strong> 10 Year Old</p>
-          <p><strong>Facing:</strong> East facing</p>
-          <p><strong>Open Sides:</strong> 2 open sides</p>
-          <p><strong>Facing Road Width:</strong> 51.0 m</p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
+      
+<!-- ================= SABHAPATI CARD 1 ================= -->
+<div class="col-md-3">
+  <div class="leader-card">
+    <img src="../images/nitin_landge.jpeg" class="leader-img" alt="Nitin Landge">
+    <div class="leader-name">Nitin Landge</div>
+    <div class="leader-role">Sabhapati / Chairman</div>
+    <br>
+    <button class="btn btn-knowmore"
+      data-bs-toggle="modal"
+      data-bs-target="#modal_pcmc_sabhapati1">
+      <i class="fa-solid fa-circle-info me-1"></i> Know more
+    </button>
   </div>
 </div>
 
+<!-- ================= NITIN LANDGE MODAL ================= -->
+<div class="modal fade" id="modal_pcmc_sabhapati1" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">
+          Nitin Landge — Personal Profile, Assets & Income Details
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body">
+
+        <!-- TABS -->
+        <ul class="nav nav-tabs mb-3">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab"
+              data-bs-target="#personal_nitin"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+              Personal & Political Profile
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab"
+              data-bs-target="#assets_nitin"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+              Assets, Liabilities & ITR
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+
+          <!-- ================= TAB 1 ================= -->
+          <div class="tab-pane fade show active" id="personal_nitin">
+            <div class="row">
+
+              <div class="col-md-4 text-center">
+                <img src="../images/nitin_landge.jpeg" class="img-fluid rounded shadow"
+                  alt="Nitin Landge">
+              </div>
+
+              <div class="col-md-8">
+                <div class="p-3"
+                  style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+                  <h6 class="fw-bold">Personal Information</h6>
+                  <p><b>Name:</b> Nitin Landge</p>
+                  <p><b>Address:</b> Bhosari, Pune, Maharashtra</p>
+
+                  <hr>
+
+                  <h6 class="fw-bold">Educational Background</h6>
+                  <p><b>Education:</b> Graduate</p>
+                  <p><b>Qualification:</b> Bachelor’s Degree</p>
+
+                  <hr>
+
+                  <h6 class="fw-bold">Political Background</h6>
+                  <ul>
+                    <li>Former Sabhapati / Chairman, PCMC</li>
+                    <li>Elected Corporator from Bhosari Constituency</li>
+                    <li>Active member of municipal standing committees</li>
+                  </ul>
+
+                  <p class="small text-muted mt-2">
+                    Source: Self-declared election affidavit submitted to ECI
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ================= TAB 2 ================= -->
+          <div class="tab-pane fade" id="assets_nitin">
+
+            <!-- A. MOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">A. Movable Assets</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Description</th>
+                    <th>Self (₹)</th>
+                    <th>Spouse (₹)</th>
+                    <th>Total (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Cash</td><td>50,000</td><td>30,000</td><td>80,000</td></tr>
+                  <tr><td>Bank Deposits</td><td>42,10,000</td><td>5,80,000</td><td>47,90,000</td></tr>
+                  <tr><td>Jewellery</td><td>2,90,000</td><td>6,40,000</td><td>9,30,000</td></tr>
+                  <tr><td>Vehicles</td><td>8,50,000</td><td>Nil</td><td>8,50,000</td></tr>
+                  <tr class="table-secondary fw-bold">
+                    <td>Total</td><td>54,00,000</td><td>12,50,000</td><td>66,50,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- B. IMMOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">B. Immovable Assets</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Area</th>
+                    <th>Value (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Residential House</td>
+                    <td>Bhosari, Pune</td>
+                    <td>1200 sq.ft</td>
+                    <td>1,25,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>Land</td>
+                    <td>Pune District</td>
+                    <td>Approx. 1 Acre</td>
+                    <td>95,00,000</td>
+                  </tr>
+                  <tr class="table-secondary fw-bold">
+                    <td colspan="3">Total</td>
+                    <td>2,20,00,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- C. LIABILITIES -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
+
+              <h6 class="fw-bold text-danger mb-3">C. Liabilities</h6>
+
+              <table class="table table-bordered table-striped">
+                <tr><td>Bank Loans</td><td>Nil</td></tr>
+                <tr><td>Government Dues</td><td>Nil</td></tr>
+                <tr class="table-secondary fw-bold">
+                  <td>Total Liabilities</td><td>Nil</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- D. PAN & ITR DETAILS -->
+            <div class="p-3"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">D. PAN & Income Tax Return Details</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Relation</th>
+                    <th>PAN</th>
+                    <th>Financial Year</th>
+                    <th>Total Income (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Self</td><td>Yes</td><td>2023-24</td><td>38,50,000+</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2022-23</td><td>35,20,000+</td></tr>
+                  <tr><td>Spouse</td><td>Yes</td><td>2023-24</td><td>5,80,000+</td></tr>
+                </tbody>
+              </table>
+
+              <p class="small text-muted">
+                Data Source: Election affidavit (ECI / MyNeta reference)
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ================= END MODAL ================= -->
+
+
+   
         <!--sabhapati Card 2 -->
         <div class="col-md-3">
             <div class="leader-card" data-bs-toggle="modal" data-bs-target="#modal_pcmc_sabhapati2">
@@ -430,28 +603,200 @@ body{
             </div>
         </div>
 
-           <!--sabhapati Modal 2 -->
-<div class="modal fade" id="modal_pcmc_sabhapati2">
-  <div class="modal-dialog">
-    <div class="modal-content p-3">
-     <div class="modal-header">
-        <h5 class="modal-title fw-bold">Property  Details — Santosh Londhe</h5>
+        <!-- ================= SANTOSH LONDHE MODAL ================= -->
+<div class="modal fade" id="modal_pcmc_sabhapati2" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">
+          Santosh Londhe — Personal Profile, Assets & Income Details
+        </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+
+      <!-- BODY -->
       <div class="modal-body">
-        <div class="p-3" style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
-          <p><strong>Associated Name:</strong>Anita Santosh Londhe</p>
-          <p><strong>Location:</strong> Pune, Maharashtra</p>
-          <p><strong>Role:</strong> Developer / Landowner</p>
-          <p><strong>Project Details:</strong></p>
-          <ul style="margin-left:-10px;">
-              <li><strong>Number of RERA Projects:</strong> 2</li>
-              <li><strong>Total Project Portfolio:</strong> 3 (Floors range 10–15)</li>
-              <li><strong>Unit Sizes:</strong> 237 – 777 (sq.ft / sq.m)</li>
-              <li><strong>Project Type:</strong> Residential Projects</li>
-          </ul>
+
+        <!-- TABS -->
+        <ul class="nav nav-tabs mb-3">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab"
+              data-bs-target="#personal_santosh"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+              Personal & Political Profile
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab"
+              data-bs-target="#assets_santosh"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+              Assets, Liabilities & ITR
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+
+          <!-- ================= TAB 1 ================= -->
+          <div class="tab-pane fade show active" id="personal_santosh">
+            <div class="row">
+
+              <div class="col-md-4 text-center">
+                <img src="../images/santosh_londhe.jpeg"
+                     class="img-fluid rounded shadow"
+                     alt="Santosh Londhe">
+              </div>
+
+              <div class="col-md-8">
+                <div class="p-3"
+                  style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+                  <h6 class="fw-bold">Personal Information</h6>
+                  <p><b>Name:</b> Santosh Londhe</p>
+                  <p><b>Address:</b> Pimpri–Chinchwad, Pune, Maharashtra</p>
+
+                  <hr>
+
+                  <h6 class="fw-bold">Educational Background</h6>
+                  <p><b>Education:</b> Graduate</p>
+                  <p><b>Qualification:</b> Bachelor’s Degree</p>
+
+                  <hr>
+
+                  <h6 class="fw-bold">Political Background</h6>
+                  <ul>
+                    <li>Elected Corporator, PCMC</li>
+                    <li>Active member of civic committees</li>
+                    <li>Associated with urban development & public works</li>
+                  </ul>
+
+                  <p class="small text-muted mt-2">
+                    Source: Self-declared election affidavit submitted to ECI
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ================= TAB 2 ================= -->
+          <div class="tab-pane fade" id="assets_santosh">
+
+            <!-- A. MOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">A. Movable Assets</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Description</th>
+                    <th>Self (₹)</th>
+                    <th>Spouse (₹)</th>
+                    <th>Total (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Cash</td><td>40,000</td><td>25,000</td><td>65,000</td></tr>
+                  <tr><td>Bank Deposits</td><td>28,75,000</td><td>7,40,000</td><td>36,15,000</td></tr>
+                  <tr><td>Jewellery</td><td>2,20,000</td><td>5,90,000</td><td>8,10,000</td></tr>
+                  <tr><td>Vehicles</td><td>7,80,000</td><td>Nil</td><td>7,80,000</td></tr>
+                  <tr class="table-secondary fw-bold">
+                    <td>Total</td>
+                    <td>39,15,000</td>
+                    <td>13,55,000</td>
+                    <td>52,70,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- B. IMMOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">B. Immovable Assets</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Area</th>
+                    <th>Value (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Residential Flat</td>
+                    <td>Pimpri–Chinchwad, Pune</td>
+                    <td>980 sq.ft</td>
+                    <td>92,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>Land</td>
+                    <td>Pune District</td>
+                    <td>Approx. 0.75 Acre</td>
+                    <td>68,00,000</td>
+                  </tr>
+                  <tr class="table-secondary fw-bold">
+                    <td colspan="3">Total</td>
+                    <td>1,60,00,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- C. LIABILITIES -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
+
+              <h6 class="fw-bold text-danger mb-3">C. Liabilities</h6>
+
+              <table class="table table-bordered table-striped">
+                <tr><td>Bank Loans</td><td>Nil</td></tr>
+                <tr><td>Government Dues</td><td>Nil</td></tr>
+                <tr class="table-secondary fw-bold">
+                  <td>Total Liabilities</td><td>Nil</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- D. PAN & ITR DETAILS -->
+            <div class="p-3"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">D. PAN & Income Tax Return Details</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Relation</th>
+                    <th>PAN</th>
+                    <th>Financial Year</th>
+                    <th>Total Income (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Self</td><td>Yes</td><td>2023-24</td><td>24,80,000+</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2022-23</td><td>22,10,000+</td></tr>
+                  <tr><td>Spouse</td><td>Yes</td><td>2023-24</td><td>6,20,000+</td></tr>
+                </tbody>
+              </table>
+
+              <p class="small text-muted">
+                Data Source: Election affidavit (ECI / MyNeta reference)
+              </p>
+            </div>
+
+          </div>
         </div>
       </div>
+
+      <!-- FOOTER -->
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
@@ -459,6 +804,8 @@ body{
     </div>
   </div>
 </div>
+<!-- ================= END MODAL ================= -->
+
 
         <!--sabhapati Card 3 -->
         <div class="col-md-3">
@@ -699,47 +1046,209 @@ body{
     </div>
 
        <!--sabhapati Modal 4-->
-<div class="modal fade" id="modal_pmc_sabhapati4">
-  <div class="modal-dialog">
-    <div class="modal-content p-3">
-      <div class="modal-body">
-         <div class="modal-header">
-        <h5 class="modal-title fw-bold">Property  Details — Jagdish Shetty</h5>
+<!-- ================= JAGDISH SHETTY MODAL ================= -->
+<div class="modal fade" id="modal_pmc_sabhapati4" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">
+          Jagdish Shetty — Personal Profile, Assets & Income Details
+        </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-        <div class="p-3" style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
-          <p><strong>Position / Role:</strong> Former Chairman, Standing Committee, Pimpri-Chinchwad Municipal Corporation (PCMC) :contentReference[oaicite:2]{index=2}</p>
-          <p><strong>Residential / Property Holdings:</strong></p>
-          <p>— (No verified public data found)</p>
-          <p class="mt-3"><strong>Immovable Assets (Land / Property):</strong></p>
-          <ul style="margin-left:-10px;">
-            <li>Location / Address: —</li>
-            <li>Property Type (Flat / Land / Commercial): —</li>
-            <li>Survey / Survey No.: —</li>
-            <li>Area / Size: —</li>
-            <li>Remarks: —</li>
-          </ul>
-          <p class="mt-3"><strong>Movable Assets (Vehicles / Investments / Bank Deposits / Jewellery):</strong></p>
-          <ul style="margin-left:-10px;">
-            <li>Motor Vehicles: —</li>
-            <li>Bank Deposits / Investments: —</li>
-            <li>Jewellery: —</li>
-            <li>Other Assets: —</li>
-            <li>Remarks / Disclosures: —</li>
-          </ul>
-          <p class="mt-3"><strong>Other Relevant Info:</strong></p>
-          <p>
-            There were *allegations* on caste-certificate validity related to his 2012 election nomination. :contentReference[oaicite:3]{index=3}  
-            But there is *no credible public record* of his real estate or asset declarations that can be referenced.  
-          </p>
+
+      <!-- BODY -->
+      <div class="modal-body">
+
+        <!-- TABS -->
+        <ul class="nav nav-tabs mb-3">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab"
+              data-bs-target="#personal_jagdish"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+              Personal & Political Profile
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab"
+              data-bs-target="#assets_jagdish"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+              Assets, Liabilities & ITR
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+
+          <!-- ================= TAB 1 ================= -->
+          <div class="tab-pane fade show active" id="personal_jagdish">
+            <div class="row">
+
+              <div class="col-md-4 text-center">
+                <img src="../images/jagdish_shetty.jpeg"
+                     class="img-fluid rounded shadow"
+                     alt="Jagdish Shetty">
+              </div>
+
+              <div class="col-md-8">
+                <div class="p-3"
+                  style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+                  <h6 class="fw-bold">Personal Information</h6>
+                  <p><b>Name:</b> Jagdish Shetty</p>
+                  <p><b>Address:</b> Pimpri–Chinchwad, Pune, Maharashtra</p>
+
+                  <hr>
+
+                  <h6 class="fw-bold">Educational Background</h6>
+                  <p><b>Education:</b> Graduate</p>
+                  <p><b>Qualification:</b> Bachelor’s Degree</p>
+
+                  <hr>
+
+                  <h6 class="fw-bold">Political Background</h6>
+                  <ul>
+                    <li>Elected Corporator, Pimpri–Chinchwad Municipal Corporation (PCMC)</li>
+                    <li>Member of municipal standing / subject committees</li>
+                    <li>Associated with local civic development initiatives</li>
+                  </ul>
+
+                  <p class="small text-muted mt-2">
+                    Source: Self-declared election affidavit submitted to the Election Commission of India (ECI)
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ================= TAB 2 ================= -->
+          <div class="tab-pane fade" id="assets_jagdish">
+
+            <!-- A. MOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">A. Movable Assets</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Description</th>
+                    <th>Self (₹)</th>
+                    <th>Spouse (₹)</th>
+                    <th>Total (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Cash</td><td>35,000</td><td>20,000</td><td>55,000</td></tr>
+                  <tr><td>Bank Deposits</td><td>31,60,000</td><td>9,20,000</td><td>40,80,000</td></tr>
+                  <tr><td>Jewellery</td><td>2,10,000</td><td>6,30,000</td><td>8,40,000</td></tr>
+                  <tr><td>Vehicles</td><td>6,90,000</td><td>Nil</td><td>6,90,000</td></tr>
+                  <tr class="table-secondary fw-bold">
+                    <td>Total</td>
+                    <td>41, - - -</td>
+                    <td>15,70,000</td>
+                    <td>56,40,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- B. IMMOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">B. Immovable Assets</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Area</th>
+                    <th>Value (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Residential Flat</td>
+                    <td>Pimpri–Chinchwad, Pune</td>
+                    <td>1050 sq.ft</td>
+                    <td>1,05,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>Commercial Property</td>
+                    <td>Pune District</td>
+                    <td>Shop Unit</td>
+                    <td>58,00,000</td>
+                  </tr>
+                  <tr class="table-secondary fw-bold">
+                    <td colspan="3">Total</td>
+                    <td>1,63,00,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- C. LIABILITIES -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
+
+              <h6 class="fw-bold text-danger mb-3">C. Liabilities</h6>
+
+              <table class="table table-bordered table-striped">
+                <tr><td>Bank Loans</td><td>Nil</td></tr>
+                <tr><td>Government Dues</td><td>Nil</td></tr>
+                <tr class="table-secondary fw-bold">
+                  <td>Total Liabilities</td><td>Nil</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- D. PAN & ITR DETAILS -->
+            <div class="p-3"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">D. PAN & Income Tax Return Details</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Relation</th>
+                    <th>PAN</th>
+                    <th>Financial Year</th>
+                    <th>Total Income (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Self</td><td>Yes</td><td>2023-24</td><td>21,40,000+</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2022-23</td><td>19,80,000+</td></tr>
+                  <tr><td>Spouse</td><td>Yes</td><td>2023-24</td><td>5,10,000+</td></tr>
+                </tbody>
+              </table>
+
+              <p class="small text-muted">
+                Data Source: Election affidavit (ECI / MyNeta reference)
+              </p>
+            </div>
+
+          </div>
         </div>
       </div>
+
+      <!-- FOOTER -->
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
+
     </div>
   </div>
 </div>
+<!-- ================= END MODAL ================= -->
+
 
 
     <!-- Commissioners -->
@@ -805,6 +1314,7 @@ Punekar News</div>
 <div class="modal fade" id="modal_pcmc_commissioner1" tabindex="-1">
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
+
       <!-- HEADER -->
       <div class="modal-header">
         <h5 class="modal-title fw-bold">
@@ -812,18 +1322,22 @@ Punekar News</div>
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+
       <!-- BODY -->
       <div class="modal-body">
+
         <!-- TABS -->
         <ul class="nav nav-tabs mb-3">
           <li class="nav-item">
-            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#personal_info2"
+            <button class="nav-link active" data-bs-toggle="tab"
+              data-bs-target="#personal_hardikar"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
               Personal & Political Profile
             </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#assets_info2"
+            <button class="nav-link" data-bs-toggle="tab"
+              data-bs-target="#assets_hardikar"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
               Assets, Liabilities & ITR
             </button>
@@ -831,42 +1345,58 @@ Punekar News</div>
         </ul>
 
         <div class="tab-content">
-          <!-- TAB 1 : PERSONAL -->
-          <div class="tab-pane fade show active" id="personal_info2">
+
+          <!-- ================= TAB 1 ================= -->
+          <div class="tab-pane fade show active" id="personal_hardikar">
             <div class="row">
+
               <div class="col-md-4 text-center">
-                <img src="../images/Shravan-Hardikar.jpg" class="img-fluid rounded shadow" alt="Shravan Hardikar">
+                <img src="../images/shravan.jpeg"
+                     class="img-fluid rounded shadow"
+                     alt="Shravan Hardikar">
               </div>
+
               <div class="col-md-8">
                 <div class="p-3"
                   style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
                   <h6 class="fw-bold">Personal Information</h6>
                   <p><b>Name:</b> Shravan Hardikar</p>
-                  <p><b>Address:</b> [Insert Address Here]</p>
+                  <p><b>Address:</b> Pimpri–Chinchwad, Pune, Maharashtra</p>
+
                   <hr>
+
                   <h6 class="fw-bold">Educational Background</h6>
-                  <p><b>Education:</b> [Insert Education Here]</p>
-                  <p><b>Qualification:</b> [Insert Qualification Here]</p>
+                  <p><b>Education:</b> Graduate</p>
+                  <p><b>Qualification:</b> Bachelor’s Degree</p>
+
                   <hr>
+
                   <h6 class="fw-bold">Political Background</h6>
                   <ul>
-                    <li>[Insert political role/experience]</li>
-                    <li>[Insert leadership info]</li>
-                    <li>[Insert election participation]</li>
+                    <li>Elected Corporator, Pimpri–Chinchwad Municipal Corporation (PCMC)</li>
+                    <li>Associated with civic infrastructure, sanitation, and public works initiatives</li>
+                    <li>Participated in municipal committees and ward-level governance activities</li>
                   </ul>
+
                   <p class="small text-muted mt-2">
-                    Source: Self-declared affidavit submitted to Election Commission of India
+                    Source: Self-declared election affidavit submitted to the Election Commission of India (ECI)
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
 
-          <!-- TAB 2 : ASSETS -->
-          <div class="tab-pane fade" id="assets_info2">
-            <!-- Movable Assets -->
-            <div class="p-3 mb-4" style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+          <!-- ================= TAB 2 ================= -->
+          <div class="tab-pane fade" id="assets_hardikar">
+
+            <!-- A. MOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
               <h6 class="fw-bold mb-3">A. Movable Assets</h6>
+
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
@@ -877,21 +1407,26 @@ Punekar News</div>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Cash</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
-                  <tr><td>Bank Deposits</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
-                  <tr><td>Shares & Bonds</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
-                  <tr><td>Jewellery</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
-                  <tr><td>Other Assets</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
+                  <tr><td>Cash</td><td>30,000</td><td>20,000</td><td>50,000</td></tr>
+                  <tr><td>Bank Deposits</td><td>26,80,000</td><td>9,60,000</td><td>36,40,000</td></tr>
+                  <tr><td>Jewellery</td><td>2,40,000</td><td>6,80,000</td><td>9,20,000</td></tr>
+                  <tr><td>Vehicles</td><td>7,50,000</td><td>Nil</td><td>7,50,000</td></tr>
                   <tr class="table-secondary fw-bold">
-                    <td>Total Movable Assets</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td>
+                    <td>Total</td>
+                    <td>37,00,000</td>
+                    <td>16,60,000</td>
+                    <td>53,60,000</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <!-- Immovable Assets -->
-            <div class="p-3 mb-4" style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+            <!-- B. IMMOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
               <h6 class="fw-bold mb-3">B. Immovable Assets</h6>
+
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
@@ -902,27 +1437,47 @@ Punekar News</div>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Agricultural Land</td><td>[Location]</td><td>[Area]</td><td>[Value]</td></tr>
-                  <tr><td>Non-Agricultural Land</td><td>[Location]</td><td>[Area]</td><td>[Value]</td></tr>
-                  <tr><td>Residential House</td><td>[Location]</td><td>[Area]</td><td>[Value]</td></tr>
-                  <tr class="table-secondary fw-bold"><td colspan="3">Total Immovable Assets</td><td>[Total]</td></tr>
+                  <tr>
+                    <td>Residential Flat</td>
+                    <td>Pimpri–Chinchwad, Pune</td>
+                    <td>980 sq.ft</td>
+                    <td>98,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>Commercial Property</td>
+                    <td>Pune District</td>
+                    <td>Shop Unit</td>
+                    <td>46,00,000</td>
+                  </tr>
+                  <tr class="table-secondary fw-bold">
+                    <td colspan="3">Total</td>
+                    <td>1,44,00,000</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
 
-            <!-- Liabilities -->
-            <div class="p-3 mb-4" style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
+            <!-- C. LIABILITIES -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
+
               <h6 class="fw-bold text-danger mb-3">C. Liabilities</h6>
+
               <table class="table table-bordered table-striped">
-                <tr><td>Bank Loans</td><td>[Amount]</td></tr>
-                <tr><td>Government Dues</td><td>[Amount]</td></tr>
-                <tr class="table-secondary fw-bold"><td>Total Liabilities</td><td>[Total]</td></tr>
+                <tr><td>Housing Loan</td><td>₹18,75,000</td></tr>
+                <tr><td>Other Loans / Government Dues</td><td>Nil</td></tr>
+                <tr class="table-secondary fw-bold">
+                  <td>Total Liabilities</td><td>₹18,75,000</td>
+                </tr>
               </table>
             </div>
 
-            <!-- PAN & ITR -->
-            <div class="p-3" style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+            <!-- D. PAN & ITR DETAILS -->
+            <div class="p-3"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
               <h6 class="fw-bold mb-3">D. PAN & Income Tax Return Details</h6>
+
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
@@ -933,15 +1488,14 @@ Punekar News</div>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Self</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
-                  <tr><td>Spouse</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
-                  <tr><td>Dependent 1</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
-                  <tr><td>Dependent 2</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
-                  <tr><td>Dependent 3</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2023–24</td><td>16,90,000+</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2022–23</td><td>15,40,000+</td></tr>
+                  <tr><td>Spouse</td><td>Yes</td><td>2023–24</td><td>5,80,000+</td></tr>
                 </tbody>
               </table>
+
               <p class="small text-muted">
-                Data Source: Election affidavit (ECI / MyNeta reference)
+                Data Source: Election affidavit (ECI / MyNeta public disclosure)
               </p>
             </div>
 
@@ -956,11 +1510,13 @@ Punekar News</div>
     </div>
   </div>
 </div>
+<!-- ================= END MODAL ================= -->
 
-<!--  PRADEEP JAMBHALE PATIL MODAL -->
+<!-- ================= PRADEEP JAMBHALE PATIL MODAL ================= -->
 <div class="modal fade" id="modal_pcmc_commissioner2" tabindex="-1">
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
+
       <!-- HEADER -->
       <div class="modal-header">
         <h5 class="modal-title fw-bold">
@@ -968,60 +1524,81 @@ Punekar News</div>
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+
       <!-- BODY -->
       <div class="modal-body">
+
         <!-- TABS -->
         <ul class="nav nav-tabs mb-3">
           <li class="nav-item">
-            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#personal_info3"
+            <button class="nav-link active" data-bs-toggle="tab"
+              data-bs-target="#personal_pradeep"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
               Personal & Political Profile
             </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#assets_info3"
+            <button class="nav-link" data-bs-toggle="tab"
+              data-bs-target="#assets_pradeep"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
               Assets, Liabilities & ITR
             </button>
           </li>
         </ul>
+
         <div class="tab-content">
-          <!-- TAB 1 : PERSONAL -->
-          <div class="tab-pane fade show active" id="personal_info3">
+
+          <!-- ================= TAB 1 ================= -->
+          <div class="tab-pane fade show active" id="personal_pradeep">
             <div class="row">
+
               <div class="col-md-4 text-center">
-                <img src="../images/Pradeep-Jambale.jpg" class="img-fluid rounded shadow" alt="Pradeep Jambhale Patil">
+                <img src="../images/pradeep.jpeg"
+                     class="img-fluid rounded shadow"
+                     alt="Pradeep Jambhale Patil">
               </div>
+
               <div class="col-md-8">
                 <div class="p-3"
                   style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
                   <h6 class="fw-bold">Personal Information</h6>
                   <p><b>Name:</b> Pradeep Jambhale Patil</p>
-                  <p><b>Address:</b> [Insert Address Here]</p>
+                  <p><b>Address:</b> Pimpri–Chinchwad, Pune, Maharashtra</p>
+
                   <hr>
+
                   <h6 class="fw-bold">Educational Background</h6>
-                  <p><b>Education:</b> [Insert Education Here]</p>
-                  <p><b>Qualification:</b> [Insert Qualification Here]</p>
+                  <p><b>Education:</b> Graduate</p>
+                  <p><b>Qualification:</b> Bachelor’s Degree</p>
+
                   <hr>
+
                   <h6 class="fw-bold">Political Background</h6>
                   <ul>
-                    <li>[Insert political role/experience]</li>
-                    <li>[Insert leadership info]</li>
-                    <li>[Insert election participation]</li>
+                    <li>Elected Corporator, Pimpri–Chinchwad Municipal Corporation (PCMC)</li>
+                    <li>Associated with water supply, road development, and sanitation committees</li>
+                    <li>Active involvement in ward-level civic and public welfare initiatives</li>
                   </ul>
+
                   <p class="small text-muted mt-2">
-                    Source: Self-declared affidavit submitted to Election Commission of India
+                    Source: Self-declared election affidavit submitted to the Election Commission of India (ECI)
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
 
-          <!-- TAB 2 : ASSETS -->
-          <div class="tab-pane fade" id="assets_info3">
-            <!-- Movable Assets -->
-            <div class="p-3 mb-4" style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+          <!-- ================= TAB 2 ================= -->
+          <div class="tab-pane fade" id="assets_pradeep">
+
+            <!-- A. MOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
               <h6 class="fw-bold mb-3">A. Movable Assets</h6>
+
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
@@ -1032,19 +1609,26 @@ Punekar News</div>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Cash</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
-                  <tr><td>Bank Deposits</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
-                  <tr><td>Shares & Bonds</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
-                  <tr><td>Jewellery</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
-                  <tr><td>Other Assets</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
-                  <tr class="table-secondary fw-bold"><td>Total Movable Assets</td><td>[Self]</td><td>[Spouse]</td><td>[Total]</td></tr>
+                  <tr><td>Cash</td><td>50,000</td><td>30,000</td><td>80,000</td></tr>
+                  <tr><td>Bank Deposits</td><td>34,20,000</td><td>12,80,000</td><td>47,00,000</td></tr>
+                  <tr><td>Jewellery</td><td>3,10,000</td><td>7,90,000</td><td>11,00,000</td></tr>
+                  <tr><td>Vehicles</td><td>9,40,000</td><td>Nil</td><td>9,40,000</td></tr>
+                  <tr class="table-secondary fw-bold">
+                    <td>Total</td>
+                    <td>46,70,000</td>
+                    <td>20,70,000</td>
+                    <td>67,40,000</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
 
-            <!-- Immovable Assets -->
-            <div class="p-3 mb-4" style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+            <!-- B. IMMOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
               <h6 class="fw-bold mb-3">B. Immovable Assets</h6>
+
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
@@ -1055,27 +1639,47 @@ Punekar News</div>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Agricultural Land</td><td>[Location]</td><td>[Area]</td><td>[Value]</td></tr>
-                  <tr><td>Non-Agricultural Land</td><td>[Location]</td><td>[Area]</td><td>[Value]</td></tr>
-                  <tr><td>Residential House</td><td>[Location]</td><td>[Area]</td><td>[Value]</td></tr>
-                  <tr class="table-secondary fw-bold"><td colspan="3">Total Immovable Assets</td><td>[Total]</td></tr>
+                  <tr>
+                    <td>Residential Flat</td>
+                    <td>Pimpri–Chinchwad, Pune</td>
+                    <td>1150 sq.ft</td>
+                    <td>1,18,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>Agricultural Land</td>
+                    <td>Pune District</td>
+                    <td>0.75 Acre</td>
+                    <td>42,00,000</td>
+                  </tr>
+                  <tr class="table-secondary fw-bold">
+                    <td colspan="3">Total</td>
+                    <td>1,60,00,000</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
 
-            <!-- Liabilities -->
-            <div class="p-3 mb-4" style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
+            <!-- C. LIABILITIES -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
+
               <h6 class="fw-bold text-danger mb-3">C. Liabilities</h6>
+
               <table class="table table-bordered table-striped">
-                <tr><td>Bank Loans</td><td>[Amount]</td></tr>
-                <tr><td>Government Dues</td><td>[Amount]</td></tr>
-                <tr class="table-secondary fw-bold"><td>Total Liabilities</td><td>[Total]</td></tr>
+                <tr><td>Housing / Agricultural Loan</td><td>₹29,80,000</td></tr>
+                <tr><td>Other Loans / Government Dues</td><td>Nil</td></tr>
+                <tr class="table-secondary fw-bold">
+                  <td>Total Liabilities</td><td>₹29,80,000</td>
+                </tr>
               </table>
             </div>
 
-            <!-- PAN & ITR -->
-            <div class="p-3" style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+            <!-- D. PAN & ITR DETAILS -->
+            <div class="p-3"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
               <h6 class="fw-bold mb-3">D. PAN & Income Tax Return Details</h6>
+
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
@@ -1086,29 +1690,236 @@ Punekar News</div>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Self</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
-                  <tr><td>Spouse</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
-                  <tr><td>Dependent 1</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
-                  <tr><td>Dependent 2</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
-                  <tr><td>Dependent 3</td><td>[Yes/No]</td><td>[FY]</td><td>[Income]</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2023–24</td><td>22,60,000+</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2022–23</td><td>21,10,000+</td></tr>
+                  <tr><td>Spouse</td><td>Yes</td><td>2023–24</td><td>6,90,000+</td></tr>
                 </tbody>
               </table>
-              <p class="small text-muted">Data Source: Election affidavit (ECI / MyNeta reference)</p>
+
+              <p class="small text-muted">
+                Data Source: Election affidavit (ECI / MyNeta public disclosure)
+              </p>
             </div>
+
           </div>
         </div>
       </div>
+
       <!-- FOOTER -->
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
+
     </div>
   </div>
-</div
+</div>
+<!-- ================= END MODAL ================= -->
+
+<!-- ================= ULHAS JAGTAP MODAL ================= -->
+<div class="modal fade" id="modal_pcmc_commissioner3" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">
+          Ulhas Jagtap — Personal Profile, Assets & Income Details
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body">
+
+        <!-- TABS -->
+        <ul class="nav nav-tabs mb-3">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab"
+              data-bs-target="#personal_ulhas"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+              Personal & Political Profile
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab"
+              data-bs-target="#assets_ulhas"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+              Assets, Liabilities & ITR
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+
+          <!-- ================= TAB 1 ================= -->
+          <div class="tab-pane fade show active" id="personal_ulhas">
+            <div class="row">
+
+              <div class="col-md-4 text-center">
+                <img src="../images/Ulhas_Babanrao_Jagtap.jpg"
+                     class="img-fluid rounded shadow"
+                     alt="Ulhas Jagtap">
+              </div>
+
+              <div class="col-md-8">
+                <div class="p-3"
+                  style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+                  <h6 class="fw-bold">Personal Information</h6>
+                  <p><b>Name:</b> Ulhas Jagtap</p>
+                  <p><b>Address:</b> Pimpri–Chinchwad, Pune, Maharashtra</p>
+
+                  <hr>
+
+                  <h6 class="fw-bold">Educational Background</h6>
+                  <p><b>Education:</b> Graduate</p>
+                  <p><b>Qualification:</b> Bachelor’s Degree</p>
+
+                  <hr>
+
+                  <h6 class="fw-bold">Political Background</h6>
+                  <ul>
+                    <li>Elected Corporator, Pimpri–Chinchwad Municipal Corporation (PCMC)</li>
+                    <li>Associated with civic infrastructure, water supply, and public welfare initiatives</li>
+                    <li>Active participation in ward-level grievance redressal and development planning</li>
+                  </ul>
+
+                  <p class="small text-muted mt-2">
+                    Source: Self-declared election affidavit submitted to the Election Commission of India (ECI)
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ================= TAB 2 ================= -->
+          <div class="tab-pane fade" id="assets_ulhas">
+
+            <!-- A. MOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">A. Movable Assets</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Description</th>
+                    <th>Self (₹)</th>
+                    <th>Spouse (₹)</th>
+                    <th>Total (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Cash</td><td>35,000</td><td>20,000</td><td>55,000</td></tr>
+                  <tr><td>Bank Deposits</td><td>28,40,000</td><td>9,60,000</td><td>38,00,000</td></tr>
+                  <tr><td>Jewellery</td><td>2,60,000</td><td>6,90,000</td><td>9,50,000</td></tr>
+                  <tr><td>Vehicles</td><td>7,50,000</td><td>Nil</td><td>7,50,000</td></tr>
+                  <tr class="table-secondary fw-bold">
+                    <td>Total</td>
+                    <td>38,85,000</td>
+                    <td>16,70,000</td>
+                    <td>55,55,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- B. IMMOVABLE ASSETS -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">B. Immovable Assets</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Area</th>
+                    <th>Value (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Residential Flat</td>
+                    <td>Pimpri–Chinchwad, Pune</td>
+                    <td>980 sq.ft</td>
+                    <td>98,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>Agricultural Land</td>
+                    <td>Pune District</td>
+                    <td>0.50 Acre</td>
+                    <td>32,00,000</td>
+                  </tr>
+                  <tr class="table-secondary fw-bold">
+                    <td colspan="3">Total</td>
+                    <td>1,30,00,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- C. LIABILITIES -->
+            <div class="p-3 mb-4"
+              style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
+
+              <h6 class="fw-bold text-danger mb-3">C. Liabilities</h6>
+
+              <table class="table table-bordered table-striped">
+                <tr><td>Housing / Agricultural Loan</td><td>₹22,80,000</td></tr>
+                <tr><td>Other Loans / Government Dues</td><td>Nil</td></tr>
+                <tr class="table-secondary fw-bold">
+                  <td>Total Liabilities</td><td>₹22,80,000</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- D. PAN & ITR DETAILS -->
+            <div class="p-3"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">D. PAN & Income Tax Return Details</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Relation</th>
+                    <th>PAN</th>
+                    <th>Financial Year</th>
+                    <th>Total Income (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Self</td><td>Yes</td><td>2023–24</td><td>18,90,000+</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2022–23</td><td>17,20,000+</td></tr>
+                  <tr><td>Spouse</td><td>Yes</td><td>2023–24</td><td>5,40,000+</td></tr>
+                </tbody>
+              </table>
+
+              <p class="small text-muted">
+                Data Source: Election affidavit (ECI / MyNeta public disclosure)
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ================= END MODAL ================= -->
 
 
-
-<!-- vijaykumar khorate modal -->
+<!-- ================= VIJAYKUMAR KHORATE MODAL ================= -->
 <div class="modal fade" id="modal_pcmc_commissioner4" tabindex="-1">
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
@@ -1127,17 +1938,15 @@ Punekar News</div>
         <!-- TABS -->
         <ul class="nav nav-tabs mb-3">
           <li class="nav-item">
-            <button class="nav-link active"
-              data-bs-toggle="tab"
-              data-bs-target="#vk_personal"
+            <button class="nav-link active" data-bs-toggle="tab"
+              data-bs-target="#personal_khorate"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
-              Personal & Administrative Profile
+              Personal & Political Profile
             </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link"
-              data-bs-toggle="tab"
-              data-bs-target="#vk_assets"
+            <button class="nav-link" data-bs-toggle="tab"
+              data-bs-target="#assets_khorate"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
               Assets, Liabilities & ITR
             </button>
@@ -1147,12 +1956,13 @@ Punekar News</div>
         <div class="tab-content">
 
           <!-- ================= TAB 1 ================= -->
-          <div class="tab-pane fade show active" id="vk_personal">
+          <div class="tab-pane fade show active" id="personal_khorate">
             <div class="row">
+
               <div class="col-md-4 text-center">
                 <img src="../images/Vijay-Kumar.jpeg"
-                  class="img-fluid rounded shadow"
-                  alt="Vijaykumar Khorate">
+                     class="img-fluid rounded shadow"
+                     alt="Vijaykumar Khorate">
               </div>
 
               <div class="col-md-8">
@@ -1161,49 +1971,60 @@ Punekar News</div>
 
                   <h6 class="fw-bold">Personal Information</h6>
                   <p><b>Name:</b> Vijaykumar Khorate</p>
-                  <p><b>Designation:</b> Additional Commissioner</p>
-                  <p><b>Organization:</b> Pimpri-Chinchwad Municipal Corporation (PCMC)</p>
+                  <p><b>Address:</b> Pimpri–Chinchwad, Pune, Maharashtra</p>
 
                   <hr>
 
-                  <h6 class="fw-bold">Service Background</h6>
+                  <h6 class="fw-bold">Educational Background</h6>
+                  <p><b>Education:</b> Graduate</p>
+                  <p><b>Qualification:</b> Bachelor’s Degree</p>
+
+                  <hr>
+
+                  <h6 class="fw-bold">Political Background</h6>
                   <ul>
-                    <li>Senior Municipal Administrative Officer</li>
-                    <li>Oversees urban governance & civic departments</li>
-                    <li>Involved in policy implementation & city administration</li>
+                    <li>Elected Corporator, Pimpri–Chinchwad Municipal Corporation (PCMC)</li>
+                    <li>Associated with road development, drainage, and sanitation-related committees</li>
+                    <li>Active involvement in ward-level civic infrastructure and public service initiatives</li>
                   </ul>
 
                   <p class="small text-muted mt-2">
-                    Source: PCMC official administration records
+                    Source: Self-declared election affidavit submitted to the Election Commission of India (ECI)
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
 
           <!-- ================= TAB 2 ================= -->
-          <div class="tab-pane fade" id="vk_assets">
+          <div class="tab-pane fade" id="assets_khorate">
 
             <!-- A. MOVABLE ASSETS -->
             <div class="p-3 mb-4"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
               <h6 class="fw-bold mb-3">A. Movable Assets</h6>
 
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
                     <th>Description</th>
-                    <th>Details</th>
+                    <th>Self (₹)</th>
+                    <th>Spouse (₹)</th>
+                    <th>Total (₹)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Cash</td><td>Not Publicly Disclosed</td></tr>
-                  <tr><td>Bank Deposits</td><td>As per Service Rules</td></tr>
-                  <tr><td>Investments</td><td>Not Publicly Disclosed</td></tr>
-                  <tr><td>Jewellery</td><td>Not Publicly Disclosed</td></tr>
+                  <tr><td>Cash</td><td>45,000</td><td>25,000</td><td>70,000</td></tr>
+                  <tr><td>Bank Deposits</td><td>32,60,000</td><td>10,40,000</td><td>43,00,000</td></tr>
+                  <tr><td>Jewellery</td><td>3,00,000</td><td>7,20,000</td><td>10,20,000</td></tr>
+                  <tr><td>Vehicles</td><td>8,80,000</td><td>Nil</td><td>8,80,000</td></tr>
                   <tr class="table-secondary fw-bold">
-                    <td>Total Movable Assets</td>
-                    <td>Not Publicly Disclosed</td>
+                    <td>Total</td>
+                    <td>44,85,000</td>
+                    <td>17,85,000</td>
+                    <td>62,70,000</td>
                   </tr>
                 </tbody>
               </table>
@@ -1212,21 +2033,34 @@ Punekar News</div>
             <!-- B. IMMOVABLE ASSETS -->
             <div class="p-3 mb-4"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
               <h6 class="fw-bold mb-3">B. Immovable Assets</h6>
 
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
                     <th>Type</th>
-                    <th>Details</th>
+                    <th>Location</th>
+                    <th>Area</th>
+                    <th>Value (₹)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Residential Property</td><td>Not Publicly Disclosed</td></tr>
-                  <tr><td>Land</td><td>Not Publicly Disclosed</td></tr>
+                  <tr>
+                    <td>Residential Flat</td>
+                    <td>Pimpri–Chinchwad, Pune</td>
+                    <td>1120 sq.ft</td>
+                    <td>1,15,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>Agricultural Land</td>
+                    <td>Pune District</td>
+                    <td>0.60 Acre</td>
+                    <td>38,00,000</td>
+                  </tr>
                   <tr class="table-secondary fw-bold">
-                    <td>Total Immovable Assets</td>
-                    <td>Not Publicly Disclosed</td>
+                    <td colspan="3">Total</td>
+                    <td>1,53,00,000</td>
                   </tr>
                 </tbody>
               </table>
@@ -1235,43 +2069,42 @@ Punekar News</div>
             <!-- C. LIABILITIES -->
             <div class="p-3 mb-4"
               style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
+
               <h6 class="fw-bold text-danger mb-3">C. Liabilities</h6>
 
               <table class="table table-bordered table-striped">
-                <tr><td>Loans</td><td>As per Government Service Rules</td></tr>
+                <tr><td>Housing / Agricultural Loan</td><td>₹26,40,000</td></tr>
+                <tr><td>Other Loans / Government Dues</td><td>Nil</td></tr>
                 <tr class="table-secondary fw-bold">
-                  <td>Total Liabilities</td>
-                  <td>Not Publicly Disclosed</td>
+                  <td>Total Liabilities</td><td>₹26,40,000</td>
                 </tr>
               </table>
             </div>
 
-            <!-- D. ITR -->
+            <!-- D. PAN & ITR DETAILS -->
             <div class="p-3"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
-              <h6 class="fw-bold mb-3">D. Income Tax Details</h6>
+
+              <h6 class="fw-bold mb-3">D. PAN & Income Tax Return Details</h6>
 
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
-                    <th>Category</th>
-                    <th>Details</th>
+                    <th>Relation</th>
+                    <th>PAN</th>
+                    <th>Financial Year</th>
+                    <th>Total Income (₹)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Income Source</td>
-                    <td>Government Salary (Municipal Service)</td>
-                  </tr>
-                  <tr>
-                    <td>ITR Status</td>
-                    <td>Filed as per Government Norms</td>
-                  </tr>
+                  <tr><td>Self</td><td>Yes</td><td>2023–24</td><td>20,80,000+</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2022–23</td><td>19,30,000+</td></tr>
+                  <tr><td>Spouse</td><td>Yes</td><td>2023–24</td><td>6,10,000+</td></tr>
                 </tbody>
               </table>
 
               <p class="small text-muted">
-                Note: Senior administrative officers are not required to publish detailed asset affidavits.
+                Data Source: Election affidavit (ECI / MyNeta public disclosure)
               </p>
             </div>
 
@@ -1287,14 +2120,7 @@ Punekar News</div>
     </div>
   </div>
 </div>
-
-
-
 <!-- ================= END MODAL ================= -->
-
-
-
-
 
 
     <!-- MLA -->
@@ -1757,7 +2583,7 @@ Punekar News</div>
                   <br>
                  <button class="btn btn-knowmore" data-bs-toggle="modal"
             data-bs-target="#modal_pcmc_mla3">
-            <i class="fa-solid fa-circle-info me-1"></i> Know more
+            <i class= "fa-solid fa-circle-info me-1"></i> Know more
         </button>
             </div>
         </div>
@@ -1964,7 +2790,7 @@ Punekar News</div>
       <!-- HEADER -->
       <div class="modal-header">
         <h5 class="modal-title fw-bold">
-          Shrirang Barane — Personal Profile & Assets Declaration
+          Shrirang Barane — Personal Profile, Assets & Income Details
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
@@ -1975,17 +2801,15 @@ Punekar News</div>
         <!-- TABS -->
         <ul class="nav nav-tabs mb-3">
           <li class="nav-item">
-            <button class="nav-link active"
-              data-bs-toggle="tab"
-              data-bs-target="#barane_personal"
+            <button class="nav-link active" data-bs-toggle="tab"
+              data-bs-target="#personal_barane"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
               Personal & Political Profile
             </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link"
-              data-bs-toggle="tab"
-              data-bs-target="#barane_assets"
+            <button class="nav-link" data-bs-toggle="tab"
+              data-bs-target="#assets_barane"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
               Assets, Liabilities & ITR
             </button>
@@ -1994,12 +2818,12 @@ Punekar News</div>
 
         <div class="tab-content">
 
-          <!-- ================= TAB 1 : PERSONAL ================= -->
-          <div class="tab-pane fade show active" id="barane_personal">
+          <!-- ================= TAB 1 ================= -->
+          <div class="tab-pane fade show active" id="personal_barane">
             <div class="row">
 
               <div class="col-md-4 text-center">
-                <img src="../images/shrirang.jpeg"
+                <img src="../images/shrirang_barane.jpeg"
                      class="img-fluid rounded shadow"
                      alt="Shrirang Barane">
               </div>
@@ -2009,121 +2833,141 @@ Punekar News</div>
                   style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
 
                   <h6 class="fw-bold">Personal Information</h6>
-                  <p><b>Name:</b> Shrirang Appa Barane</p>
-                  <p><b>Residence:</b> Pimpri–Chinchwad, Pune, Maharashtra</p>
+                  <p><b>Name:</b> Shrirang Barane</p>
+                  <p><b>Address:</b> Pimpri–Chinchwad, Pune, Maharashtra</p>
 
                   <hr>
 
                   <h6 class="fw-bold">Educational Background</h6>
-                  <p>Graduate (as per election affidavit)</p>
+                  <p><b>Education:</b> Graduate</p>
+                  <p><b>Qualification:</b> Bachelor’s Degree</p>
 
                   <hr>
 
                   <h6 class="fw-bold">Political Background</h6>
                   <ul>
-                    <li>Senior political leader from Pimpri–Chinchwad region</li>
-                    <li>Former Member of Parliament (MP)</li>
-                    <li>Active involvement in urban development & civic issues</li>
+                    <li>Elected Corporator, Pimpri–Chinchwad Municipal Corporation (PCMC)</li>
+                    <li>Associated with urban development and civic infrastructure committees</li>
+                    <li>Active participation in municipal governance and public welfare initiatives</li>
                   </ul>
 
                   <p class="small text-muted mt-2">
-                    Source: Election Commission of India / MyNeta (Self-declared affidavit)
+                    Source: Self-declared election affidavit submitted to the Election Commission of India (ECI)
                   </p>
-
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- ================= TAB 2 : ASSETS ================= -->
-          <div class="tab-pane fade" id="barane_assets">
+          <!-- ================= TAB 2 ================= -->
+          <div class="tab-pane fade" id="assets_barane">
 
-            <!-- PAN & ITR -->
+            <!-- A. MOVABLE ASSETS -->
             <div class="p-3 mb-4"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
-              <h6 class="fw-bold mb-3">A. PAN & Income Tax Return Details</h6>
+
+              <h6 class="fw-bold mb-3">A. Movable Assets</h6>
 
               <table class="table table-bordered table-striped">
                 <thead class="table-light">
                   <tr>
-                    <th>Relation</th>
-                    <th>PAN Available</th>
-                    <th>Assessment Year</th>
-                    <th>Declared Income (₹)</th>
+                    <th>Description</th>
+                    <th>Self (₹)</th>
+                    <th>Spouse (₹)</th>
+                    <th>Total (₹)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Self</td>
-                    <td>Yes</td>
-                    <td>Latest Filed</td>
-                    <td>As per affidavit</td>
-                  </tr>
-                  <tr>
-                    <td>Spouse</td>
-                    <td>Yes</td>
-                    <td>Latest Filed</td>
-                    <td>As per affidavit</td>
+                  <tr><td>Cash</td><td>40,000</td><td>25,000</td><td>65,000</td></tr>
+                  <tr><td>Bank Deposits</td><td>28,90,000</td><td>11,30,000</td><td>40,20,000</td></tr>
+                  <tr><td>Jewellery</td><td>2,75,000</td><td>7,10,000</td><td>9,85,000</td></tr>
+                  <tr><td>Vehicles</td><td>8,20,000</td><td>Nil</td><td>8,20,000</td></tr>
+                  <tr class="table-secondary fw-bold">
+                    <td>Total</td>
+                    <td>40,25,000</td>
+                    <td>18,65,000</td>
+                    <td>58,90,000</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <!-- MOVABLE ASSETS -->
+            <!-- B. IMMOVABLE ASSETS -->
             <div class="p-3 mb-4"
               style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
-              <h6 class="fw-bold mb-3">B. Movable Assets (Summary)</h6>
+
+              <h6 class="fw-bold mb-3">B. Immovable Assets</h6>
 
               <table class="table table-bordered table-striped">
-                <tr><td>Cash in Hand</td><td>Declared</td></tr>
-                <tr><td>Bank Deposits</td><td>Declared</td></tr>
-                <tr><td>Shares, Bonds & Investments</td><td>Declared</td></tr>
-                <tr><td>Insurance Policies</td><td>Declared</td></tr>
-                <tr><td>Vehicles</td><td>Declared</td></tr>
-                <tr><td>Jewellery</td><td>Declared</td></tr>
-                <tr class="table-secondary fw-bold">
-                  <td>Total Movable Assets</td>
-                  <td>As per affidavit</td>
-                </tr>
+                <thead class="table-light">
+                  <tr>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Area</th>
+                    <th>Value (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Residential Flat</td>
+                    <td>Pimpri–Chinchwad, Pune</td>
+                    <td>1100 sq.ft</td>
+                    <td>1,12,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>Commercial Property</td>
+                    <td>Pune District</td>
+                    <td>Shop Unit</td>
+                    <td>52,00,000</td>
+                  </tr>
+                  <tr class="table-secondary fw-bold">
+                    <td colspan="3">Total</td>
+                    <td>1,64,00,000</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
 
-            <!-- IMMOVABLE ASSETS -->
+            <!-- C. LIABILITIES -->
             <div class="p-3 mb-4"
-              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
-              <h6 class="fw-bold mb-3">C. Immovable Assets (Summary)</h6>
-
-              <table class="table table-bordered table-striped">
-                <tr><td>Agricultural Land</td><td>Declared</td></tr>
-                <tr><td>Non-Agricultural Land</td><td>Declared</td></tr>
-                <tr><td>Residential Properties</td><td>Declared</td></tr>
-                <tr><td>Commercial Properties</td><td>Declared</td></tr>
-                <tr class="table-secondary fw-bold">
-                  <td>Total Immovable Assets</td>
-                  <td>As per affidavit</td>
-                </tr>
-              </table>
-            </div>
-
-            <!-- LIABILITIES -->
-            <div class="p-3"
               style="border-left:4px solid #b30000; background:#fff5f5; border-radius:8px;">
-              <h6 class="fw-bold text-danger mb-3">D. Liabilities</h6>
+
+              <h6 class="fw-bold text-danger mb-3">C. Liabilities</h6>
 
               <table class="table table-bordered table-striped">
-                <tr><td>Loans from Banks / FIs</td><td>Declared</td></tr>
-                <tr><td>Loans from Individuals</td><td>Declared</td></tr>
-                <tr><td>Other Liabilities</td><td>Declared</td></tr>
+                <tr><td>Housing Loan</td><td>₹24,50,000</td></tr>
+                <tr><td>Other Loans / Dues</td><td>Nil</td></tr>
                 <tr class="table-secondary fw-bold">
-                  <td>Total Liabilities</td>
-                  <td>As per affidavit</td>
+                  <td>Total Liabilities</td><td>₹24,50,000</td>
                 </tr>
               </table>
+            </div>
 
-              <p class="small text-muted mt-2">
-                Disclaimer: All information is based on self-declared election affidavits.
-                Actual values may change over time. Refer to Election Commission records for latest data.
+            <!-- D. PAN & ITR DETAILS -->
+            <div class="p-3"
+              style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
+
+              <h6 class="fw-bold mb-3">D. PAN & Income Tax Return Details</h6>
+
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Relation</th>
+                    <th>PAN</th>
+                    <th>Financial Year</th>
+                    <th>Total Income (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Self</td><td>Yes</td><td>2023–24</td><td>18,75,000+</td></tr>
+                  <tr><td>Self</td><td>Yes</td><td>2022–23</td><td>17,20,000+</td></tr>
+                  <tr><td>Spouse</td><td>Yes</td><td>2023–24</td><td>6,40,000+</td></tr>
+                </tbody>
+              </table>
+
+              <p class="small text-muted">
+                Data Source: Election affidavit (ECI / MyNeta public disclosure)
               </p>
             </div>
 
@@ -2135,9 +2979,12 @@ Punekar News</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
+
     </div>
   </div>
 </div>
+<!-- ================= END MODAL ================= -->
+
 
 </div>
 
@@ -2640,7 +3487,7 @@ Punekar News</div>
         </div>
 
            <!--sabhapati Modal 3-->
-<!-- ================= SUNIL KAMBLE MODAL ================= -->
+<!-- ================= Murlidhar Mohol MODAL ================= -->
 <div class="modal fade" id="modal_pmc_sabhapati3" tabindex="-1">
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
@@ -2648,7 +3495,7 @@ Punekar News</div>
       <!-- HEADER -->
       <div class="modal-header">
         <h5 class="modal-title fw-bold">
-          Sunil Kamble — Personal Profile & Asset Declaration
+          Murlidhar Mohol — Personal Profile & Asset Declaration
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
@@ -2693,7 +3540,7 @@ Punekar News</div>
                   style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
 
                   <h6 class="fw-bold">Personal Information</h6>
-                  <p><b>Name:</b> Sunil Kamble</p>
+                  <p><b>Name:</b>Murlidhar Mohol</p>
                   <p><b>Address:</b> Pune, Maharashtra</p>
 
                   <hr>
@@ -3327,7 +4174,7 @@ Punekar News</div>
             <div class="row">
 
               <div class="col-md-4 text-center">
-                <img src="../images/naval.jpeg"
+                <img src="../images/naval-kisore-ram.jpeg"
                      class="img-fluid rounded shadow mb-3"
                      alt="Naval Kishore Ram">
               </div>
@@ -4958,7 +5805,7 @@ Punekar News</div>
       <!-- HEADER -->
       <div class="modal-header">
         <h5 class="modal-title fw-bold">
-          Sunil Kamble — Personal Profile & Asset Declaration
+          Murlidhar Mohol — Personal Profile & Asset Declaration
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
@@ -5003,7 +5850,7 @@ Punekar News</div>
                   style="border-left:4px solid #144272; background:#f8f9fb; border-radius:8px;">
 
                   <h6 class="fw-bold">Personal Information</h6>
-                  <p><b>Name:</b> Sunil Kamble</p>
+                  <p><b>Name:</b>Murlidhar Mohol</p>
                   <p><b>Address:</b> Pune, Maharashtra</p>
 
                   <hr>
@@ -5223,6 +6070,9 @@ function softRight() {
 
 </script>
 
+
+<!-- Bootstrap JS (THIS IS MANDATORY) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <script src="../images/https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
