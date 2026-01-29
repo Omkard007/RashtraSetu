@@ -496,238 +496,177 @@
 
     </div>
 
-    <!-- EDIT MODAL -->
-    <div class="modal fade" id="editModal">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content bg-dark text-light">
-                <div class="modal-header border-secondary">
-                    <h5>Edit Profile</h5>
-                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <div class="p-3 border rounded text-secondary">
-                                <h6>Guidelines</h6>
-                                <ul>
-                                    <li>Use real identity</li>
-                                    <li>Accurate ward info</li>
-                                    <li>Profile used for governance</li>
-                                    <li>No misleading content</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <input class="form-control mb-2" id="name" placeholder="Full Name">
-                            <input class="form-control mb-2" id="ward" placeholder="Ward">
-                            <label class="form-label">Profile Photo</label>
-                            <input type="file" class="form-control mb-3" id="picUpload">
-                            <button class="btn btn-primary" onclick="saveProfile()">Save</button>
+   
+          <!-- EDIT PROFILE MODAL -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile Demo</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+        }
+        .profile-card {
+            max-width: 400px;
+            margin: 60px auto;
+            background: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .profile-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PROFILE CARD -->
+<div class="profile-card">
+    <img id="userAvatar" src="https://via.placeholder.com/150" class="rounded-circle mb-3">
+    <h5 id="userName">Citizen Name</h5>
+    <p id="userWard">Ward</p>
+
+    <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#editModal">
+        Edit Profile
+    </button>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal fade" id="editModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-secondary">
+                <h5>Edit Profile</h5>
+                <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+                        <div class="p-3 border rounded text-secondary">
+                            <h6>Guidelines</h6>
+                            <ul>
+                                <li>Use real identity</li>
+                                <li>Accurate ward info</li>
+                                <li>Profile used for governance</li>
+                                <li>No misleading content</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <div class="col-md-8">
+                        <div class="text-center mb-3">
+                            <img id="profilePreview"
+                                 src="https://via.placeholder.com/150"
+                                 class="rounded-circle"
+                                 style="width:120px;height:120px;object-fit:cover;">
+                        </div>
+
+                        <input class="form-control mb-2" id="name" placeholder="Full Name">
+                        <input class="form-control mb-2" id="ward" placeholder="Ward">
+
+                        <label class="form-label">Profile Photo</label>
+                        <input type="file" class="form-control mb-3"
+                               id="picUpload" accept="image/*" onchange="previewImage(event)">
+
+                        <button class="btn btn-primary w-100" onclick="saveProfile()">Save</button>
+                    </div>
+
                 </div>
             </div>
         </div>
-        <script>
-            function confirmDelete(type, id) {
-                const user = JSON.parse(localStorage.getItem("user"));
-                if (!user) {
-                    alert("User not logged in");
-                    return;
-                }
+    </div>
+</div>
 
-                const label = type === "issue" ? "Issue" : "Bill";
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-                const ok = confirm(
-                    `Are you sure you want to delete this ${label}?\n\nThis action cannot be undone.`
-                );
+<script>
+/* Shortcut */
+const el = (id) => document.getElementById(id);
 
-                if (!ok) return;
+/* Default user (first load only) */
+if (!localStorage.getItem("user")) {
+    localStorage.setItem("user", JSON.stringify({
+        name: "Citizen Name",
+        ward: "Ward",
+        photo: "https://via.placeholder.com/150",
+        type: "citizen"
+    }));
+}
 
-                deleteItem(type, id, user);
-            }
+/* Load profile on page */
+function loadProfile() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    el("userName").innerText = user.name;
+    el("userWard").innerText = user.ward;
+    el("userAvatar").src = user.photo;
+}
+loadProfile();
 
-            async function deleteItem(type, itemId, user) {
-                try {
-                    let url = "";
+/* Load data when modal opens */
+el("editModal").addEventListener("show.bs.modal", () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    el("name").value = user.name;
+    el("ward").value = user.ward;
+    el("profilePreview").src = user.photo;
+});
 
-                    if (type === "issue" && user.type === "citizen") {
-                        url = `https://viraj-backend.onrender.com/api/citizen/issue/delete`;
-                    }
+/* Image preview */
+function previewImage(event) {
+    const file = event.target.files[0];
+    if (!file) return;
 
-                    if (type === "bill" && user.type === "leader") {
-                        url = `https://viraj-backend.onrender.com/api/leader/bill/delete`;
-                    }
+    const reader = new FileReader();
+    reader.onload = () => {
+        el("profilePreview").src = reader.result;
+        el("profilePreview").dataset.image = reader.result;
+    };
+    reader.readAsDataURL(file);
+}
 
-                    if (!url) {
-                        alert("Unauthorized delete action");
-                        return;
-                    }
+/* Save profile */
+function saveProfile() {
+    const user = JSON.parse(localStorage.getItem("user"));
 
-                    const res = await fetch(url, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        }, body: JSON.stringify({
-                            number: user.number,
-                            id: itemId
-                        })
-                    });
+    const name = el("name").value.trim();
+    const ward = el("ward").value.trim();
+    const image = el("profilePreview").dataset.image || user.photo;
 
-                    if (!res.ok) {
-                        alert("Delete failed");
-                        return;
-                    }
+    if (!name || !ward) {
+        alert("Name and Ward are required");
+        return;
+    }
 
-                    alert("Deleted successfully");
+    const updatedUser = {
+        ...user,
+        name,
+        ward,
+        photo: image
+    };
 
-                    // 🔄 reload cards
-                    location.reload();
+    localStorage.setItem("user", JSON.stringify(updatedUser));
 
-                } catch (err) {
-                    console.error(err);
-                    alert("Something went wrong");
-                }
-            }
+    loadProfile();
 
-            const el = (id) => document.getElementById(id);
+    alert("Profile updated successfully");
 
-            function escapeHtml(str = "") {
-                return str
-                    .replace(/&/g, "&amp;")
-                    .replace(/</g, "&lt;")
-                    .replace(/>/g, "&gt;");
-            }
-
-            function formatDate(date) {
-                return new Date(date).toLocaleDateString("en-GB");
-            }
-
-            /* -------------------------
-               ISSUE CARD RENDER
-            ------------------------- */
-            function renderIssueCards(issues) {
-                const container = el("cardsContainer");
-                container.innerHTML = "";
-
-                issues.forEach(issue => {
-                    const col = document.createElement("div");
-                    col.className = "col-md-6 col-lg-4";
-
-                    col.innerHTML = `
-        <div class="rs-card">
-          ${issue.image ? `<img src="${issue.image}" />` : ""}
-
-          <div class="rs-card-body">
-            <div class="rs-title">${escapeHtml(issue.title)}</div>
-
-            <div class="rs-meta">
-              ${formatDate(issue.createdAt)} • Pincode ${issue.pincode}
-            </div>
-
-            <div class="rs-desc">
-              ${escapeHtml(issue.desc)}
-            </div>
-
-            <div class="rs-footer">
-              <span class="rs-badge status-${issue.status.toLowerCase()}">
-                ${issue.status.toUpperCase()}
-              </span>
-
-              <span>
-                ❤️ ${issue.likes} &nbsp; 💬 ${issue.comments?.length || 0}
-              </span>
-              <button 
-  class="btn btn-sm btn-outline-danger"
-  onclick="confirmDelete('issue', '${issue.id}')">
-  <i class="fa fa-trash"></i>
-</button>
-
-            </div>
-          </div>
-        </div>
-      `;
-
-                    container.appendChild(col);
-                });
-            }
-            /* -------------------------
-               BILL CARD RENDER
-            ------------------------- */
-            function renderBillCards(bills) {
-                const container = el("cardsContainer");
-                container.innerHTML = "";
-
-                bills.forEach(bill => {
-                    const col = document.createElement("div");
-                    col.className = "col-md-6 col-lg-4";
-
-                    col.innerHTML = `
-        <div class="rs-card">
-          ${bill.image ? `<img src="${bill.image}" />` : ""}
-
-          <div class="rs-card-body">
-            <div class="rs-title">${escapeHtml(bill.name)}</div>
-
-            <div class="rs-meta">
-              Budget: ₹${bill.budget}
-            </div>
-
-            <div class="rs-desc">
-              ${escapeHtml(bill.desc)}
-            </div>
-
-            <div class="rs-footer">
-              <span class="rs-badge" style="background:#eef3ff;color:#365edc;">
-                BILL
-              </span>
-
-              <span>
-                ❤️ ${bill.likes} &nbsp; 💬 ${bill.comments?.length || 0}
-              </span>
-<button 
-  class="btn btn-sm btn-outline-danger"
-  onclick="confirmDelete('bill', '${bill.id}')">
-  <i class="fa fa-trash"></i>
-</button>
+    bootstrap.Modal.getInstance(el("editModal")).hide();
+}
 
 
-            </div>
-          </div>
-        </div>
-      `;
 
-                    container.appendChild(col);
-                });
-            }
-            /* -------------------------
-               LOAD DATA & DECIDE RENDER
-            ------------------------- */
-            window.addEventListener("load", async () => {
-                const user = localStorage.getItem("user");
-                if (!user) return;
 
-                const userData = JSON.parse(user);
-
-                // ✅ SHOW PROFILE FIRST
-                enterApp(userData.number, userData.pincode, userData.name);
-
-                if (userData.type === "leader") {
-                    const res = await fetch(
-                        `https://viraj-backend.onrender.com/api/leader/bills/${userData.number}`
-                    );
-                    const data = await res.json();
-                    renderBillCards(data.bills);
-                }
-
-                if (userData.type === "citizen") {
-                    const res = await fetch(
-                        `https://viraj-backend.onrender.com/api/citizen/issues/${userData.number}`
-                    );
-                    const data = await res.json();
-                    renderIssueCards(data.issues);
-                }
-            });
 
         </script>
 
@@ -855,5 +794,6 @@
         </script>
 
 </body>
+<body> 
 
 </html>

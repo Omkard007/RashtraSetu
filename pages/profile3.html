@@ -1,145 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>RASHTRASETU Navbar</title>
+    <meta charset="UTF-8">
+    <title>RashtraSetu | Citizen Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
+    <style>
+        body {
+            background: #0f1419;
+            color: #e7e9ea;
+            font-family: "Segoe UI", sans-serif;
+            margin-left: 230px;
+        }
 
-    /* NAVBAR */
-    .gov-navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 25px;
-      background: #ffffff;
-      border-bottom: 2px solid #e5e5e5;
-    }
+        /* ===== Sidebar ===== */
+        .sidebar {
+            width: 230px;
+            height: 100vh;
+            background: #0A2647;
+            color: #fff;
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
 
-    /* LEFT LOGO */
-    .gov-left {
-      text-align: center;
-    }
+        .sidebar h3 {
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #FFDE59;
+        }
 
-    .gov-left img {
-      width: 70px;
-    }
+        .menu-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            border-radius: 6px;
+        }
 
-    .gov-logo-text {
-      margin-top: 6px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #0b2c5d;
-    }
+        .menu-item:hover {
+            background: #144272;
+        }
 
-    /* CENTER TEXT */
-    .gov-center {
-      text-align: center;
-    }
+        /* LOGIN */
+        .login-box {
+            max-width: 420px;
+            margin: 100px auto;
+            background: #111;
+            padding: 30px;
+            border-radius: 15px;
+        }
 
-    .gov-center h5 {
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #0b2c5d;
-    }
+        /* PROFILE */
+        .profile-wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            display: none;
+        }
 
-    .gov-center p {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      color: #555;
-      margin-top: 4px;
-    }
+        .profile-card {
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #2f3336;
+        }
 
-    /* RIGHT OFFICIALS */
-    .gov-right {
-      display: flex;
-      gap: 18px;
-    }
+        .profile-cover {
+            height: 180px;
+            background: linear-gradient(135deg, #0A2647, #144272);
+        }
 
-    .official {
-      text-align: center;
-      max-width: 110px;
-    }
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid #000;
+            margin-top: -70px;
+            margin-left: 30px;
+            object-fit: cover;
+        }
 
-    .official img {
-      width: 55px;
-      height: 55px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #0b2c5d;
-    }
+        .profile-body {
+            padding: 20px 30px 30px
+        }
 
-    .official-name {
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 6px;
-    }
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600
+        }
 
-    .official-title {
-      font-size: 10px;
-      font-weight: 600;
-      color: #0b2c5d;
-    }
-  </style>
+        .edit-btn {
+            background: #1d9bf0;
+            border: none;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <div class="gov-navbar">
-
-    <!-- LEFT -->
-    <div class="gov-left">
-      <img src="images/logo7.jpeg" alt="logo">
-      <div class="gov-logo-text">RASHTRASETU</div>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>RashtraSetu</h3>
+        <a href="#" class="menu-item">Home</a>
+        <a href="#" class="menu-item">Profile</a>
+        <a href="#" class="menu-item" onclick="logout()">Logout</a>
     </div>
 
-    <!-- CENTER -->
-    <div class="gov-center">
-      <h5>RASHTRASETU</h5>
-      <p>THE BRIDGE BETWEEN NATION AND CITIZENS</p>
+    <!-- LOGIN -->
+    <div class="login-box" id="loginBox">
+        <h4 class="text-center mb-3">Citizen Login</h4>
+        <input id="mobile" class="form-control mb-2" placeholder="Mobile Number">
+        <input id="password" type="password" class="form-control mb-3" placeholder="Password">
+        <button class="btn btn-primary w-100" onclick="login()">Login</button>
     </div>
 
-    <!-- RIGHT -->
-    <div class="gov-right">
+    <!-- PROFILE -->
+    <div class="profile-wrapper" id="profileWrapper">
+        <div class="profile-card">
+            <div class="profile-cover"></div>
+            <img id="profilePic" class="profile-pic" src="https://via.placeholder.com/140">
 
-      <div class="official">
-        <img src="images/fadanvis.jpeg" alt="">
-        <div class="official-name">Devendra Fadnavis</div>
-        <div class="official-title">CHIEF MINISTER</div>
-      </div>
-
-      <div class="official">
-        <img src="images/shinde.jpeg" alt="">
-        <div class="official-name">Eknath Shinde</div>
-        <div class="official-title">DEPUTY CHIEF MINISTER</div>
-      </div>
-
-      <div class="official">
-        <img src="images/pawar.jpeg" alt="">
-        <div class="official-name">Ajit Pawar</div>
-        <div class="official-title">DEPUTY CHIEF MINISTER</div>
-      </div>
-
-      <div class="official">
-        <img src="images/shelar.jpeg" alt="">
-        <div class="official-name">Ashish Shelar</div>
-        <div class="official-title">INFORMATION TECHNOLOGY MINISTER</div>
-      </div>
-
+            <div class="profile-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="profile-name" id="viewName">Citizen Name</div>
+                        <div class="text-secondary" id="viewWard">Ward</div>
+                    </div>
+                    <button class="edit-btn" data-bs-toggle="modal" data-bs-target="#editModal">
+                        <i class="fa fa-pen"></i> Edit Profile
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- EDIT PROFILE MODAL -->
+    <div class="modal fade" id="editModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5>Edit Profile</h5>
+                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input id="editName" class="form-control mb-2" placeholder="Full Name">
+                    <input id="editWard" class="form-control mb-2" placeholder="Ward">
+                    <input type="file" class="form-control mb-3" accept="image/*" onchange="previewImage(event)">
+                    <img id="preview" class="rounded-circle mb-3" style="width:100px;height:100px;object-fit:cover;">
+                    <button class="btn btn-primary w-100" onclick="saveProfile()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const el = id => document.getElementById(id);
+
+        function login() {
+            const name = "Citizen Demo";
+            const user = { name, ward: "Ward 12", photo: "https://via.placeholder.com/140" };
+            localStorage.setItem("user", JSON.stringify(user));
+            loadProfile();
+        }
+
+        function loadProfile() {
+            const user = JSON.parse(localStorage.getItem("user"));
+            if (!user) return;
+
+            el("loginBox").style.display = "none";
+            el("profileWrapper").style.display = "block";
+            el("viewName").innerText = user.name;
+            el("viewWard").innerText = user.ward;
+            el("profilePic").src = user.photo;
+        }
+
+        function previewImage(e) {
+            const reader = new FileReader();
+            reader.onload = () => el("preview").src = reader.result;
+            reader.readAsDataURL(e.target.files[0]);
+        }
+
+        function saveProfile() {
+            const user = JSON.parse(localStorage.getItem("user"));
+            user.name = el("editName").value || user.name;
+            user.ward = el("editWard").value || user.ward;
+            if (el("preview").src) user.photo = el("preview").src;
+            localStorage.setItem("user", JSON.stringify(user));
+            loadProfile();
+            bootstrap.Modal.getInstance(el("editModal")).hide();
+        }
+
+        function logout() {
+            localStorage.removeItem("user");
+            location.reload();
+        }
+
+        window.onload = loadProfile;
+    </script>
 
 </body>
 </html>
