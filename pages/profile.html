@@ -1,117 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>RashtraSetu | Citizen Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
     <style>
-        .rs-card {
-            background: #0f1419;
-            /* dark surface */
-            border-radius: 14px;
-            border: 1px solid #2f3336;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .rs-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid #2f3336;
-        }
-
-        .rs-card-body {
-            padding: 16px;
-        }
-
-        /* Title */
-        .rs-title {
-            font-weight: 700;
-            font-size: 16px;
-            color: #e7e9ea;
-            /* primary text */
-            margin-bottom: 6px;
-        }
-
-        /* Description */
-        .rs-desc {
-            font-size: 14px;
-            color: #9aa4ad;
-            /* secondary text */
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-
-        /* Meta text */
-        .rs-meta {
-            font-size: 12px;
-            color: #71767b;
-            margin-bottom: 8px;
-        }
-
-        /* Footer */
-        .rs-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: #71767b;
-        }
-
-        /* Badge base */
-        .rs-badge {
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-
-
-        .status-open {
-            background: #ffe5e5;
-            color: #d63333;
-        }
-
-        .status-in_progress {
-            background: #fff3cd;
-            color: #b08900;
-        }
-
-        .status-resolved {
-            background: #e6f4ea;
-            color: #1e7e34;
-        }
-
         body {
             background: #0f1419;
             color: #e7e9ea;
             font-family: "Segoe UI", sans-serif;
             margin: 0;
         }
-
-        /* HEADER */
-        header {
-            background: #000;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header span {
-            color: #1d9bf0
-        }
-
-        /* LOGIN */
         .login-box {
             max-width: 420px;
             margin: 100px auto;
@@ -120,34 +21,26 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-
         .login-box h3 {
             text-align: center;
             margin-bottom: 25px;
             color: #1d9bf0;
         }
-
-        /* PROFILE */
         .profile-wrapper {
             max-width: 1100px;
             margin: 30px auto;
             display: none;
         }
-
         .profile-card {
             background: #000;
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid #2f3336;
         }
-
-        /* COVER */
         .profile-cover {
             height: 200px;
             background: linear-gradient(135deg, #0A2647, #144272);
         }
-
-        /* PIC */
         .profile-pic {
             width: 140px;
             height: 140px;
@@ -157,21 +50,16 @@
             margin-left: 30px;
             object-fit: cover;
         }
-
-        /* BODY */
         .profile-body {
-            padding: 20px 30px 30px
+            padding: 20px 30px 30px;
         }
-
         .profile-name {
             font-size: 24px;
-            font-weight: 600
+            font-weight: 600;
         }
-
         .profile-meta {
-            color: #71767b
+            color: #71767b;
         }
-
         .verify-badge {
             background: #1d9bf0;
             color: #fff;
@@ -180,19 +68,14 @@
             font-size: 13px;
             margin-left: 8px;
         }
-
-        /* STATS */
         .profile-stats {
             display: flex;
             gap: 30px;
             margin-top: 15px;
         }
-
         .stat strong {
-            font-size: 16px
+            font-size: 16px;
         }
-
-        /* SECTION */
         .section {
             background: #000;
             border: 1px solid #2f3336;
@@ -200,8 +83,6 @@
             padding: 20px;
             margin-top: 20px;
         }
-
-        /* CARDS */
         .impact-card {
             background: #0f1419;
             border: 1px solid #2f3336;
@@ -209,55 +90,17 @@
             padding: 20px;
             height: 100%;
         }
-
         .impact-card i {
             font-size: 28px;
             color: #1d9bf0;
             margin-bottom: 10px;
         }
-
-        /* FOOTER */
         .profile-footer {
             text-align: center;
             font-size: 13px;
             color: #71767b;
             padding: 30px 10px;
         }
-    </style>
-</head>
-
-<body>
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <h3>RashtraSetu</h3>
-        <a href="../index.html" class="menu-item"><i class="fa-solid fa-house"></i>Home</a>
-        <a href="search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
-        <a href="explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
-        <a href="add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
-        <a href="add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
-        <a href="janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
-        <a href="politicians.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
-        <a href="politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician
-            Properties</a>
-        <a href="Updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
-        <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
-        <a href="#" onclick="logout()" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
-    </div>
-
-    <script>
-        function logout() {
-            localStorage.removeItem('user');
-            window.location.href = '../index.html';
-        }
-    </script>
-
-
-    <style>
-        body {
-            margin-left: 230px;
-        }
-
-        /* ===== Sidebar ===== */
         .sidebar {
             width: 230px;
             height: 100vh;
@@ -270,14 +113,12 @@
             overflow-y: auto;
             z-index: 1050;
         }
-
         .sidebar h3 {
             font-size: 22px;
             text-align: center;
             margin-bottom: 25px;
             color: #FFDE59;
         }
-
         .menu-item {
             padding: 12px 20px;
             display: flex;
@@ -289,22 +130,17 @@
             border-radius: 6px;
             transition: 0.2s;
         }
-
         .menu-item i {
             margin-right: 10px;
         }
-
         .menu-item:hover,
         .menu-item.active {
             background: #144272;
         }
-
-        /* Mobile */
         @media (max-width: 768px) {
             body {
                 margin-left: 0;
             }
-
             .sidebar {
                 position: relative;
                 width: 100%;
@@ -312,363 +148,184 @@
             }
         }
     </style>
-
-    <div class="main-content container-fluid">
-
-        <!-- All tab-content must be here -->
-    </div>
-
-
-
-    <!--carousel start-->
-
-
-
-
-
-
-    <style>
-        .btn-knowmore {
-            background: #144272;
-            color: white;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 10px;
-            border: none;
-            transition: 0.25s ease;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-knowmore:hover {
-            background: #0A2647;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-        }
-
-        .btn-knowmore:active {
-            transform: scale(0.97);
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-knowmore {
-            margin-top: auto;
-        }
-    </style>
-
-
-    <!-- LOGIN BOX -->
-    <div class="login-box" id="loginBox">
-        <div class="d-flex justify-content-around mb-4">
-            <button class="btn btn-link text-decoration-none fw-bold" id="tabLogin" onclick="switchTab('login')"
-                style="color:#1d9bf0; border-bottom: 2px solid #1d9bf0;">Login</button>
-            <button class="btn btn-link text-decoration-none text-muted" id="tabSignup"
-                onclick="switchTab('signup')">Sign Up</button>
-        </div>
-
-        <div id="loginForm">
-            <h3><i class="fa-solid fa-user-lock"></i> Login</h3>
-            <div class="mb-3">
-                <label class="form-label">Type</label>
-                <select class="form-select" id="loginType">
-                    <option value="citizen">Citizen</option>
-                    <option value="leader">Leader</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Mobile Number</label>
-                <input type="text" id="mobile" class="form-control" placeholder="Enter 10-digit mobile">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input type="password" id="password" class="form-control" placeholder="Enter your password">
-            </div>
-            <button class="btn btn-primary w-100" onclick="login()">Login</button>
-        </div>
-
-        <div id="signupForm" style="display:none;">
-            <h3><i class="fa-solid fa-user-plus"></i> Sign Up</h3>
-            <div class="mb-3">
-                <label class="form-label">Type</label>
-                <select class="form-select" id="signupType">
-                    <option value="citizen">Citizen</option>
-                    <option value="leader">Leader</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Name</label>
-                <input type="text" id="signupName" class="form-control" placeholder="Enter your name">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Mobile Number</label>
-                <input type="text" id="signupMobile" class="form-control" placeholder="Enter 10-digit mobile">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">PIN Code</label>
-                <input type="text" id="signupPincode" class="form-control" placeholder="Enter your area PIN">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input type="password" id="signupPassword" class="form-control" placeholder="Create Password">
-            </div>
-            <button class="btn btn-success w-100" onclick="signup()">Sign Up</button>
-        </div>
-
-        <div class="text-center mt-3 text-muted">Secure | Local | Transparent</div>
-    </div>
-
-    <!-- PROFILE WRAPPER -->
-    <div class="profile-wrapper" id="profileWrapper">
-
-        <!-- PROFILE HEADER -->
-        <div class="profile-card">
-            <div class="profile-cover"></div>
-            <img id="profilePic" class="profile-pic" src="https://via.placeholder.com/140">
-
-            <div class="profile-body">
-                <div class="d-flex justify-content-between align-items-start">
-                    <div>
-                        <div class="profile-name">
-                            <span id="viewName">Citizen Name</span>
-                            <span class="verify-badge">Verified Citizen</span>
-                        </div>
-                        <div class="profile-meta">@citizen • <span id="viewArea">Area</span></div>
-                        <div class="profile-meta mt-1">
-                            <i class="fa-solid fa-location-dot"></i> <span id="viewWard">Ward</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="profile-stats">
-                    <div class="stat"><strong>5</strong> Projects</div>
-                    <div class="stat"><strong>18</strong> Issues Raised</div>
-                    <div class="stat"><strong>240</strong> Engagements</div>
-                </div>
-            </div>
-        </div>
-        <div id="cardsContainer" class="row g-3"></div>
-
-
-
-        <!-- IMPACT SECTION -->
-        <div class="section">
-            <h5>Citizen Impact</h5>
-            <div class="row g-3 mt-2">
-                <div class="col-md-4">
-                    <div class="impact-card">
-                        <i class="fa-solid fa-road"></i>
-                        <h6>Infrastructure Feedback</h6>
-                        <p>Roads, drainage, footpaths and local connectivity improvements reported.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="impact-card">
-                        <i class="fa-solid fa-hand-holding-water"></i>
-                        <h6>Public Utilities</h6>
-                        <p>Water supply, sanitation, waste management and civic cleanliness issues.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="impact-card">
-                        <i class="fa-solid fa-people-group"></i>
-                        <h6>Community Participation</h6>
-                        <p>Ward meetings, citizen polls and collaborative governance inputs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- AREA FOCUS -->
-        <div class="section">
-            <h5>Area Governance Focus</h5>
-            <p id="areaFocusText" class="text-secondary"></p>
-        </div>
-
-        <!-- PROFILE FOOTER -->
-        <div class="profile-footer">
-            RashtraSetu is a citizen-led governance bridge.<br>
-            Profiles reflect civic participation, not political affiliation.
-        </div>
-
-    </div>
-
-   
-          <!-- EDIT PROFILE MODAL -->
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Profile Demo</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            background: #111;
-            color: #fff;
-        }
-        .profile-card {
-            max-width: 400px;
-            margin: 60px auto;
-            background: #1c1c1c;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .profile-card img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-        }
-    </style>
 </head>
 <body>
+    <div class="sidebar">
+        <h3>RashtraSetu</h3>
+        <a href="../index.html" class="menu-item"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
+        <a href="explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
+        <a href="add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
+        <a href="add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
+        <a href="janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
+        <a href="politicians.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
+        <a href="politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician Properties</a>
+        <a href="Updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
+        <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
+        <a href="#" onclick="logout()" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    </div>
 
-<!-- PROFILE CARD -->
-<div class="profile-card">
-    <img id="userAvatar" src="https://via.placeholder.com/150" class="rounded-circle mb-3">
-    <h5 id="userName">Citizen Name</h5>
-    <p id="userWard">Ward</p>
+    <script>
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = '../index.html';
+        }
+    </script>
 
-    <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#editModal">
-        Edit Profile
-    </button>
-</div>
-
-<!-- EDIT MODAL -->
-<div class="modal fade" id="editModal">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content bg-dark text-light">
-            <div class="modal-header border-secondary">
-                <h5>Edit Profile</h5>
-                <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+    <div style="margin-left: 230px;">
+        <div class="login-box" id="loginBox">
+            <div class="d-flex justify-content-around mb-4">
+                <button class="btn btn-link text-decoration-none fw-bold" id="tabLogin" onclick="switchTab('login')" style="color:#1d9bf0; border-bottom: 2px solid #1d9bf0;">Login</button>
+                <button class="btn btn-link text-decoration-none text-muted" id="tabSignup" onclick="switchTab('signup')">Sign Up</button>
             </div>
+            <div id="loginForm">
+                <h3><i class="fa-solid fa-user-lock"></i> Login</h3>
+                <div class="mb-3">
+                    <label class="form-label">Type</label>
+                    <select class="form-select" id="loginType">
+                        <option value="citizen">Citizen</option>
+                        <option value="leader">Leader</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mobile Number</label>
+                    <input type="text" id="mobile" class="form-control" placeholder="Enter 10-digit mobile">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                </div>
+                <button class="btn btn-primary w-100" onclick="login()">Login</button>
+            </div>
+            <div id="signupForm" style="display:none;">
+                <h3><i class="fa-solid fa-user-plus"></i> Sign Up</h3>
+                <div class="mb-3">
+                    <label class="form-label">Type</label>
+                    <select class="form-select" id="signupType">
+                        <option value="citizen">Citizen</option>
+                        <option value="leader">Leader</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" id="signupName" class="form-control" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mobile Number</label>
+                    <input type="text" id="signupMobile" class="form-control" placeholder="Enter 10-digit mobile">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">PIN Code</label>
+                    <input type="text" id="signupPincode" class="form-control" placeholder="Enter your area PIN">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" id="signupPassword" class="form-control" placeholder="Create Password">
+                </div>
+                <button class="btn btn-success w-100" onclick="signup()">Sign Up</button>
+            </div>
+            <div class="text-center mt-3 text-muted">Secure | Local | Transparent</div>
+        </div>
 
-            <div class="modal-body">
-                <div class="row g-4">
-
+        <div class="profile-wrapper" id="profileWrapper">
+            <div class="profile-card">
+                <div class="profile-cover"></div>
+                <img id="profilePic" class="profile-pic" src="https://via.placeholder.com/140">
+                <div class="profile-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="profile-name">
+                                <span id="viewName">Citizen Name</span>
+                                <span class="verify-badge">Verified Citizen</span>
+                            </div>
+                            <div class="profile-meta">@citizen • <span id="viewArea">Area</span></div>
+                            <div class="profile-meta mt-1">
+                                <i class="fa-solid fa-location-dot"></i> <span id="viewWard">Ward</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary btn-sm" id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editModal" style="display: none;">Edit Profile</button>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat"><strong>5</strong> Projects</div>
+                        <div class="stat"><strong>18</strong> Issues Raised</div>
+                        <div class="stat"><strong>240</strong> Engagements</div>
+                    </div>
+                </div>
+            </div>
+            <div id="cardsContainer" class="row g-3"></div>
+            <div class="section">
+                <h5>Citizen Impact</h5>
+                <div class="row g-3 mt-2">
                     <div class="col-md-4">
-                        <div class="p-3 border rounded text-secondary">
-                            <h6>Guidelines</h6>
-                            <ul>
-                                <li>Use real identity</li>
-                                <li>Accurate ward info</li>
-                                <li>Profile used for governance</li>
-                                <li>No misleading content</li>
-                            </ul>
+                        <div class="impact-card">
+                            <i class="fa-solid fa-road"></i>
+                            <h6>Infrastructure Feedback</h6>
+                            <p>Roads, drainage, footpaths and local connectivity improvements reported.</p>
                         </div>
                     </div>
-
-                    <div class="col-md-8">
-                        <div class="text-center mb-3">
-                            <img id="profilePreview"
-                                 src="https://via.placeholder.com/150"
-                                 class="rounded-circle"
-                                 style="width:120px;height:120px;object-fit:cover;">
+                    <div class="col-md-4">
+                        <div class="impact-card">
+                            <i class="fa-solid fa-hand-holding-water"></i>
+                            <h6>Public Utilities</h6>
+                            <p>Water supply, sanitation, waste management and civic cleanliness issues.</p>
                         </div>
-
-                        <input class="form-control mb-2" id="name" placeholder="Full Name">
-                        <input class="form-control mb-2" id="ward" placeholder="Ward">
-
-                        <label class="form-label">Profile Photo</label>
-                        <input type="file" class="form-control mb-3"
-                               id="picUpload" accept="image/*" onchange="previewImage(event)">
-
-                        <button class="btn btn-primary w-100" onclick="saveProfile()">Save</button>
                     </div>
+                    <div class="col-md-4">
+                        <div class="impact-card">
+                            <i class="fa-solid fa-people-group"></i>
+                            <h6>Community Participation</h6>
+                            <p>Ward meetings, citizen polls and collaborative governance inputs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h5>Area Governance Focus</h5>
+                <p id="areaFocusText" class="text-secondary"></p>
+            </div>
+            <div class="profile-footer">
+                RashtraSetu is a citizen-led governance bridge.<br>
+                Profiles reflect civic participation, not political affiliation.
+            </div>
+        </div>
 
+        <div class="modal fade" id="editModal">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header border-secondary">
+                        <h5>Edit Profile</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="p-3 border rounded text-secondary">
+                                    <h6>Guidelines</h6>
+                                    <ul>
+                                        <li>Use real identity</li>
+                                        <li>Accurate ward info</li>
+                                        <li>Profile used for governance</li>
+                                        <li>No misleading content</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="text-center mb-3">
+                                    <img id="profilePreview" src="https://via.placeholder.com/150" class="rounded-circle" style="width:120px;height:120px;object-fit:cover;">
+                                </div>
+                                <input class="form-control mb-2" id="name" placeholder="Full Name">
+                                <input class="form-control mb-2" id="ward" placeholder="Ward">
+                                <label class="form-label">Profile Photo</label>
+                                <input type="file" class="form-control mb-3" id="picUpload" accept="image/*" onchange="previewImage(event)">
+                                <button class="btn btn-primary w-100" onclick="saveProfile()">Save</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-/* Shortcut */
-const el = (id) => document.getElementById(id);
-
-/* Default user (first load only) */
-if (!localStorage.getItem("user")) {
-    localStorage.setItem("user", JSON.stringify({
-        name: "Citizen Name",
-        ward: "Ward",
-        photo: "https://via.placeholder.com/150",
-        type: "citizen"
-    }));
-}
-
-/* Load profile on page */
-function loadProfile() {
-    const user = JSON.parse(localStorage.getItem("user"));
-    el("userName").innerText = user.name;
-    el("userWard").innerText = user.ward;
-    el("userAvatar").src = user.photo;
-}
-loadProfile();
-
-/* Load data when modal opens */
-el("editModal").addEventListener("show.bs.modal", () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    el("name").value = user.name;
-    el("ward").value = user.ward;
-    el("profilePreview").src = user.photo;
-});
-
-/* Image preview */
-function previewImage(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = () => {
-        el("profilePreview").src = reader.result;
-        el("profilePreview").dataset.image = reader.result;
-    };
-    reader.readAsDataURL(file);
-}
-
-/* Save profile */
-function saveProfile() {
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    const name = el("name").value.trim();
-    const ward = el("ward").value.trim();
-    const image = el("profilePreview").dataset.image || user.photo;
-
-    if (!name || !ward) {
-        alert("Name and Ward are required");
-        return;
-    }
-
-    const updatedUser = {
-        ...user,
-        name,
-        ward,
-        photo: image
-    };
-
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-
-    loadProfile();
-
-    alert("Profile updated successfully");
-
-    bootstrap.Modal.getInstance(el("editModal")).hide();
-}
-
-
-
-
-
-        </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script>
@@ -687,7 +344,6 @@ function saveProfile() {
                     document.getElementById('tabLogin').style.color = '#1d9bf0';
                     document.getElementById('tabLogin').style.borderBottom = '2px solid #1d9bf0';
                     document.getElementById('tabLogin').classList.remove('text-muted');
-
                     document.getElementById('tabSignup').style.color = '#6c757d';
                     document.getElementById('tabSignup').style.borderBottom = 'none';
                     document.getElementById('tabSignup').classList.add('text-muted');
@@ -697,7 +353,6 @@ function saveProfile() {
                     document.getElementById('tabSignup').style.color = '#1d9bf0';
                     document.getElementById('tabSignup').style.borderBottom = '2px solid #1d9bf0';
                     document.getElementById('tabSignup').classList.remove('text-muted');
-
                     document.getElementById('tabLogin').style.color = '#6c757d';
                     document.getElementById('tabLogin').style.borderBottom = 'none';
                     document.getElementById('tabLogin').classList.add('text-muted');
@@ -716,20 +371,23 @@ function saveProfile() {
                     alert("Please enter a password");
                     return;
                 }
-                console.log(type, mobile, password);
                 const url = type === 'citizen' ? "https://viraj-backend.onrender.com/api/auth/citizen/login" : "https://viraj-backend.onrender.com/api/auth/leader/login";
-                const res = await fetch(url, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ number: mobile, password })
-                })
-                if (res.status !== 200) {
-                    alert("Login Failed. Please try again.");
-                    return;
+                try {
+                    const res = await fetch(url, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ number: mobile, password })
+                    });
+                    if (res.status !== 200) {
+                        alert("Login Failed. Please try again.");
+                        return;
+                    }
+                    const data = await res.json();
+                    localStorage.setItem("user", JSON.stringify({ ...data.user, type: type }));
+                    enterApp(mobile, data.pincode, data.user.name);
+                } catch (error) {
+                    alert("Network error. Please try again.");
                 }
-                const data = await res.json();
-                localStorage.setItem("user", JSON.stringify({ ...data.user, type: type }));
-                enterApp(mobile, data.pincode, data.user.name);
             }
 
             async function signup() {
@@ -738,7 +396,6 @@ function saveProfile() {
                 const name = document.getElementById("signupName").value;
                 const pin = document.getElementById("signupPincode").value;
                 const password = document.getElementById("signupPassword").value;
-
                 if (mobile.length !== 10) {
                     alert("Invalid Mobile Number");
                     return;
@@ -747,28 +404,27 @@ function saveProfile() {
                     alert("Please enter a password");
                     return;
                 }
-
                 if (!areaData[pin]) {
                     alert("Service not available in this PIN Code area yet.");
                     return;
                 }
-
-                alert("Signup Successful! Logging in...");
-                console.log(type, mobile, pin, password);
                 const url = type === 'citizen' ? "https://viraj-backend.onrender.com/api/auth/citizen/signup" : "https://viraj-backend.onrender.com/api/auth/leader/signup";
-                const res = await fetch(url, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ number: mobile, name: name, pincode: pin, password })
-                })
-                if (res.status !== 201) {
-                    alert("Signup Failed. Please try again.");
-                    return;
+                try {
+                    const res = await fetch(url, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ number: mobile, name: name, pincode: pin, password })
+                    });
+                    if (res.status !== 201) {
+                        alert("Signup Failed. Please try again.");
+                        return;
+                    }
+                    const data = await res.json();
+                    localStorage.setItem("user", JSON.stringify({ ...data.user, type: type }));
+                    enterApp(mobile, pin, name);
+                } catch (error) {
+                    alert("Network error. Please try again.");
                 }
-                const data = await res.json();
-                localStorage.setItem("user", JSON.stringify({ ...data.user, type: type }));
-                enterApp(mobile, pin, name);
-                console.log(data);
             }
 
             function enterApp(mobile, pin, name) {
@@ -778,22 +434,70 @@ function saveProfile() {
                 document.getElementById("viewArea").innerText = pin;
                 document.getElementById("viewWard").innerText = "Ward Info";
                 document.getElementById("areaFocusText").innerText = areaData[pin];
+                const editBtn = document.getElementById("editProfileBtn");
+                if (editBtn) {
+                    editBtn.style.display = "block";
+                }
             }
 
             function saveProfile() {
-                document.getElementById("viewName").innerText = document.getElementById("name").value;
-                document.getElementById("viewWard").innerText = document.getElementById("ward").value;
+                const name = document.getElementById("name").value;
+                const ward = document.getElementById("ward").value;
+                if (!name || !ward) {
+                    alert("Name and Ward are required");
+                    return;
+                }
+                document.getElementById("viewName").innerText = name;
+                document.getElementById("viewWard").innerText = ward;
                 const fileInput = document.getElementById("picUpload");
                 if (fileInput.files[0]) {
                     const reader = new FileReader();
-                    reader.onload = () => document.getElementById("profilePic").src = reader.result;
+                    reader.onload = () => {
+                        document.getElementById("profilePic").src = reader.result;
+                    };
                     reader.readAsDataURL(fileInput.files[0]);
                 }
-                bootstrap.Modal.getInstance(document.getElementById("editModal")).hide();
+                const modal = bootstrap.Modal.getInstance(document.getElementById("editModal"));
+                if (modal) {
+                    modal.hide();
+                }
             }
+
+            function previewImage(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = () => {
+                    document.getElementById("profilePreview").src = reader.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function checkAuthStatus() {
+                const user = JSON.parse(localStorage.getItem("user"));
+                if (user) {
+                    document.getElementById("loginBox").style.display = "none";
+                    document.getElementById("profileWrapper").style.display = "block";
+                    document.getElementById("viewName").innerText = user.name || "Citizen";
+                    document.getElementById("viewArea").innerText = user.pincode || "Area";
+                    document.getElementById("viewWard").innerText = user.ward || "Ward Info";
+                    document.getElementById("areaFocusText").innerText = areaData[user.pincode] || "Area governance information";
+                    const editBtn = document.getElementById("editProfileBtn");
+                    if (editBtn) {
+                        editBtn.style.display = "block";
+                    }
+                } else {
+                    document.getElementById("loginBox").style.display = "block";
+                    document.getElementById("profileWrapper").style.display = "none";
+                    const editBtn = document.getElementById("editProfileBtn");
+                    if (editBtn) {
+                        editBtn.style.display = "none";
+                    }
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', checkAuthStatus);
         </script>
-
+    </div>
 </body>
-<body> 
-
 </html>

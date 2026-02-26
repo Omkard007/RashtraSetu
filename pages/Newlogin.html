@@ -111,7 +111,7 @@ header span{color:#1d9bf0}
 
 <header>
 <h4>Rashtra<span>Setu</span></h4>
-<button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+<button class="btn btn-outline-light btn-sm" id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editModal" style="display: none;">
 Edit Profile
 </button>
 </header>
@@ -253,6 +253,12 @@ picUpload.onchange=e=>{
 
 document.getElementById("areaFocusText").innerText=
 areaInfo["411018"];
+
+// Check if user is logged in and show edit profile button accordingly
+const user = JSON.parse(localStorage.getItem("user"));
+if (user) {
+    document.getElementById("editProfileBtn").style.display = "block";
+}
 </script>
 
 </body>
