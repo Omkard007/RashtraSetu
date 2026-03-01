@@ -244,7 +244,9 @@
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn-primary btn-sm" id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editModal" style="display: none;">Edit Profile</button>
+                            <button class="btn btn-primary btn-sm" id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editModal" style="display: none;">
+                                Edit Profile
+                            </button>
                         </div>
                     </div>
                     <div class="profile-stats">
@@ -447,19 +449,56 @@
                     alert("Name and Ward are required");
                     return;
                 }
-                document.getElementById("viewName").innerText = name;
-                document.getElementById("viewWard").innerText = ward;
+                
+                // Get current user data from localStorage
+                const user = JSON.parse(localStorage.getItem("user"));
+                if (!user) {
+                    alert("User not found. Please login again.");
+                    return;
+                }
+                
+                // Update user data
+                user.name = name;
+                user.ward = ward;
+                
+                // Handle profile picture update
                 const fileInput = document.getElementById("picUpload");
                 if (fileInput.files[0]) {
                     const reader = new FileReader();
                     reader.onload = () => {
+                        user.photo = reader.result;
+                        // Save updated user data to localStorage
+                        localStorage.setItem("user", JSON.stringify(user));
+                        
+                        // Update current page display
+                        document.getElementById("viewName").innerText = name;
+                        document.getElementById("viewWard").innerText = ward;
                         document.getElementById("profilePic").src = reader.result;
+                        
+                        // Close modal
+                        const modal = bootstrap.Modal.getInstance(document.getElementById("editModal"));
+                        if (modal) {
+                            modal.hide();
+                        }
+                        
+                        alert("Profile updated successfully!");
                     };
                     reader.readAsDataURL(fileInput.files[0]);
-                }
-                const modal = bootstrap.Modal.getInstance(document.getElementById("editModal"));
-                if (modal) {
-                    modal.hide();
+                } else {
+                    // Save updated user data to localStorage (without photo change)
+                    localStorage.setItem("user", JSON.stringify(user));
+                    
+                    // Update current page display
+                    document.getElementById("viewName").innerText = name;
+                    document.getElementById("viewWard").innerText = ward;
+                    
+                    // Close modal
+                    const modal = bootstrap.Modal.getInstance(document.getElementById("editModal"));
+                    if (modal) {
+                        modal.hide();
+                    }
+                    
+                    alert("Profile updated successfully!");
                 }
             }
 
@@ -475,20 +514,34 @@
 
             function checkAuthStatus() {
                 const user = JSON.parse(localStorage.getItem("user"));
+                
                 if (user) {
+                    // User is logged in - show profile, hide login
                     document.getElementById("loginBox").style.display = "none";
                     document.getElementById("profileWrapper").style.display = "block";
+                    
+                    // IMPORTANT: Update profile display with fresh data from localStorage
                     document.getElementById("viewName").innerText = user.name || "Citizen";
                     document.getElementById("viewArea").innerText = user.pincode || "Area";
                     document.getElementById("viewWard").innerText = user.ward || "Ward Info";
                     document.getElementById("areaFocusText").innerText = areaData[user.pincode] || "Area governance information";
+                    
+                    // Update profile picture if available
+                    if (user.photo) {
+                        document.getElementById("profilePic").src = user.photo;
+                    }
+                    
+                    // Show edit profile button
                     const editBtn = document.getElementById("editProfileBtn");
                     if (editBtn) {
                         editBtn.style.display = "block";
                     }
                 } else {
+                    // User is not logged in - show login, hide profile
                     document.getElementById("loginBox").style.display = "block";
                     document.getElementById("profileWrapper").style.display = "none";
+                    
+                    // Hide edit profile button
                     const editBtn = document.getElementById("editProfileBtn");
                     if (editBtn) {
                         editBtn.style.display = "none";
@@ -497,6 +550,20 @@
             }
 
             document.addEventListener('DOMContentLoaded', checkAuthStatus);
+
+            // Listen for storage changes to update profile when user edits it from other pages
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'user') {
+                    checkAuthStatus();
+                }
+            });
+
+            // Also refresh when page becomes visible (user navigates back)
+            document.addEventListener('visibilitychange', function() {
+                if (!document.hidden) {
+                    checkAuthStatus();
+                }
+            });
         </script>
     </div>
 </body>
