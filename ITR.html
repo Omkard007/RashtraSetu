@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Awareness | RashtraSetu</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Poppins;
+            background: linear-gradient(120deg, #0A2647, #144272);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background: #0d1b2a;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 25px;
+            overflow-y: auto;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            color: #FFDE59;
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .menu-item {
+            color: #fff;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 2px 10px;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .menu-item i {
+            margin-right: 10px;
+        }
+
+        .menu-item:hover,
+        .menu-item.active {
+            background: #144272;
+        }
+
+        /* Navbar */
+        .gov-navbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #0A2647;
+            padding: 10px 20px;
+            border-bottom: 1px solid #144272;
+            margin-left: 240px;
+        }
+
+        .gov-left img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .gov-center {
+            text-align: center;
+            flex: 1;
+        }
+
+        .gov-center h5 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .gov-center p {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #a8dadc;
+        }
+
+        .gov-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .official {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .official img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #FFDE59;
+        }
+
+        .official-name {
+            font-weight: 700;
+            margin-top: 5px;
+            color: #ffcc00;
+        }
+
+        .official-title {
+            font-size: 11px;
+            color: white;
+        }
+
+        /* Main content with white-ish background */
+        .main-content {
+            margin-left: 260px;
+            padding: 30px 40px;
+            background: rgba(255, 255, 255, 0.85);
+            color: #0A2647;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 60px 10px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            font-weight: 600;
+            color: #0A2647;
+        }
+
+        .hero p {
+            color: #144272;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 30px;
+            color: #0A2647;
+        }
+
+        /* CARDS */
+        .card-custom {
+            background: rgba(10, 38, 71, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            transition: .3s;
+            height: 100%;
+            text-align: center;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-8px);
+            background: rgba(10, 38, 71, 0.2);
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+            color: #0A2647;
+        }
+
+        .card-custom h5,
+        .card-custom p {
+            color: #0A2647;
+        }
+
+        .card-custom button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            background: #0A2647;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .card-custom button:hover {
+            background: #144272;
+        }
+
+        /* CALCULATOR */
+        .calculator {
+            background: rgba(10, 38, 71, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #0A2647;
+            border-radius: 6px;
+        }
+
+        button.calc-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background: #0A2647;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        button.calc-btn:hover {
+            background: #144272;
+        }
+
+        /* PROGRESS */
+        .progress {
+            height: 25px;
+            border-radius: 20px;
+        }
+
+        /* TABLE */
+        .table {
+            background: white;
+            color: black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* DEADLINES */
+        .timeline {
+            background: rgba(10, 38, 71, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            color: #0A2647;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            background: #061a33;
+            color: white;
+            border-top: 3px solid #0A2647;
+        }
+
+        /* MODAL STYLING */
+        .modal-content {
+            border-radius: 25px;
+            background: linear-gradient(145deg, rgba(15, 32, 71, 0.95), rgba(32, 58, 67, 0.95));
+            color: white;
+        }
+
+        .modal-body ul {
+            padding-left: 20px;
+        }
+
+        .modal-body h6 {
+            font-weight: 600;
+            margin-top: 15px;
+            color: #ffd369;
+        }
+
+        .modal-body p {
+            margin-bottom: 10px;
+        }
+
+        .modal-body a {
+            color: #ffd369;
+            text-decoration: underline;
+        }
+
+        @media(max-width:768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 210px;
+                padding: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+
+        @media(max-width:576px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3>RashtraSetu</h3>
+    <a href="index.html" class="menu-item active"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="pages/search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
+    <a href="pages/explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
+    <a href="pages/add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
+    <a href="pages/add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
+    <a href="pages/janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
+    <a href="pages/politicians.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
+    <a href="pages/politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician
+      Properties</a>
+    <a href="pages/ITR.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i>Tax Transparency</a>
+    <a href="pages/Updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
+    <a href="pages/profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
+    <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    <script>
+      function logout() {
+        localstorage.clear()
+        window.location.href = "../index.html"
+      }
+      window.onload = async () => {
+        const [issuesRes, billsRes] = await Promise.all([
+          fetch("https://viraj-backend.onrender.com/api/all-issues"),
+          fetch("https://viraj-backend.onrender.com/api/get-bills")
+        ])
+        const issues = (await issuesRes.json()).issues
+        const bills = (await billsRes.json()).bills
+        renderIssue(issues)
+        renderBills(bills)
+      }
+      const comment = (id, type) => {
+        const text = prompt("Enter your comment")
+        if (text) {
+          fetch("https://viraj-backend.onrender.com/api/comment", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              id,
+              type,
+              comment: text
+            })
+          }).then(() => {
+            window.location.reload()
+          })
+        }
+      }
+      const renderIssue = (issues) => {
+        const issuesDivs = issues.map(issue => {
+          return `
+    <div class="post-card" data-id="seed-1">
+      <div class="post-header">
+        <div class="avatar">${issue.citizen.name[0].toUpperCase()}</div>
+              <div style="flex:1">
+                <div style="font-weight:700">${issue.citizen.name}</div>
+                <div class="post-meta"><small>${new Date(issue.createdAt).toLocaleString()} ·</small></div>
+              </div>
+            </div>
+            <div class="post-body">
+              ${issue.desc}
+            </div>
+            ${issue.image
+              ? `<div class="post-image"><img src="${issue.image}" style="width:50% ;height:50%" alt="Post Image"></div>`
+              : ""
+            }
+            <div class="post-actions">
+              <button class="action-btn like-btn"><i class="fa-regular fa-heart"></i> <span>Like</span></button>
+              <button onclick={comment("${issue.id}","issue")} class="action-btn comment-btn"><i class="fa-regular fa-comment"></i> <span>Comment</span></button>
+              <button class="action-btn share-btn"><i class="fa-solid fa-share"></i> <span>Share</span></button>
+            </div>
+            <div class="post-comments">
+              ${issue.comments.length > 0 ? issue.comments.map(comment => {
+              console.log(comment)
+              return `  
+                <div class="comment-item">
+                  <div>${comment.text}</div>
+                </div>
+                `
+            }).join("") : "<div class='empty-hint'>No comments yet</div>"}
+              </div>
+          </div>
+          `
+        })
+        document.getElementById("voiceSection").innerHTML = issuesDivs.join(" ")
+
+      }
+      const renderBills = (bills) => {
+        const billsDivs = bills.map(bill => {
+          return `
+      <div class="post-card" data-id="seed-2">
+            <div class="post-header">
+              <div class="avatar" style="background:#fd7e14">${bill.leader.name[0].toUpperCase()}</div>
+              <div style="flex:1">
+                <div style="font-weight:700">${bill.leader.name}</div>
+                <div class="post-meta"><small>${new Date(bill.createdAt).toDateString()} <span class="meta-badge">Budget ₹${bill.budget}</span></small></div>
+              </div>
+            </div>
+            <div class="post-body">
+              ${bill.desc}
+            </div>
+            ${bill.image
+              ? `<div class="post-image"><img src="${bill.image}" style="width:50% ;height:50%" alt="Post Image"></div>`
+              : ""
+            }
+            <div class="post-actions">
+              <button class="action-btn like-btn"><i class="fa-regular fa-heart"></i> <span>Like</span></button>
+              <button onclick={comment("${bill.id}","bill")} class="action-btn comment-btn"><i class="fa-regular fa-comment"></i> <span>Comment</span></button>
+              <button class="action-btn share-btn"><i class="fa-solid fa-share"></i> <span>Share</span></button>
+            </div>
+            <div class="post-comments">
+               ${bill.comments.length > 0 ? bill.comments.map(comment => {
+              console.log(comment)
+              return `  
+                <div class="comment-item">
+                  <div>${comment.text}</div>
+                </div>
+                `
+            }).join("") : "<div class='empty-hint'>No comments yet</div>"}
+              </div>
+          </div>
+            `
+        })
+        document.getElementById("powerSection").innerHTML = billsDivs.join(" ")
+      }
+    </script>
+  </div>
+
+
+   
+  <!-- NAVBAR -->
+  <div class="gov-navbar">
+    <div class="gov-left"><img src="images/logo7.jpeg" alt="logo"></div>
+    
+    <div class="gov-center">
+      <h5>RASHTRASETU</h5>
+      <p>THE BRIDGE BETWEEN NATION AND CITIZENS</p>
+    </div>
+    <div class="gov-right">
+      <div class="official"><img src="images/fadanvis.jpeg" alt="">
+        <div class="official-name">Devendra Fadnavis</div>
+        <div class="official-title">CHIEF MINISTER</div>
+      </div>
+      <div class="official"><img src="images/shinde.jpeg" alt="">
+        <div class="official-name">Eknath Shinde</div>
+        <div class="official-title">DEPUTY CHIEF MINISTER</div>
+      </div>
+      <div class="official"><img src="images/Sunetra-Pawar.jpeg" alt="">
+        <div class="official-name">Sunetra Pawar</div>
+        <div class="official-title">DEPUTY CHIEF MINISTER</div>
+      </div>
+      <div class="official"><img src="images/shelar.jpeg" alt="">
+        <div class="official-name">Ashish Shelar</div>
+        <div class="official-title">INFORMATION TECHNOLOGY MINISTER</div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- HERO -->
+        <section class="hero">
+            <h1>Income Tax Awareness</h1>
+            <p>Understanding taxes helps citizens contribute responsibly to national development. Your tax builds roads,
+                hospitals, schools, and national security.</p>
+        </section>
+
+        <!-- TAX CARDS -->
+        <div class="container">
+            <h2 class="section-title">How Your Tax Is Used</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card-custom">
+                        <i class="fa-solid fa-road icon"></i>
+                        <h5>Infrastructure</h5>
+                        <p>Roads, bridges, metro projects, airports.</p>
+                        <button data-bs-toggle="modal" data-bs-target="#infraModal">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-custom">
+                        <i class="fa-solid fa-shield-halved icon"></i>
+                        <h5>Defence</h5>
+                        <p>Protecting borders & strengthening armed forces.</p>
+                        <button data-bs-toggle="modal" data-bs-target="#defenceModal">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-custom">
+                        <i class="fa-solid fa-hospital icon"></i>
+                        <h5>Healthcare</h5>
+                        <p>Hospitals, vaccination & health schemes.</p>
+                        <button data-bs-toggle="modal" data-bs-target="#healthModal">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-custom">
+                        <i class="fa-solid fa-graduation-cap icon"></i>
+                        <h5>Education</h5>
+                        <p>Schools, universities & scholarships.</p>
+                        <button data-bs-toggle="modal" data-bs-target="#educationModal">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAX DISTRIBUTION -->
+        <div class="container mt-5">
+            <h2 class="section-title">Tax Distribution</h2>
+            <label>Infrastructure 25%</label>
+            <div class="progress mb-3">
+                <div class="progress-bar bg-warning" style="width:25%"></div>
+            </div>
+            <label>Defence 20%</label>
+            <div class="progress mb-3">
+                <div class="progress-bar bg-danger" style="width:20%"></div>
+            </div>
+            <label>Healthcare 15%</label>
+            <div class="progress mb-3">
+                <div class="progress-bar bg-success" style="width:15%"></div>
+            </div>
+            <label>Education 12%</label>
+            <div class="progress mb-3">
+                <div class="progress-bar bg-info" style="width:12%"></div>
+            </div>
+        </div>
+
+        <!-- TAX SLABS -->
+        <div class="container mt-5">
+            <h2 class="section-title">Income Tax Slabs (India)</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Income Range</th>
+                        <th>Tax Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Up to ₹3,00,000</td>
+                        <td>0%</td>
+                    </tr>
+                    <tr>
+                        <td>₹3L – ₹6L</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>₹6L – ₹9L</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>₹9L – ₹12L</td>
+                        <td>15%</td>
+                    </tr>
+                    <tr>
+                        <td>₹12L – ₹15L</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>Above ₹15L</td>
+                        <td>30%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TAX CALCULATOR -->
+        <div class="container mt-5">
+            <h2 class="section-title">Income Tax Calculator</h2>
+            <div class="calculator">
+                <label>Annual Income</label>
+                <input type="number" id="income" placeholder="Enter your income">
+                <button class="calc-btn" onclick="calculateTax()">Calculate Tax</button>
+                <div id="result" style="margin-top:15px;"></div>
+            </div>
+        </div>
+
+        <!-- TAX DEADLINES -->
+        <div class="container mt-5">
+            <h2 class="section-title">Important Tax Deadlines</h2>
+            <div class="timeline">
+                <p>📅 31 July — ITR Filing Deadline</p>
+                <p>📅 31 December — Revised Return</p>
+                <p>📅 Advance Tax Dates</p>
+                <ul>
+                    <li>15 June</li>
+                    <li>15 September</li>
+                    <li>15 December</li>
+                    <li>15 March</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            © 2026 RashtraSetu | Building Responsible Citizens
+        </footer>
+    </div>
+
+    <!-- Modals --> 
+        <!-- Infrastructure Modal -->
+        <div class="modal fade" id="infraModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content p-3">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Infrastructure Development</h5> <button
+                            class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Impact of Taxes:</strong> 25% of revenue goes to national infrastructure.</p>
+                        <h6>Major Projects</h6>
+                        <ul>
+                            <li>National Highways – 15,000 km expansion</li>
+                            <li>Metro Projects – 10 cities</li>
+                            <li>Smart Cities Mission – 100 cities</li>
+                            <li>Airport Development – new terminals & runways</li>
+                            <li>Ports & logistics hubs to boost trade</li>
+                        </ul>
+                        <h6>Citizen Benefits</h6>
+                        <ul>
+                            <li>Faster travel & improved connectivity</li>
+                            <li>Enhanced urban living & smart infrastructure</li>
+                            <li>Better trade & economic growth</li>
+                        </ul>
+                        <p>Official portal: <a href="https://infrastructure.gov.in/"
+                                target="_blank">infrastructure.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Defence Modal -->
+        <div class="modal fade" id="defenceModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content p-3">
+                    <div class="modal-header">
+                        <h5 class="modal-title">National Defence</h5> <button class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Impact of Taxes:</strong> 20% of revenue strengthens the armed forces.</p>
+                        <h6>Key Investments</h6>
+                        <ul>
+                            <li>Modern fighter jets, tanks & naval ships</li>
+                            <li>Border surveillance & security infrastructure</li>
+                            <li>Cyber defense & AI technology</li>
+                            <li>Disaster management & emergency response</li>
+                        </ul>
+                        <h6>Citizen Benefits</h6>
+                        <ul>
+                            <li>Peace of mind & national security</li>
+                            <li>Rapid disaster response & relief</li>
+                            <li>Global defense credibility</li>
+                        </ul>
+                        <p>Official portal: <a href="https://www.mod.gov.in/" target="_blank">mod.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Healthcare Modal -->
+        <div class="modal fade" id="healthModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content p-3">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Healthcare Services</h5> <button class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Impact of Taxes:</strong> 15% funds public healthcare & schemes.</p>
+                        <h6>Programs & Schemes</h6>
+                        <ul>
+                            <li>Ayushman Bharat – 1.5 Cr beneficiaries</li>
+                            <li>National Health Mission – vaccination & maternal care</li>
+                            <li>Public hospitals & clinics</li>
+                            <li>Health research & innovations</li>
+                            <li>Emergency medical services</li>
+                        </ul>
+                        <h6>Citizen Benefits</h6>
+                        <ul>
+                            <li>Affordable/free healthcare access</li>
+                            <li>Improved life expectancy & quality of life</li>
+                            <li>Preventive & emergency care support</li>
+                        </ul>
+                        <p>Portal: <a href="https://www.nhp.gov.in/" target="_blank">nhp.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        
+        <!-- Education Modal -->
+        <div class="modal fade" id="educationModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content p-3">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Education Development</h5> <button class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Impact of Taxes:</strong> 12% funds education initiatives.</p>
+                        <h6>Projects & Programs</h6>
+                        <ul>
+                            <li>Government schools, colleges, universities</li>
+                            <li>Scholarships & grants for underprivileged</li>
+                            <li>Skill development & vocational training</li>
+                            <li>Research funding & digital learning</li>
+                        </ul>
+                        <h6>Citizen Benefits</h6>
+                        <ul>
+                            <li>Affordable and accessible education</li>
+                            <li>Improved employability & skills</li>
+                            <li>Support for higher studies & research</li>
+                        </ul>
+                        <p>Portal: <a href="https://www.education.gov.in/" target="_blank">education.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- Add other modals: defenceModal, healthModal, educationModal (same structure) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function calculateTax() {
+                let income = document.getElementById("income").value;
+                let tax = 0;
+                if (income <= 300000) tax = 0;
+                else if (income <= 600000) tax = (income - 300000) * 0.05;
+                else if (income <= 900000) tax = 15000 + (income - 600000) * 0.10;
+                else if (income <= 1200000) tax = 45000 + (income - 900000) * 0.15;
+                else if (income <= 1500000) tax = 90000 + (income - 1200000) * 0.20;
+                else tax = 150000 + (income - 1500000) * 0.30;
+
+                // Show breakdown
+                let infra = Math.round(tax * 0.25);
+                let defence = Math.round(tax * 0.20);
+                let health = Math.round(tax * 0.15);
+                let edu = Math.round(tax * 0.12);
+                let other = Math.round(tax - (infra + defence + health + edu));
+
+                document.getElementById("result").innerHTML =
+                    `Total Tax: ₹${tax.toLocaleString()}<br>
+Infrastructure: ₹${infra.toLocaleString()}<br>
+Defence: ₹${defence.toLocaleString()}<br>
+Healthcare: ₹${health.toLocaleString()}<br>
+Education: ₹${edu.toLocaleString()}<br>
+Other Govt Expenses: ₹${other.toLocaleString()}`;
+            }
+        </script>
+</body> 
+</html>

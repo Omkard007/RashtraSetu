@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community NGO Network</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #eef2f7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+
+        /* Apply this to all main sections */
+        .main-section {
+            margin-left: 0px;
+            margin-right: 0;
+
+        }
+
+        .main-section+.main-section {
+            margin-top: 0;
+        }
+
+        .main-section .container {
+            padding-left: 0px;
+            padding-right: 10px;
+        }
+
+        /* Make sure hero or top banner respects sidebar */
+        .hero,
+        .impact-counters,
+        .ngo-cards,
+        .other-sections {
+            margin-left: 0px;
+            padding-top: 0;
+            /* adjust if needed */
+            padding-bottom: 0;
+        }
+
+        /* Prevent overlap with sidebar */
+        body {
+            overflow-x: hidden;
+        }
+
+       /* Sidebar */
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background: #0d1b2a;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 25px;
+            overflow-y: auto;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            color: #FFDE59;
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .menu-item {
+            color: #fff;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 2px 10px;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+       
+
+        .menu-item i {
+            margin-right: 10px;
+        }
+
+        .menu-item:hover,
+        .active {
+            background: #144272;
+        }
+
+
+        /* Navbar */
+        .gov-navbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #0A2647;
+            padding: 10px 20px;
+            border-bottom: 1px solid #144272;
+            margin-left: 240px;
+        }
+
+        .gov-left img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .gov-center {
+            text-align: center;
+            flex: 1;
+        }
+
+        .gov-center h5 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .gov-center p {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #a8dadc;
+        }
+
+        .gov-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .official {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .official img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #FFDE59;
+        }
+
+        .official-name {
+            font-weight: 700;
+            margin-top: 5px;
+            color: #ffcc00;
+        }
+
+        .official-title {
+            font-size: 11px;
+            color: white;
+        }
+
+        /* Content wrapper */
+        .main-content {
+            margin-left: 230px;
+            padding: 0 0px;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                url('https://images.unsplash.com/photo-1509099836639-18ba1795216d');
+            background-size: cover;
+            background-position: center;
+            height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            text-align: center;
+            margin: 70px 0 40px;
+            font-weight: 700;
+            font-size: 34px;
+            color: #2c3e50;
+        }
+
+        .container
+        {
+            padding-left: 40px;
+            padding-right: 20px;
+        }
+        /* NGO CARDS */
+        .ngo-card {
+            border: none;
+            border-radius: 20px;
+            padding: 50px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
+            cursor: pointer;
+            min-height: 230px;
+
+
+        }
+
+        .ngo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 140px;
+            opacity: 0.9;
+            transition: 0.4s;
+        }
+
+        .ngo-card:hover .card-img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* CARD COLORS */
+        .children {
+            background: #d53e4f;
+        }
+
+        .women {
+            background: #f19659;
+        }
+
+        .senior {
+            background: #fee08b;
+            color: #333;
+        }
+
+        .environment {
+            background: #79c373;
+        }
+
+        .education {
+            background: #62b7a7;
+        }
+
+        .health {
+            background: #3288bd;
+        }
+
+        /* Different gradient colors for each section */
+        #childOverview {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        #childPrograms {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        #childImpact {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        /* Women Empowerment Gradients */
+        #womenOverview {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        #womenPrograms {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        #womenImpact {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        /* Senior Citizen Gradients */
+        #seniorOverview {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #0A2647;
+        }
+
+        #seniorPrograms {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        #seniorImpact {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        /* Environmental NGO Section Gradients */
+        #envOverview {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #0A2647;
+        }
+
+        #envPrograms {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        #envImpact {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        /* Education NGO Section Gradients */
+        #eduOverview {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #0A2647;
+        }
+
+        #eduPrograms {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        #eduImpact {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        /* Healthcare NGO Section Gradients */
+        #healthOverview {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #0A2647;
+        }
+
+        #healthPrograms {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        #healthImpact {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #000;
+        }
+
+        /* MODALS */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 38, 71, 0.7);
+            backdrop-filter: blur(6px);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .modal-container {
+            background: #fff;
+            padding: 30px;
+            width: 720px;
+            max-width: 95%;
+            border-radius: 25px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #0A2647;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            color: #0A2647;
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .nav-btn {
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+            color: #0A2647;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(135deg, #0A2647, #2a4b8d);
+            color: #fff;
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, #0A2647, #2a4b8d);
+            color: #fff;
+        }
+
+        .modal-section {
+            display: none;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            color: #000000;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .modal-section.active-section {
+            display: block;
+            animation: slideFade 0.5s ease-in-out;
+        }
+
+        .modal-section h4 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .modal-section ul {
+            padding-left: 20px;
+        }
+
+        .modal-section ul li {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideFade {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content,
+            .hero,
+            .container {
+                margin-left: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .main-content,
+            .hero,
+            .container {
+                margin-left: 0;
+            }
+        }
+    </style>
+    <style>
+        .impact-counters {
+            background: linear-gradient(135deg, #0A2647, #3288bd);
+            padding: 80px 0;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            margin-left: 230px;
+            /* offset for sidebar */
+        }
+
+        .impact-counters h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .counters-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .counter-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 20px;
+            min-width: 180px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .counter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .counter-card h3 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .counter-card p {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Navbar */
+        .gov-navbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #0A2647;
+            padding: 10px 20px;
+            border-bottom: 1px solid #144272;
+            margin-left: 240px;
+        }
+
+        .gov-left img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .gov-center {
+            text-align: center;
+            flex: 1;
+        }
+
+        .gov-center h5 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .gov-center p {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #a8dadc;
+        }
+
+        .gov-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .official {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .official img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #FFDE59;
+        }
+
+        .official-name {
+            font-weight: 700;
+            margin-top: 5px;
+            color: #ffcc00;
+        }
+
+        .official-title {
+            font-size: 11px;
+            color: #333333;
+        }
+    </style>
+
+</head>
+
+<body>
+
+   <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3>RashtraSetu</h3>
+    <a href="index.html" class="menu-item active"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="pages/search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
+    <a href="pages/explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
+    <a href="pages/add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
+    <a href="pages/add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
+    <a href="pages/janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
+    <a href="pages/politicians.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
+    <a href="pages/politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician
+      Properties</a>
+    <a href="pages/ITR.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i>Tax Transparency</a>
+    <a href="pages/Updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
+    <a href="pages/profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
+    <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    <script>
+      function logout() {
+        localstorage.clear()
+        window.location.href = "../index.html"
+      }
+      window.onload = async () => {
+        const [issuesRes, billsRes] = await Promise.all([
+          fetch("https://viraj-backend.onrender.com/api/all-issues"),
+          fetch("https://viraj-backend.onrender.com/api/get-bills")
+        ])
+        const issues = (await issuesRes.json()).issues
+        const bills = (await billsRes.json()).bills
+        renderIssue(issues)
+        renderBills(bills)
+      }
+      const comment = (id, type) => {
+        const text = prompt("Enter your comment")
+        if (text) {
+          fetch("https://viraj-backend.onrender.com/api/comment", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              id,
+              type,
+              comment: text
+            })
+          }).then(() => {
+            window.location.reload()
+          })
+        }
+      }
+      const renderIssue = (issues) => {
+        const issuesDivs = issues.map(issue => {
+          return `
+    <div class="post-card" data-id="seed-1">
+      <div class="post-header">
+        <div class="avatar">${issue.citizen.name[0].toUpperCase()}</div>
+              <div style="flex:1">
+                <div style="font-weight:700">${issue.citizen.name}</div>
+                <div class="post-meta"><small>${new Date(issue.createdAt).toLocaleString()} ·</small></div>
+              </div>
+            </div>
+            <div class="post-body">
+              ${issue.desc}
+            </div>
+            ${issue.image
+              ? `<div class="post-image"><img src="${issue.image}" style="width:50% ;height:50%" alt="Post Image"></div>`
+              : ""
+            }
+            <div class="post-actions">
+              <button class="action-btn like-btn"><i class="fa-regular fa-heart"></i> <span>Like</span></button>
+              <button onclick={comment("${issue.id}","issue")} class="action-btn comment-btn"><i class="fa-regular fa-comment"></i> <span>Comment</span></button>
+              <button class="action-btn share-btn"><i class="fa-solid fa-share"></i> <span>Share</span></button>
+            </div>
+            <div class="post-comments">
+              ${issue.comments.length > 0 ? issue.comments.map(comment => {
+              console.log(comment)
+              return `  
+                <div class="comment-item">
+                  <div>${comment.text}</div>
+                </div>
+                `
+            }).join("") : "<div class='empty-hint'>No comments yet</div>"}
+              </div>
+          </div>
+          `
+        })
+        document.getElementById("voiceSection").innerHTML = issuesDivs.join(" ")
+
+      }
+      const renderBills = (bills) => {
+        const billsDivs = bills.map(bill => {
+          return `
+      <div class="post-card" data-id="seed-2">
+            <div class="post-header">
+              <div class="avatar" style="background:#fd7e14">${bill.leader.name[0].toUpperCase()}</div>
+              <div style="flex:1">
+                <div style="font-weight:700">${bill.leader.name}</div>
+                <div class="post-meta"><small>${new Date(bill.createdAt).toDateString()} <span class="meta-badge">Budget ₹${bill.budget}</span></small></div>
+              </div>
+            </div>
+            <div class="post-body">
+              ${bill.desc}
+            </div>
+            ${bill.image
+              ? `<div class="post-image"><img src="${bill.image}" style="width:50% ;height:50%" alt="Post Image"></div>`
+              : ""
+            }
+            <div class="post-actions">
+              <button class="action-btn like-btn"><i class="fa-regular fa-heart"></i> <span>Like</span></button>
+              <button onclick={comment("${bill.id}","bill")} class="action-btn comment-btn"><i class="fa-regular fa-comment"></i> <span>Comment</span></button>
+              <button class="action-btn share-btn"><i class="fa-solid fa-share"></i> <span>Share</span></button>
+            </div>
+            <div class="post-comments">
+               ${bill.comments.length > 0 ? bill.comments.map(comment => {
+              console.log(comment)
+              return `  
+                <div class="comment-item">
+                  <div>${comment.text}</div>
+                </div>
+                `
+            }).join("") : "<div class='empty-hint'>No comments yet</div>"}
+              </div>
+          </div>
+            `
+        })
+        document.getElementById("powerSection").innerHTML = billsDivs.join(" ")
+      }
+    </script>
+  </div>
+
+
+
+   <!-- NAVBAR -->
+  <div class="gov-navbar">
+    <div class="gov-left"><img src="images/logo7.jpeg" alt="logo"></div>
+    
+    <div class="gov-center">
+      <h5>RASHTRASETU</h5>
+      <p>THE BRIDGE BETWEEN NATION AND CITIZENS</p>
+    </div>
+    <div class="gov-right">
+      <div class="official"><img src="images/fadanvis.jpeg" alt="">
+        <div class="official-name">Devendra Fadnavis</div>
+        <div class="official-title">CHIEF MINISTER</div>
+      </div>
+      <div class="official"><img src="images/shinde.jpeg" alt="">
+        <div class="official-name">Eknath Shinde</div>
+        <div class="official-title">DEPUTY CHIEF MINISTER</div>
+      </div>
+      <div class="official"><img src="images/Sunetra-Pawar.jpeg" alt="">
+        <div class="official-name">Sunetra Pawar</div>
+        <div class="official-title">DEPUTY CHIEF MINISTER</div>
+      </div>
+      <div class="official"><img src="images/shelar.jpeg" alt="">
+        <div class="official-name">Ashish Shelar</div>
+        <div class="official-title">INFORMATION TECHNOLOGY MINISTER</div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- HERO -->
+        <div class="hero">
+            <div>
+                <h1>Supporting Our Community Through NGOs</h1>
+                <p>Empowering Children • Women • Senior Citizens • Environment • Education • Healthcare</p>
+            </div>
+        </div>
+
+        <!-- NGO CARDS -->
+
+        <div class="container">
+
+            <h2 class="section-title">Available NGOs in Our Community</h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <div class="ngo-card children" onclick="openModal('childModal')">
+                        <h4>Child Welfare NGOs</h4>
+                        <p>Education support, nutrition programs, and child protection initiatives.</p>
+                        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" class="card-img">
+                    </div>
+                </div>
+
+                <!-- Women Empowerment Card -->
+                <div class="col-md-4">
+                    <div class="ngo-card women" onclick="openModal('womenModal')">
+                        <h4>Women Empowerment NGOs</h4>
+                        <p>Skill training, safety awareness, financial independence programs.</p>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" class="card-img">
+                    </div>
+                </div>
+
+                <!-- Senior Citizen Card -->
+                <div class="col-md-4">
+                    <div class="ngo-card senior" onclick="openModal('seniorModal')">
+                        <h4>Senior Citizen Support</h4>
+                        <p>Healthcare camps and pension assistance programs.</p>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" class="card-img">
+                    </div>
+                </div>
+
+
+                <!-- Environmental NGO Card -->
+                <div class="col-md-4">
+                    <div class="ngo-card environment" onclick="openModal('envModal')">
+                        <h4>Environmental NGOs</h4>
+                        <p>Tree plantation drives and sustainability awareness.</p>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2909/2909763.png" class="card-img">
+                    </div>
+                </div>
+
+                <!--Education Card-->
+                <div class="col-md-4">
+                    <div class="ngo-card education" onclick="openModal('eduModal')">
+                        <h4>Education Support NGOs</h4>
+                        <p>Scholarships and rural school development programs.</p>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="card-img">
+                    </div>
+                </div>
+
+                <!-- Healthcare NGO Card -->
+                <div class="col-md-4">
+                    <div class="ngo-card health" onclick="openModal('healthModal')">
+                        <h4>Healthcare NGOs</h4>
+                        <p>Medical camps and blood donation drives.</p>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" class="card-img">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- MODALS -->
+
+        <!--Child Wlfare Modal-->
+        <div class="custom-modal" id="childModal">
+            <div class="modal-container">
+                <span class="close-btn" onclick="closeModal('childModal')">&times;</span>
+                <h2 class="modal-title">Child Welfare NGOs</h2>
+
+                <!-- NAVIGATION -->
+                <div class="modal-nav">
+                    <button onclick="switchSection('childOverview')" class="nav-btn active">Overview</button>
+                    <button onclick="switchSection('childPrograms')" class="nav-btn">Programs</button>
+                    <button onclick="switchSection('childImpact')" class="nav-btn">Impact</button>
+                </div>
+
+                <!-- SECTIONS -->
+                <div class="modal-section active-section" id="childOverview">
+                    <h4>About Child Welfare NGOs</h4>
+                    <p>Child Welfare NGOs work towards ensuring a safe and healthy environment for children...</p>
+                    <p>They collaborate with government bodies, communities, and volunteers to create sustainable
+                        programs...</p>
+                </div>
+
+                <div class="modal-section" id="childPrograms">
+                    <h4>Major Programs</h4>
+                    <ul>
+                        <li>📚 Free Education Programs for underprivileged children</li>
+                        <li>🥗 Mid-day meal and nutrition support initiatives</li>
+                        <li>🛡 Child protection and anti-trafficking programs</li>
+                        <li>🏫 Skill development and after-school learning centers</li>
+                        <li>💊 Free medical camps and vaccination drives</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section" id="childImpact">
+                    <h4>Impact of NGOs</h4>
+                    <p>Thousands of children have been given access to quality education...</p>
+                    <p>Many NGOs run orphanages, shelter homes, and rehabilitation programs...</p>
+                    <p>Their efforts reduce child labor, improve literacy rates, and protect children's rights.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Women Modal -->
+        <div class="custom-modal" id="womenModal">
+            <div class="modal-container">
+                <span class="close-btn" onclick="closeModal('womenModal')">&times;</span>
+                <h2 class="modal-title">Women Empowerment NGOs</h2>
+
+                <!-- Navigation Buttons -->
+                <div class="modal-nav">
+                    <button onclick="switchSection('womenOverview')" class="nav-btn active">Overview</button>
+                    <button onclick="switchSection('womenPrograms')" class="nav-btn">Programs</button>
+                    <button onclick="switchSection('womenImpact')" class="nav-btn">Impact</button>
+                </div>
+
+                <!-- Sections -->
+                <div class="modal-section active-section" id="womenOverview">
+                    <h4>About Women Empowerment NGOs</h4>
+                    <p>👩‍💼 Women Empowerment NGOs work to improve the social, economic, and educational status of
+                        women.
+                    </p>
+                    <p>🤝 They collaborate with communities and government bodies to provide training, awareness, and
+                        opportunities for financial independence.</p>
+                </div>
+
+                <div class="modal-section" id="womenPrograms">
+                    <h4>Major Programs</h4>
+                    <ul>
+                        <li>🛠 Skill development and entrepreneurship training</li>
+                        <li>💰 Financial literacy and independence programs</li>
+                        <li>⚖️ Legal awareness and women safety workshops</li>
+                        <li>🥋 Self-defence and personal safety training</li>
+                        <li>🎓 Education and mentorship initiatives</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section" id="womenImpact">
+                    <h4>Impact of NGOs</h4>
+                    <p>🌟 Many women gain financial independence and start small businesses.</p>
+                    <p>👩‍🎓 Education and skill programs increase employment opportunities.</p>
+                    <p>🛡 Awareness programs improve women’s safety and legal empowerment in communities.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--senior Modal -->
+        <div class="custom-modal" id="seniorModal">
+            <div class="modal-container">
+                <span class="close-btn" onclick="closeModal('seniorModal')">&times;</span>
+                <h2 class="modal-title">Senior Citizen Support NGOs</h2>
+
+                <!-- Navigation Buttons -->
+                <div class="modal-nav">
+                    <button onclick="switchSection('seniorOverview')" class="nav-btn active">Overview</button>
+                    <button onclick="switchSection('seniorPrograms')" class="nav-btn">Programs</button>
+                    <button onclick="switchSection('seniorImpact')" class="nav-btn">Impact</button>
+                </div>
+
+                <!-- Sections -->
+                <div class="modal-section active-section" id="seniorOverview">
+                    <h4>About Senior Citizen Support NGOs</h4>
+                    <p>🧓 Senior Citizen NGOs focus on improving the health, welfare, and quality of life of elderly
+                        citizens.</p>
+                    <p>🤝 They organize healthcare camps, provide pension guidance, and offer social and emotional
+                        support.
+                    </p>
+                </div>
+
+                <div class="modal-section" id="seniorPrograms">
+                    <h4>Major Programs</h4>
+                    <ul>
+                        <li>🏥 Free health checkups and healthcare camps</li>
+                        <li>💰 Pension and government scheme guidance</li>
+                        <li>🎨 Social engagement and community activities</li>
+                        <li>🧘 Emotional support and counselling services</li>
+                        <li>📝 Awareness workshops on senior rights</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section" id="seniorImpact">
+                    <h4>Impact of NGOs</h4>
+                    <p>🌟 Improved access to healthcare for elderly citizens.</p>
+                    <p>💵 Many seniors benefit from pension schemes and financial guidance.</p>
+                    <p>🤗 Social programs reduce loneliness and enhance emotional well-being.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Environmental NGO Modal -->
+        <div class="custom-modal" id="envModal">
+            <div class="modal-container">
+                <span class="close-btn" onclick="closeModal('envModal')">&times;</span>
+                <h2 class="modal-title">Environmental NGOs</h2>
+
+                <!-- Navigation Buttons -->
+                <div class="modal-nav">
+                    <button onclick="switchSection('envOverview')" class="nav-btn active">Overview</button>
+                    <button onclick="switchSection('envPrograms')" class="nav-btn">Programs</button>
+                    <button onclick="switchSection('envImpact')" class="nav-btn">Impact</button>
+                </div>
+
+                <!-- Sections -->
+                <div class="modal-section active-section" id="envOverview">
+                    <h4>About Environmental NGOs</h4>
+                    <p>🌳 Environmental NGOs work to protect the planet by promoting sustainability and eco-friendly
+                        practices.</p>
+                    <p>♻️ They organize tree plantation drives, clean-up campaigns, and awareness programs to engage
+                        communities.</p>
+                </div>
+
+                <div class="modal-section" id="envPrograms">
+                    <h4>Major Programs</h4>
+                    <ul>
+                        <li>🌱 Tree plantation and afforestation drives</li>
+                        <li>🗑 Waste management and recycling awareness</li>
+                        <li>🚫 Plastic-free campaigns and initiatives</li>
+                        <li>🌍 Climate action and sustainability workshops</li>
+                        <li>📚 Environmental education and community outreach</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section" id="envImpact">
+                    <h4>Impact of NGOs</h4>
+                    <p>🌿 Millions of trees planted, improving local ecology and biodiversity.</p>
+                    <p>♻️ Communities are more aware of waste management and sustainability practices.</p>
+                    <p>🌎 Campaigns promote eco-friendly living and reduce carbon footprint.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Education Modal -->
+        <div class="custom-modal" id="eduModal">
+            <div class="modal-container">
+                <span class="close-btn" onclick="closeModal('eduModal')">&times;</span>
+                <h2 class="modal-title">Education Support NGOs</h2>
+
+                <!-- Navigation Buttons -->
+                <div class="modal-nav">
+                    <button onclick="switchSection('eduOverview')" class="nav-btn active">Overview</button>
+                    <button onclick="switchSection('eduPrograms')" class="nav-btn">Programs</button>
+                    <button onclick="switchSection('eduImpact')" class="nav-btn">Impact</button>
+                </div>
+
+                <!-- Sections -->
+                <div class="modal-section active-section" id="eduOverview">
+                    <h4>About Education Support NGOs</h4>
+                    <p>🎓 Education NGOs work to improve access to quality education for students, especially in rural
+                        areas.</p>
+                    <p>📚 They provide scholarships, mentorship, and support programs to enhance learning opportunities.
+                    </p>
+                </div>
+
+                <div class="modal-section" id="eduPrograms">
+                    <h4>Major Programs</h4>
+                    <ul>
+                        <li>🎓 Scholarships for deserving students</li>
+                        <li>🏫 Rural school development programs</li>
+                        <li>💻 Digital classrooms and online learning initiatives</li>
+                        <li>📝 Career guidance and counselling</li>
+                        <li>📖 Teacher training and educational workshops</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section" id="eduImpact">
+                    <h4>Impact of NGOs</h4>
+                    <p>🌟 Increased access to education and improved literacy rates in rural areas.</p>
+                    <p>🎓 Many students receive scholarships and opportunities for higher studies.</p>
+                    <p>💻 Enhanced learning experience through digital classrooms and mentorship programs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Healthcare NGO Modal -->
+        <div class="custom-modal" id="healthModal">
+            <div class="modal-container">
+                <span class="close-btn" onclick="closeModal('healthModal')">&times;</span>
+                <h2 class="modal-title">Healthcare NGOs</h2>
+
+                <!-- Navigation Buttons -->
+                <div class="modal-nav">
+                    <button onclick="switchSection('healthOverview')" class="nav-btn active">Overview</button>
+                    <button onclick="switchSection('healthPrograms')" class="nav-btn">Programs</button>
+                    <button onclick="switchSection('healthImpact')" class="nav-btn">Impact</button>
+                </div>
+
+                <!-- Sections -->
+                <div class="modal-section active-section" id="healthOverview">
+                    <h4>About Healthcare NGOs</h4>
+                    <p>🩺 Healthcare NGOs organize medical initiatives to improve public health and well-being.</p>
+                    <p>💉 They provide medical camps, vaccination drives, blood donation programs, and mental health
+                        awareness campaigns.</p>
+                </div>
+
+                <div class="modal-section" id="healthPrograms">
+                    <h4>Major Programs</h4>
+                    <ul>
+                        <li>🩸 Blood donation drives</li>
+                        <li>🏥 Free medical camps and checkups</li>
+                        <li>💉 Vaccination and immunization programs</li>
+                        <li>🧠 Mental health awareness workshops</li>
+                        <li>📚 Health education and preventive care initiatives</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section" id="healthImpact">
+                    <h4>Impact of NGOs</h4>
+                    <p>🌟 Thousands of people receive free medical checkups and healthcare services.</p>
+                    <p>🩸 Blood donation programs help hospitals maintain life-saving blood supplies.</p>
+                    <p>💚 Awareness campaigns improve community health and encourage preventive care.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <!-- IMPACT COUNTERS SECTION -->
+    <section class="impact-counters">
+        <div class="container text-center">
+            <h2>Our Impact So Far</h2>
+            <div class="counters-wrapper">
+                <div class="counter-card">
+                    <h3>💚 <span class="counter" data-target="5000">0</span>+</h3>
+                    <p>Trees Planted</p>
+                </div>
+                <div class="counter-card">
+                    <h3>🎓 <span class="counter" data-target="1200">0</span>+</h3>
+                    <p>Students Educated</p>
+                </div>
+                <div class="counter-card">
+                    <h3>🩺 <span class="counter" data-target="3000">0</span>+</h3>
+                    <p>Lives Touched</p>
+                </div>
+                <div class="counter-card">
+                    <h3>🤝 <span class="counter" data-target="250">0</span>+</h3>
+                    <p>Community Programs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        © 2026 Community NGO Network | Empowering Local Communities
+    </footer>
+
+
+    <script>
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const speed = 200; // lower = faster
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    </script>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = "flex";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        window.onclick = function (e) {
+            document.querySelectorAll(".custom-modal").forEach(modal => {
+                if (e.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+
+        function switchSection(sectionId) {
+            const modal = document.getElementById(sectionId).closest('.modal-container');
+            const sections = modal.querySelectorAll('.modal-section');
+            const buttons = modal.querySelectorAll('.nav-btn');
+
+            sections.forEach(section => section.classList.remove('active-section'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(sectionId).classList.add('active-section');
+            const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(sectionId));
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
