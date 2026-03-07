@@ -329,18 +329,17 @@
     <!-- SIDEBAR -->
   <div class="sidebar">
     <h3>RashtraSetu</h3>
-    <a href="index.html" class="menu-item active"><i class="fa-solid fa-house"></i>Home</a>
-    <a href="pages/search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
-    <a href="pages/explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
-    <a href="pages/add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
-    <a href="pages/add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
-    <a href="pages/janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
-    <a href="pages/politicians.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
-    <a href="pages/politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician
-      Properties</a>
-    <a href="pages/ITR.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i>Tax Transparency</a>
-    <a href="pages/Updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
-    <a href="pages/profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
+    <a href="../index.html" class="menu-item"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="../pages/search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
+    <a href="../pages/explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
+    <a href="../pages/add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
+    <a href="../pages/add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
+    <a href="../pages/janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
+    <a href="../pages/politician5471s.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
+    <a href="../pages/politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician Properties</a>
+    <a href="../pages/ITR.html" class="menu-item active"><i class="fa-solid fa-file-invoice-dollar"></i>Tax Transparency</a>
+    <a href="../pages/charity.html" class="menu-item"><i class="fa-solid fa-hand-holding-heart"></i> Charity</a>
+    <a href="../pages/profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
     <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
     <script>
       function logout() {
@@ -390,7 +389,7 @@
               ${issue.desc}
             </div>
             ${issue.image
-              ? `<div class="post-image"><img src="${issue.image}" style="width:50% ;height:50%" alt="Post Image"></div>`
+              ? <div class="post-image"><img src="${issue.image}" style="width:50% ;height:50%" alt="Post Image"></div>
               : ""
             }
             <div class="post-actions">
@@ -429,7 +428,7 @@
               ${bill.desc}
             </div>
             ${bill.image
-              ? `<div class="post-image"><img src="${bill.image}" style="width:50% ;height:50%" alt="Post Image"></div>`
+              ? <div class="post-image"><img src="${bill.image}" style="width:50% ;height:50%" alt="Post Image"></div>
               : ""
             }
             <div class="post-actions">
@@ -458,27 +457,28 @@
 
    
   <!-- NAVBAR -->
+
   <div class="gov-navbar">
-    <div class="gov-left"><img src="images/logo7.jpeg" alt="logo"></div>
+    <div class="gov-left"><img src="../images/logo7.jpeg" alt="logo"></div>
     
     <div class="gov-center">
       <h5>RASHTRASETU</h5>
       <p>THE BRIDGE BETWEEN NATION AND CITIZENS</p>
     </div>
     <div class="gov-right">
-      <div class="official"><img src="images/fadanvis.jpeg" alt="">
+      <div class="official"><img src="../images/devendra.jpeg" alt="">
         <div class="official-name">Devendra Fadnavis</div>
         <div class="official-title">CHIEF MINISTER</div>
       </div>
-      <div class="official"><img src="images/shinde.jpeg" alt="">
+      <div class="official"><img src="../images/shinde.jpeg" alt="">
         <div class="official-name">Eknath Shinde</div>
         <div class="official-title">DEPUTY CHIEF MINISTER</div>
       </div>
-      <div class="official"><img src="images/Sunetra-Pawar.jpeg" alt="">
+      <div class="official"><img src="../images/Sunetra-Pawar.jpeg" alt="">
         <div class="official-name">Sunetra Pawar</div>
         <div class="official-title">DEPUTY CHIEF MINISTER</div>
       </div>
-      <div class="official"><img src="images/shelar.jpeg" alt="">
+      <div class="official"><img src="../images/shelar.jpeg" alt="">
         <div class="official-name">Ashish Shelar</div>
         <div class="official-title">INFORMATION TECHNOLOGY MINISTER</div>
       </div>

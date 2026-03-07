@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community NGO Network</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        body {
-            background: #eef2f7;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         body {
+            font-family: Poppins;
+            background: linear-gradient(120deg, #0A2647, #144272);
+            color: white;
             margin: 0;
+            padding: 0;
         }
+
 
         /* Apply this to all main sections */
         .main-section {
@@ -81,7 +85,6 @@
             transition: 0.3s;
             font-weight: 500;
         }
-
        
 
         .menu-item i {
@@ -199,7 +202,7 @@
             margin: 70px 0 40px;
             font-weight: 700;
             font-size: 34px;
-            color: #2c3e50;
+            color: white;
         }
 
         .container
@@ -579,75 +582,7 @@
             font-size: 16px;
             font-weight: 500;
         }
-
-        /* Navbar */
-        .gov-navbar {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            background: #0A2647;
-            padding: 10px 20px;
-            border-bottom: 1px solid #144272;
-            margin-left: 240px;
-        }
-
-        .gov-left img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .gov-center {
-            text-align: center;
-            flex: 1;
-        }
-
-        .gov-center h5 {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 900;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-
-        .gov-center p {
-            margin: 0;
-            font-size: 13px;
-            font-weight: 600;
-            color: #a8dadc;
-        }
-
-        .gov-right {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .official {
-            text-align: center;
-            font-size: 12px;
-        }
-
-        .official img {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #FFDE59;
-        }
-
-        .official-name {
-            font-weight: 700;
-            margin-top: 5px;
-            color: #ffcc00;
-        }
-
-        .official-title {
-            font-size: 11px;
-            color: #333333;
-        }
-    </style>
+       </style>
 
 </head>
 
@@ -656,18 +591,18 @@
    <!-- SIDEBAR -->
   <div class="sidebar">
     <h3>RashtraSetu</h3>
-    <a href="index.html" class="menu-item active"><i class="fa-solid fa-house"></i>Home</a>
-    <a href="pages/search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
-    <a href="pages/explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
-    <a href="pages/add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
-    <a href="pages/add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
-    <a href="pages/janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
-    <a href="pages/politicians.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
-    <a href="pages/politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician
+    <a href="../index.html" class="menu-item active"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="../pages/search.html" class="menu-item"><i class="fa-solid fa-search"></i>Search</a>
+    <a href="../pages/explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
+    <a href="../pages/add-issue.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
+    <a href="../pages/add-bill.html" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Bills</a>
+    <a href="../pages/janadicar-final.html" class="menu-item"><i class="fa-solid fa-gavel"></i>Janadhikar</a>
+    <a href="../pages/politicians.html" class="menu-item"><i class="fa-solid fa-users"></i>About Our Leaders</a>
+    <a href="../pages/politician_property.html" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politician
       Properties</a>
-    <a href="pages/ITR.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i>Tax Transparency</a>
-    <a href="pages/Updates.html" class="menu-item"><i class="fa-solid fa-bell"></i>Updates</a>
-    <a href="pages/profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
+    <a href="../pages/ITR.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i>Tax Transparency</a>
+   <a href="../pages/charity.html" class="menu-item"><i class="fa-solid fa-hand-holding-heart"></i> Charity</a>
+    <a href="../pages/profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
     <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
     <script>
       function logout() {
@@ -786,26 +721,26 @@
 
    <!-- NAVBAR -->
   <div class="gov-navbar">
-    <div class="gov-left"><img src="images/logo7.jpeg" alt="logo"></div>
+    <div class="gov-left"><img src="../images/logo7.jpeg" alt="logo"></div>
     
     <div class="gov-center">
       <h5>RASHTRASETU</h5>
       <p>THE BRIDGE BETWEEN NATION AND CITIZENS</p>
     </div>
     <div class="gov-right">
-      <div class="official"><img src="images/fadanvis.jpeg" alt="">
+      <div class="official"><img src="../images/devendra.jpeg" alt="">
         <div class="official-name">Devendra Fadnavis</div>
         <div class="official-title">CHIEF MINISTER</div>
       </div>
-      <div class="official"><img src="images/shinde.jpeg" alt="">
+      <div class="official"><img src="../images/eknath.jpeg" alt="">
         <div class="official-name">Eknath Shinde</div>
         <div class="official-title">DEPUTY CHIEF MINISTER</div>
       </div>
-      <div class="official"><img src="images/Sunetra-Pawar.jpeg" alt="">
+      <div class="official"><img src="../images/Sunetra-Pawar.jpeg" alt="">
         <div class="official-name">Sunetra Pawar</div>
         <div class="official-title">DEPUTY CHIEF MINISTER</div>
       </div>
-      <div class="official"><img src="images/shelar.jpeg" alt="">
+      <div class="official"><img src="../images/shelar.jpeg" alt="">
         <div class="official-name">Ashish Shelar</div>
         <div class="official-title">INFORMATION TECHNOLOGY MINISTER</div>
       </div>

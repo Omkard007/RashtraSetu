@@ -74,8 +74,7 @@
 
         /* Content */
         .content {
-            margin-left: 260px;
-            padding: 2rem;
+            margin: 0px 0px 0px 255px;
         }
 
         /* Header */
@@ -191,7 +190,7 @@
         @media (max-width:720px) {
             .content {
                 margin-left: 0;
-                padding: 1rem;
+                padding: 2rem;
             }
 
             .sidebar {
@@ -355,6 +354,78 @@
             margin-top: 0 !important;
             padding-top: 0 !important;
         }
+
+        
+        /* Navbar */
+        .gov-navbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #0A2647;
+            padding: 0px 0px 0px 0px;
+            border-bottom: 1px solid #144272;
+            margin-left: 0px;
+            margin-top: 0px;
+
+        }
+
+        .gov-left img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .gov-center {
+            text-align: center;
+            flex: 1;
+        }
+
+        .gov-center h5 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .gov-center p {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #a8dadc;
+        }
+
+        .gov-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .official {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .official img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #FFDE59;
+        }
+
+        .official-name {
+            font-weight: 700;
+            margin-top: 5px;
+            color: #ffcc00;
+        }
+
+        .official-title {
+            font-size: 11px;
+            color: white;
+        }
+
     </style>
 
 
@@ -389,12 +460,41 @@ window.location.href="../index.html"
     <!-- Main Content -->
     <div class="content">
 
-        <div class="header-bar mb-4">
+        
+   <!-- NAVBAR -->
+  <div class="gov-navbar">
+    <div class="gov-left"><img src="../images/logo7.jpeg" alt="logo"></div>
+    
+    <div class="gov-center">
+      <h5>RASHTRASETU</h5>
+      <p>THE BRIDGE BETWEEN NATION AND CITIZENS</p>
+    </div>
+    <div class="gov-right">
+      <div class="official"><img src="../images/devendra.jpeg" alt="">
+        <div class="official-name">Devendra Fadnavis</div>
+        <div class="official-title">CHIEF MINISTER</div>
+      </div>
+      <div class="official"><img src="../images/eknath.jpeg" alt="">
+        <div class="official-name">Eknath Shinde</div>
+        <div class="official-title">DEPUTY CHIEF MINISTER</div>
+      </div>
+      <div class="official"><img src="../images/Sunetra-Pawar.jpeg" alt="">
+        <div class="official-name">Sunetra Pawar</div>
+        <div class="official-title">DEPUTY CHIEF MINISTER</div>
+      </div>
+      <div class="official"><img src="../images/shelar.jpeg" alt="">
+        <div class="official-name">Ashish Shelar</div>
+        <div class="official-title">INFORMATION TECHNOLOGY MINISTER</div>
+      </div>
+    </div>
+  </div>
+
+        <!-- <div class="header-bar mb-4">
             <h2>🏛️ Leadership Transparency Hub</h2>
-        </div>
+        </div> -->
 
 
-
+<br>
         <!-- Switch Buttons -->
         <!-- Switch PCMC / PMC -->
         <div class="text-center switch-btns mb-4"> <button class="btn active" id="btnPCMC">PCMC</button> <button
