@@ -1,472 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Road Issues</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Income Tax Awareness | RashtraSetu</title>
 
-  <style>
-    /* ============ SIDEBAR CSS ============ */
-    body {
-      background: #eef2f7;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-    }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-    .sidebar {
-      width: 230px;
-      height: 100vh;
-      background: #0A2647;
-      color: #fff;
-      position: fixed;
-      padding-top: 25px;
-      left: 0;
-      top: 0;
-      z-index: 1000;
-    }
+<style>
 
-    .sidebar h3 {
-      text-align: center;
-      color: #FFDE59;
-      margin-bottom: 25px;
-      font-size: 22px;
-      font-weight: bold;
-    }
+body{
+font-family:Poppins, sans-serif;
+background:linear-gradient(120deg,#0A2647,#144272);
+margin:0;
+color:#0A2647;
+}
 
-    .menu-item {
-      color: white;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      transition: 0.3s;
-      border-radius: 5px;
-      margin: 2px 10px;
-    }
+/* SIDEBAR */
 
-    .menu-item i {
-      margin-right: 10px;
-    }
+.sidebar{
+width:240px;
+height:100vh;
+position:fixed;
+background:#081b2c;
+left:0;
+top:0;
+padding-top:30px;
+overflow-y:auto;
+z-index:1000;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+}
 
-    .menu-item:hover,
-    .menu-item.active {
-      background: #144272;
-    }
+.sidebar h3{
+text-align:center;
+color:#FFD54F;
+font-weight:700;
+margin-bottom:30px;
+}
 
-    .content {
-      margin-left: 240px;
-      padding: 25px;
-    }
+.menu-item{
+display:flex;
+align-items:center;
+padding:12px 18px;
+color:white;
+text-decoration:none;
+margin:5px 10px;
+border-radius:8px;
+transition:0.3s;
+font-weight:500;
+}
 
-    /* ========== HERO SECTION ========= */
-    .hero {
-      position: relative;
-      height: 300px;
-      background: url('roadIssue.png') center/cover no-repeat;
-      border-radius: 15px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+.menu-item i{
+margin-right:10px;
+}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      backdrop-filter: brightness(1.0);
-    }
+.menu-item:hover{
+background:#144272;
+transform:translateX(5px);
+}
 
-    .hero h1 {
-      position: relative;
-      color: #ffffff;
-      font-size: 42px;
-      font-weight: 500;
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7),
-        0 3px 12px rgba(0, 0, 0, 0.6),
-        0 5px 20px rgba(0, 0, 0, 0.5);
-      letter-spacing: 1px;
+.menu-item.active{
+background:#144272;
+}
 
-      /* HERO TEXT FADE-IN */
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s forwards;
-      animation-delay: 0.3s;
-    }
+/* NAVBAR */
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.gov-navbar{
+margin-left:240px;
+background:#081b2c;
+color:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:12px 30px;
+border-bottom:2px solid #144272;
+}
 
-    /* ========== CARDS ========= */
-    .issue-card {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 260px;
-    }
+.gov-left img{
+height:55px;
+}
 
-    .issue-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-    }
+.gov-center{
+text-align:center;
+flex:1;
+}
 
-    .issue-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      left: 0;
-      top: 0;
-      transition: opacity 0.4s ease-in-out;
-    }
+.gov-center h5{
+font-weight:900;
+letter-spacing:1px;
+margin:0;
+}
 
-    .img-after {
-      opacity: 0;
-    }
+.gov-center p{
+font-size:12px;
+color:#9ad0ec;
+margin:0;
+}
 
-    .issue-card:hover .img-before {
-      opacity: 0;
-    }
+.gov-right{
+display:flex;
+gap:20px;
+}
 
-    .issue-card:hover .img-after {
-      opacity: 1;
-    }
+.official{
+text-align:center;
+font-size:12px;
+}
 
-    .issue-overlay {
-      position: absolute;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.75);
-      width: 100%;
-      color: #fff;
-      padding: 12px;
-      transform: translateY(100%);
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      opacity: 0;
-      z-index: 10;
-    }
+.official img{
+width:55px;
+height:55px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #FFD54F;
+}
 
-    .issue-card:hover .issue-overlay {
-      transform: translateY(0%);
-      opacity: 1;
-    }
+.official-name{
+font-weight:700;
+color:#FFD54F;
+margin-top:5px;
+}
 
-    /* FILTER BUTTONS */
-    .filter-btn {
-      border-radius: 30px;
-      margin: 4px;
-      transition: transform 0.2s ease, background-color 0.3s ease;
-    }
+/* MAIN CONTENT */
 
-    .filter-btn:hover {
-      transform: scale(1.1);
-      background-color: #0A2647;
-      color: #fff;
-    }
+.main-content{
+margin-left:260px;
+padding:40px;
+background:white;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 10px 35px rgba(0,0,0,0.3);
+}
 
-    .search-box {
-      width: 100%;
-      max-width: 650px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 50px;
-      padding: 10px 20px;
-      display: flex;
-      gap: 15px;
-      box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.2);
-      align-items: center;
-      margin: 20px auto;
-      position: relative;
-      z-index: 10;
-      transition: transform 0.2s ease;
-    }
+/* HERO */
 
-    .search-box:hover {
-      transform: scale(1.02);
-    }
+.hero{
+text-align:center;
+padding:60px 10px;
+}
 
-    .search-box input {
-      background: transparent;
-      border: none;
-      outline: none;
-      box-shadow: none !important;
-    }
+.hero h1{
+font-size:48px;
+font-weight:800;
+color:#0A2647;
+}
 
-    .search-box input::placeholder {
-      color: #666;
-      font-weight: 500;
-    }
+.hero p{
+max-width:700px;
+margin:auto;
+color:#444;
+}
 
-    .search-box button {
-      border-radius: 50px;
-      font-weight: 600;
-    }
+/* SECTION TITLE */
 
-    /* MODAL IMAGE FADE */
-    #modalImgBefore,
-    #modalImgAfter {
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
+.section-title{
+text-align:center;
+margin-top:60px;
+margin-bottom:40px;
+font-weight:700;
+}
 
-    #modalImgBefore:hover,
-    #modalImgAfter:hover {
-      transform: scale(1.05);
-      opacity: 0.95;
-    }
-  </style>
+/* CARDS */
+
+.card-custom{
+background:white;
+border-radius:15px;
+padding:30px;
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+transition:0.3s;
+text-align:center;
+height:100%;
+}
+
+.card-custom:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+.icon{
+font-size:40px;
+color:#0A2647;
+margin-bottom:15px;
+}
+
+.card-custom button{
+background:#0A2647;
+border:none;
+color:white;
+padding:8px 15px;
+border-radius:6px;
+}
+
+.card-custom button:hover{
+background:#144272;
+}
+
+/* PROGRESS */
+
+.progress{
+height:25px;
+border-radius:30px;
+overflow:hidden;
+box-shadow:inset 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* TABLE */
+
+.table{
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* CALCULATOR */
+
+.calculator{
+background:#f3f7fb;
+padding:30px;
+border-radius:15px;
+max-width:600px;
+margin:auto;
+box-shadow:0 6px 20px rgba(0,0,0,0.2);
+}
+
+.calculator input{
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.calc-btn{
+background:#0A2647;
+color:white;
+border:none;
+padding:12px;
+border-radius:8px;
+font-weight:600;
+}
+
+.calc-btn:hover{
+background:#144272;
+}
+
+/* TIMELINE */
+
+.timeline{
+background:#f3f7fb;
+padding:25px;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* FOOTER */
+
+footer{
+margin-top:60px;
+background:#081b2c;
+color:white;
+padding:25px;
+text-align:center;
+border-radius:10px;
+}
+
+/* MODAL */
+
+.modal-content{
+border-radius:20px;
+background:linear-gradient(145deg,#0A2647,#144272);
+color:white;
+}
+
+.modal-body h6{
+color:#FFD54F;
+}
+
+.modal-body a{
+color:#FFD54F;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.sidebar{
+width:200px;
+}
+
+.gov-navbar{
+margin-left:200px;
+}
+
+.main-content{
+margin-left:210px;
+padding:20px;
+}
+
+}
+
+@media(max-width:576px){
+
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+}
+
+.gov-navbar{
+margin-left:0;
+}
+
+.main-content{
+margin-left:0;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <h3>RashtraSetu</h3>
-    <a href="main.html" class="menu-item"><i class="fa-solid fa-house"></i>Home</a>
-    <a href="search.html" class="menu-item active"><i class="fa-solid fa-search"></i>Search</a>
-    <a href="explore.html" class="menu-item"><i class="fa-solid fa-compass"></i>Explore</a>
-    <a href="#" class="menu-item"><i class="fa-solid fa-plus-circle"></i>Add Issues</a>
-    <a href="#" class="menu-item"><i class="fa-solid fa-users"></i>About Leaders</a>
-    <a href="#" class="menu-item"><i class="fa-solid fa-user-tie"></i>Politicians</a>
-    <a href="notification.html" class="menu-item"><i class="fa-solid fa-bell"></i>Notification</a>
-    <a href="profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
-    <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h3>RashtraSetu</h3>
+
+<a href="#" class="menu-item active"><i class="fa fa-home"></i>Home</a>
+<a href="#" class="menu-item"><i class="fa fa-search"></i>Search</a>
+<a href="#" class="menu-item"><i class="fa fa-compass"></i>Explore</a>
+<a href="#" class="menu-item"><i class="fa fa-plus-circle"></i>Add Issues</a>
+<a href="#" class="menu-item"><i class="fa fa-file"></i>Add Bills</a>
+<a href="#" class="menu-item"><i class="fa fa-gavel"></i>Janadhikar</a>
+<a href="#" class="menu-item"><i class="fa fa-users"></i>About Leaders</a>
+<a href="#" class="menu-item"><i class="fa fa-user-tie"></i>Politician Properties</a>
+<a href="#" class="menu-item"><i class="fa fa-file-invoice"></i>Tax Transparency</a>
+<a href="#" class="menu-item"><i class="fa fa-hand-holding-heart"></i>Charity</a>
+<a href="#" class="menu-item"><i class="fa fa-user"></i>Profile</a>
+
+</div>
+
+<!-- NAVBAR -->
+
+<div class="gov-navbar">
+
+<div class="gov-left">
+<img src="../images/logo7.jpeg">
+</div>
+
+<div class="gov-center">
+<h5>RASHTRASETU</h5>
+<p>THE BRIDGE BETWEEN NATION AND CITIZENS</p>
+</div>
+
+<div class="gov-right">
+
+<div class="official">
+<img src="../images/devendra.jpeg">
+<div class="official-name">Devendra Fadnavis</div>
+<div>CHIEF MINISTER</div>
+</div>
+
+<div class="official">
+<img src="../images/shinde.jpeg">
+<div class="official-name">Eknath Shinde</div>
+<div>DEPUTY CM</div>
+</div>
+
+<div class="official">
+<img src="../images/shelar.jpeg">
+<div class="official-name">Ashish Shelar</div>
+<div>IT MINISTER</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main-content">
+
+<section class="hero">
+<h1>Income Tax Awareness</h1>
+<p>Your taxes build the nation — infrastructure, security, education, and healthcare.</p>
+</section>
+
+<div class="container">
+
+<h2 class="section-title">How Your Tax Is Used</h2>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+<div class="card-custom">
+<i class="fa fa-road icon"></i>
+<h5>Infrastructure</h5>
+<p>Roads, metro, bridges and airports.</p>
+<button data-bs-toggle="modal" data-bs-target="#infraModal">Learn More</button>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card-custom">
+<i class="fa fa-shield icon"></i>
+<h5>Defence</h5>
+<p>Protection of national borders.</p>
+<button data-bs-toggle="modal" data-bs-target="#defenceModal">Learn More</button>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card-custom">
+<i class="fa fa-hospital icon"></i>
+<h5>Healthcare</h5>
+<p>Hospitals and national health programs.</p>
+<button data-bs-toggle="modal" data-bs-target="#healthModal">Learn More</button>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card-custom">
+<i class="fa fa-graduation-cap icon"></i>
+<h5>Education</h5>
+<p>Schools, universities and scholarships.</p>
+<button data-bs-toggle="modal" data-bs-target="#educationModal">Learn More</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- TAX DISTRIBUTION -->
+
+<div class="container mt-5">
+
+<h2 class="section-title">Tax Distribution</h2>
+
+<label>Infrastructure 25%</label>
+<div class="progress mb-3">
+<div class="progress-bar bg-warning" style="width:25%"></div>
+</div>
+
+<label>Defence 20%</label>
+<div class="progress mb-3">
+<div class="progress-bar bg-danger" style="width:20%"></div>
+</div>
+
+<label>Healthcare 15%</label>
+<div class="progress mb-3">
+<div class="progress-bar bg-success" style="width:15%"></div>
+</div>
+
+<label>Education 12%</label>
+<div class="progress mb-3">
+<div class="progress-bar bg-info" style="width:12%"></div>
+</div>
+
+</div>
+
+<!-- TAX TABLE -->
+
+<div class="container mt-5">
+
+<h2 class="section-title">Income Tax Slabs</h2>
+
+<table class="table table-striped">
+
+<thead>
+<tr>
+<th>Income Range</th>
+<th>Tax Rate</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>Up to ₹3L</td><td>0%</td></tr>
+<tr><td>₹3L – ₹6L</td><td>5%</td></tr>
+<tr><td>₹6L – ₹9L</td><td>10%</td></tr>
+<tr><td>₹9L – ₹12L</td><td>15%</td></tr>
+<tr><td>₹12L – ₹15L</td><td>20%</td></tr>
+<tr><td>Above ₹15L</td><td>30%</td></tr>
+</tbody>
+
+</table>
+
+</div>
+
+<!-- CALCULATOR -->
+
+<div class="container mt-5">
+
+<h2 class="section-title">Income Tax Calculator</h2>
+
+<div class="calculator">
+
+<label>Annual Income</label>
+
+<input type="number" id="income" placeholder="Enter your income">
+
+<button class="calc-btn" onclick="calculateTax()">Calculate Tax</button>
+
+<div id="result" style="margin-top:15px;"></div>
+
+</div>
+
+</div>
+
+<!-- DEADLINES -->
+
+<div class="container mt-5">
+
+<h2 class="section-title">Important Tax Deadlines</h2>
+
+<div class="timeline">
+
+<p>📅 31 July — ITR Filing Deadline</p>
+<p>📅 31 December — Revised Return</p>
+
+<ul>
+<li>15 June — Advance Tax</li>
+<li>15 September — Advance Tax</li>
+<li>15 December — Advance Tax</li>
+<li>15 March — Advance Tax</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 RashtraSetu | Building Responsible Citizens
+
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-function logout(){
-localstorage.clear()
-window.location.href="../index.html"
+
+function calculateTax(){
+
+let income=document.getElementById("income").value;
+let tax=0;
+
+if(income<=300000) tax=0;
+else if(income<=600000) tax=(income-300000)*0.05;
+else if(income<=900000) tax=15000+(income-600000)*0.10;
+else if(income<=1200000) tax=45000+(income-900000)*0.15;
+else if(income<=1500000) tax=90000+(income-1200000)*0.20;
+else tax=150000+(income-1500000)*0.30;
+
+document.getElementById("result").innerHTML="Total Tax : ₹"+tax.toLocaleString();
+
 }
+
 </script>
-  </div>
 
-  <!-- SEARCH -->
-  <div class="search-box">
-    <input type="text" id="searchInput" class="form-control border-0" placeholder="Search here...">
-    <button class="btn btn-outline-primary px-4 rounded-pill" onclick="searchRedirect()">Search</button>
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <div class="content">
-
-    <!-- HERO -->
-    <section class="hero">
-      <h1>Road & Infrastructure Issues</h1>
-    </section>
-
-    <!-- FILTER BUTTONS -->
-    <div class="container text-center my-4">
-      <button class="btn btn-outline-secondary filter-btn" onclick="filterIssues('all')">All</button>
-      <button class="btn btn-outline-secondary filter-btn" onclick="filterIssues('pothole')">Potholes</button>
-      <button class="btn btn-outline-secondary filter-btn" onclick="filterIssues('construction')">Construction</button>
-      <button class="btn btn-outline-secondary filter-btn" onclick="filterIssues('streetlight')">Street Lights</button>
-      <button class="btn btn-outline-secondary filter-btn" onclick="filterIssues('maintenance')">Maintenance</button>
-    </div>
-
-    <!-- ISSUE CARDS -->
-    <div class="container">
-      <div class="row g-4" id="issuesContainer">
-
-        <!-- CARD 1 -->
-        <div class="col-md-4 issue-item" data-category="pothole">
-          <div class="issue-card" data-bs-toggle="modal" data-bs-target="#issueModal"
-            data-title="Ward 12 – Sector 3"
-            data-description="Major Pothole – Accident Spot"
-            data-detail="The pothole is located near the main intersection of Sector 3, Ward 12. Several vehicles have reported accidents due to the uneven surface. Urgent repair required. High-risk area. Immediate repair or proper warning signage is required.This location is identified as a high-risk area due to a major pothole on the road. The pothole is deep and wide, posing a serious threat to vehicles, especially two-wheelers. Its presence has caused multiple accidents, making it a critical safety concern for commuters. The damaged section often goes unnoticed at night or during heavy rains, increasing the likelihood of slips, falls, and vehicle damage. Immediate repair or proper warning signage is required to prevent further accidents."
-            data-status="Pending"
-            data-area="Sector 3, Ward 12"
-            data-time="Reported on: 2025-12-07 10:00 AM"
-            data-imgbefore="pothole1.png"
-            data-imgafter="pothole2.png">
-            <img src="pothole1.png" class="img-before">
-            <img src="pothole2.png" class="img-after">
-            <div class="issue-overlay">
-              <h5>Ward 12 – Sector 3</h5>
-              <p>Major Pothole – Accident Spot</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="col-md-4 issue-item" data-category="construction">
-          <div class="issue-card" data-bs-toggle="modal" data-bs-target="#issueModal"
-            data-title="Ward 7 – Zone B"
-            data-description="Road Construction Delayed"
-            data-detail="The construction work on the main road of Zone B, Ward 7, has been delayed for over 2 months due to contractors issues and lack of materials. Drivers are advised to exercise caution.The ongoing road construction at this location has been delayed, causing traffic congestion and inconvenience for commuters. Work has either paused or slowed down due to reasons such as labor shortage, material unavailability, or unforeseen circumstances. Drivers are advised to exercise caution, follow diversion signs, and plan for extra travel time until construction resumes and the road is fully operational."
-            data-status="Ongoing"
-            data-area="Zone B, Ward 7"
-            data-time="Started on: 2025-10-12"
-            data-imgbefore="constructionD1.png"
-            data-imgafter="constructionD2.png">
-            <img src="constructionD1.png" class="img-before">
-            <img src="constructionD2.png" class="img-after">
-            <div class="issue-overlay">
-              <h5>Ward 7 – Zone B</h5>
-              <p>Road Construction Delayed</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="col-md-4 issue-item" data-category="streetlight">
-          <div class="issue-card" data-bs-toggle="modal" data-bs-target="#issueModal"
-            data-title="Ward 3 – Near Market"
-            data-description="Street Lights Not Working"
-            data-detail="Street lights near the Market in Ward 3 are non-functional, causing safety concerns for pedestrians and vehicles after dark. Immediate repair is recommended.This area is currently experiencing non-functional street lighting, making the road dark and unsafe, especially during night hours. The lack of proper illumination increases the risk of accidents, thefts, and pedestrian mishaps. Drivers, cyclists, and pedestrians are advised to exercise extra caution while passing through this area. Immediate repair or restoration of street lights is recommended to ensure safety and visibility."
-            data-status="Pending"
-            data-area="Market Area, Ward 3"
-            data-time="Reported on: 2025-12-01"
-            data-imgbefore="streetLight1.png"
-            data-imgafter="streetLight2.png">
-            <img src="streetLight1.png" class="img-before">
-            <img src="streetLight2.png" class="img-after">
-            <div class="issue-overlay">
-              <h5>Ward 3 – Near Market</h5>
-              <p>Street Lights Not Working</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="col-md-4 issue-item" data-category="maintenance">
-          <div class="issue-card" data-bs-toggle="modal" data-bs-target="#issueModal"
-            data-title="Ward 18 – Colony Road"
-            data-description="Road Cracks – Needs Repair"
-            data-detail="Several cracks have appeared on Colony Road, Ward 18. Immediate maintenance is advised to prevent accidents.This location has visible cracks on the road surface, which can damage vehicles and pose a risk to drivers and pedestrians. The cracks may worsen during rains or heavy traffic, leading to potholes or uneven surfaces. Commuters are advised to drive cautiously and avoid sudden maneuvers in this area. Timely maintenance is needed to prevent accidents and further road deterioration."
-            data-status="Ongoing"
-            data-area="Colony Road, Ward 18"
-            data-time="Reported on: 2025-11-25"
-            data-imgbefore="roadCrack1.png"
-            data-imgafter="roadCrack2.png">
-            <img src="roadCrack1.png" class="img-before">
-            <img src="roadCrack2.png" class="img-after">
-            <div class="issue-overlay">
-              <h5>Ward 18 – Colony Road</h5>
-              <p>Road Cracks – Needs Repair</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="col-md-4 issue-item" data-category="pothole">
-          <div class="issue-card" data-bs-toggle="modal" data-bs-target="#issueModal"
-            data-title="Ward 9 – Bus Stand"
-            data-description="Pothole Causing Water Logging"
-            data-detail="A large pothole near the Bus Stand in Ward 9 collects water during rains, disrupting traffic. Proper drainage and maintenance recommended.This area has developed a pothole caused by accumulated rainwater, making the road uneven and hazardous. Water often hides the depth of the pothole, increasing the risk of vehicle damage, skidding, or accidents, especially for two-wheelers. Commuters are advised to drive carefully and avoid the affected section until it is repaired. Proper drainage and maintenance are recommended to prevent recurring potholes during rainy seasons."
-            data-status="Pending"
-            data-area="Bus Stand, Ward 9"
-            data-time="Reported on: 2025-12-05"
-            data-imgbefore="waterPothole1.png"
-            data-imgafter="waterPothole2.png">
-            <img src="waterPothole1.png" class="img-before">
-            <img src="waterPothole2.png" class="img-after">
-            <div class="issue-overlay">
-              <h5>Ward 9 – Bus Stand</h5>
-              <p>Pothole Causing Water Logging</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 6 -->
-        <div class="col-md-4 issue-item" data-category="construction">
-          <div class="issue-card" data-bs-toggle="modal" data-bs-target="#issueModal"
-            data-title="Ward 13 – Industrial Area"
-            data-description="Work Stopped for 2 Months"
-            data-detail="Construction work in the industrial area of Ward 13 has been halted for two months due to legal disputes and lack of workers.Construction or maintenance work on this road has come to a halt, leaving the area incomplete and potentially unsafe for commuters. The stopped work may cause uneven surfaces, debris, or traffic congestion, increasing the risk of accidents or vehicle damage. Drivers and pedestrians are advised to exercise caution, follow any detour or warning signs, and plan for possible delays until work resumes and the road is fully operational."
-            data-status="Ongoing"
-            data-area="Industrial Area, Ward 13"
-            data-time="Started on: 2025-09-20"
-            data-imgbefore="workingStop1.png"
-            data-imgafter="workingStop2.png">
-            <img src="workingStop1.png" class="img-before">
-            <img src="workingStop2.png" class="img-after">
-            <div class="issue-overlay">
-              <h5>Ward 13 – Industrial Area</h5>
-              <p>Work Stopped for 2 Months</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div> <!-- END CONTENT -->
-
-  <!-- MODAL -->
-  <div class="modal fade" id="issueModal" tabindex="-1" aria-labelledby="issueModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="issueModalLabel"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <img id="modalImgBefore" src="" class="img-fluid mb-2 rounded">
-            </div>
-            <div class="col-md-6">
-              <img id="modalImgAfter" src="" class="img-fluid mb-2 rounded">
-            </div>
-          </div>
-          <p><strong>Description:</strong> <span id="modalDescription"></span></p>
-          <p><strong>Detailed Description:</strong> <span id="modalDetail"></span></p>
-          <p><strong>Status:</strong> <span id="modalStatus"></span></p>
-          <p><strong>Area:</strong> <span id="modalArea"></span></p>
-          <p><strong>Time:</strong> <span id="modalTime"></span></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-  // FILTER FUNCTION
-  function filterIssues(category) {
-    const items = document.querySelectorAll(".issue-item");
-    items.forEach(item => {
-      if (category === "all" || item.dataset.category === category) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
-    });
-  }
-
-  // SEARCH REDIRECT
-  function searchRedirect() {
-    let query = document.getElementById("searchInput").value.trim();
-    if (query !== "") {
-      window.location.href = search.html?search=${encodeURIComponent(query)};
-    }
-  }
-
-  // MODAL POPULATION
-  const issueModal = document.getElementById('issueModal');
-  issueModal.addEventListener('show.bs.modal', event => {
-    const card = event.relatedTarget;
-
-    // Populate modal content
-    document.getElementById('issueModalLabel').textContent = card.getAttribute('data-title');
-    document.getElementById('modalDescription').textContent = card.getAttribute('data-description');
-    document.getElementById('modalDetail').textContent = card.getAttribute('data-detail');
-    document.getElementById('modalStatus').textContent = card.getAttribute('data-status');
-    document.getElementById('modalArea').textContent = card.getAttribute('data-area');
-    document.getElementById('modalTime').textContent = card.getAttribute('data-time');
-    document.getElementById('modalImgBefore').src = card.getAttribute('data-imgbefore');
-    document.getElementById('modalImgAfter').src = card.getAttribute('data-imgafter');
-  });
-</script>
 </body>
 </html>
