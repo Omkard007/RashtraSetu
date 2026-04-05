@@ -134,11 +134,11 @@
     <a href="https://omkard007.github.io/RashtraSetu//pages/ITR.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i>Tax Transparency</a>
    <a href="https://omkard007.github.io/RashtraSetu//pages/charity.html" class="menu-item"><i class="fa-solid fa-hand-holding-heart"></i> Charity</a>
     <a href="https://omkard007.github.io/RashtraSetu//pages/profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
-    <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    <a href="#" onclick="logout()" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
     <script>
       function logout() {
-        localstorage.clear()
-        window.location.href = "../index.html"
+        localStorage.clear();
+        window.location.href = "../index.html";
       }
       window.onload = async () => {
         const [issuesRes, billsRes] = await Promise.all([

@@ -412,21 +412,15 @@
     <a href="https://omkard007.github.io/RashtraSetu//pages/ITR.html" class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i>Tax Transparency</a>
    <a href="https://omkard007.github.io/RashtraSetu//pages/charity.html" class="menu-item"><i class="fa-solid fa-hand-holding-heart"></i> Charity</a>
     <a href="https://omkard007.github.io/RashtraSetu//pages/profile.html" class="menu-item"><i class="fa-solid fa-user"></i>Profile</a>
-    <a href="#" onclick="logout" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+    <a href="#" onclick="logout()" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
     <script>
       function logout() {
-        localstorage.clear()
-        window.location.href = "../index.html"
+        localStorage.clear();
+        window.location.href = "../index.html";
       }
       window.onload = async () => {
-        const [issuesRes, billsRes] = await Promise.all([
-          fetch("https://viraj-backend.onrender.com/api/all-issues"),
-          fetch("https://viraj-backend.onrender.com/api/get-bills")
-        ])
-        const issues = (await issuesRes.json()).issues
-        const bills = (await billsRes.json()).bills
-        renderIssue(issues)
-        renderBills(bills)
+        // Remove renderIssue and renderBills calls - they don't belong in explore.html
+        // This page has static content, no dynamic loading needed
       }
       const comment = (id, type) => {
         const text = prompt("Enter your comment")
@@ -446,7 +440,7 @@
           })
         }
       }
-      const renderIssue = (issues) => {
+      // renderIssue and renderBills functions removed - they don't belong in explore.html
         const issuesDivs = issues.map(issue => {
           return `
     <div class="post-card" data-id="seed-1">
@@ -482,10 +476,10 @@
           </div>
           `
         })
-        document.getElementById("voiceSection").innerHTML = issuesDivs.join(" ")
+        // document.getElementById("voiceSection").innerHTML = issuesDivs.join(" ") - REMOVED
 
       }
-      const renderBills = (bills) => {
+      // renderBills function removed - it doesn't belong in explore.html
         const billsDivs = bills.map(bill => {
           return `
       <div class="post-card" data-id="seed-2">
@@ -521,15 +515,15 @@
           </div>
             `
         })
-        document.getElementById("powerSection").innerHTML = billsDivs.join(" ")
+        // document.getElementById("powerSection").innerHTML = billsDivs.join(" ") - REMOVED
       }
     </script>
     </div>
 
     <script>
         function logout() {
-            alert("You have been logged out!");
-            window.location.href = "/pages/login.html";
+            localStorage.clear();
+            window.location.href = "../index.html";
         }
     </script>
 
